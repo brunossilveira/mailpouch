@@ -1,0 +1,6 @@
+<div class="flex-col prose">
+<% @newsletter_messages.each do |newsletter_message| %>
+  <p><%= newsletter_message.subject %></p>
+  <%= newsletter_message.body.html_safe %>
+<% end %>
+</div>
