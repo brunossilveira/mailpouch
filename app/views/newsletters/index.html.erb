@@ -1,0 +1,10 @@
+<div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 space-y-1" data-controller="inbox">
+  <div class="grid grid-cols-4 gap-4">
+  <% @newsletters.each do |newsletter| %>
+    <div class="p-3 shadow rounded">
+      <p><%= newsletter.name %></p>
+      <p><%= newsletter.email %></p>
+    </div>
+  <% end %>
+  </div>
+</div>

@@ -12,8 +12,12 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+    <div class="bg-white">
+      <%= render partial: 'shared/nav' %>
+
+      <main class="min-h-full">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>

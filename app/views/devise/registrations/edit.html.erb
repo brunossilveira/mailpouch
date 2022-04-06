@@ -1,0 +1,34 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <div class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-pati-red">
+        <%= t(:profile)%>
+      </h2>
+      <input type="hidden" name="remember" value="true">
+      <div class="rounded-md shadow-sm -space-y-px">
+        <div>
+          <%= f.label :email, current_user.email, class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-pati-red-lighter placeholder-pati-red-lighter text-pati-red focus:outline-none focus:ring-pati-red focus:border-pati-red focus:z-10 sm:text-sm rounded-t-md' %>
+        </div>
+        <div>
+          <% placeholder = t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length %>
+
+          <%= f.label :password, t(:password), class: 'sr-only' %>
+          <%= f.password_field :password, placeholder: "#{t(:password)} #{placeholder}", required: true, autocomplete: "new-password", class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-pati-red-lighter placeholder-pati-red-lighter text-pati-red focus:outline-none focus:ring-pati-red focus:border-pati-red focus:z-10 sm:text-sm' %>
+        </div>
+        <div>
+          <%= f.label :password_confirmation, t(:password), class: 'sr-only' %>
+          <%= f.password_field :password_confirmation, placeholder: t(:password_confirmation), required: true, autocomplete: "new-password", class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-pati-red-lighter placeholder-pati-red-lighter text-pati-red focus:outline-none focus:ring-pati-red focus:border-pati-red focus:z-10 sm:text-sm' %>
+        </div>
+        <div>
+          <%= f.label :current_password, placeholder: User.human_attribute_name(:current_password), class: 'sr-only' %>
+          <%= f.password_field :current_password, placeholder: User.human_attribute_name(:current_password), required: true, autocomplete: "current-password", class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-pati-red-lighter placeholder-pati-red-lighter text-pati-red focus:outline-none focus:ring-pati-red focus:border-pati-red focus:z-10 sm:text-sm rounded-b-md' %>
+        </div>
+      </div>
+
+      <div>
+        <%= f.submit t(:save), class: 'group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-pati-white bg-pati-red-light hover:bg-pati-red focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pati-red' %>
+        <%= link_to t('devise.registrations.edit.cancel_my_account'), registration_path(resource_name), data: { confirm: t('devise.registrations.edit.are_you_sure') }, method: :delete, class: 'group relative w-full flex justify-center py-2 px-4 border border-pati-red text-sm font-medium rounded-md text-pati-red bg-pati-white hover:bg-pati-white-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pati-red mt-2' %>
+      </div>
+    </div>
+  </div>
+<% end %>

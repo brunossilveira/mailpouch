@@ -1,6 +1,23 @@
-<div class="flex-col prose">
-<% @newsletter_messages.each do |newsletter_message| %>
-  <p><%= newsletter_message.subject %></p>
-  <%= newsletter_message.body.html_safe %>
-<% end %>
+<div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+  <div class="p-2 flex items-center justify-center bg-amber-200 space-x-1">
+    <span>Subscribe to newsletters using this address:</span>
+    <span class="font-bold text-amber-800"><%= @email %></span>
+  </div>
+</div>
+<div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 space-y-1" data-controller="inbox">
+  <% @newsletter_messages.each do |newsletter_message| %>
+    <div class="p-3 border flex justify-between">
+      <img class="w-16 m-4" src="<%= newsletter_message.logo_src %>"></img>
+      <div class="flex flex-col justify-center grow">
+        <p class="font-bold " data-action="click->inbox#toggle" data-toggle-target="<%= newsletter_message.id %>"><%= newsletter_message.subject %></p>
+        <p><%= newsletter_message.newsletter.name %></p>
+      </div>
+      <span class="text-gray-600 text-sm">
+        <%= newsletter_message.created_at.strftime("%b %d") %>
+      </span>
+    </div>
+    <div class="hidden border" data-toggle-name="<%= newsletter_message.id %>">
+      <%= newsletter_message.body.html_safe %>
+    </div>
+  <% end %>
 </div>

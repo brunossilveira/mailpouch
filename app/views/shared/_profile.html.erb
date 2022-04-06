@@ -1,0 +1,37 @@
+<div class="hidden md:block">
+  <div class="ml-4 flex items-center md:ml-6">
+    <!-- Profile dropdown -->
+    <div class="ml-3 relative">
+      <% if user_signed_in? %>
+        <div data-action="click->nav#toggleProfile">
+          <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true" data-action="blur->nav#hideElement">
+            <span class="sr-only">Open user menu</span>
+            <%= user_profile_image(current_user, klass: 'h-8 w-8 rounded-full') %>
+          </button>
+        </div>
+      <% else %>
+        <div class="flex">
+          <% if false %>
+            <%= link_to t(:sign_in), new_user_session_path, class: 'bg-amber-600 text-gray-100 hover:text-gray-200 hover:bg-amber-900 block px-3 py-2 rounded mx-2' %>
+            <%= link_to t(:sign_up), new_user_registration_path, class: 'bg-amber-600 text-gray-100 hover:text-gray-200 hover:bg-amber-900 block px-3 py-2 rounded' %>
+          <% end %>
+          <%= link_to t(:sign_in), new_user_session_path, class: 'text-amber-600 hover:text-amber-800 block px-3 py-2 rounded mx-2' %>
+        </div>
+      <% end %>
+      <!--
+        Profile dropdown panel, show/hide based on dropdown state.
+
+        Entering: "transition ease-out duration-100"
+        From: "transform opacity-0 scale-95"
+        To: "transform opacity-100 scale-100"
+        Leaving: "transition ease-in duration-75"
+        From: "transform opacity-100 scale-100"
+        To: "transform opacity-0 scale-95"
+      -->
+      <div data-nav-target="profile" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+        <%= link_to t(:profile), edit_user_registration_path, role: 'menuitem', class: 'block px-4 py-2 text-sm text-gray-600' %>
+        <%= link_to t(:sign_out), destroy_user_session_path, data: { "turbo-method": :delete }, role: 'menuitem', class: 'block px-4 py-2 text-sm text-gray-600 hover:bg-white-dark' %>
+      </div>
+    </div>
+  </div>
+</div>

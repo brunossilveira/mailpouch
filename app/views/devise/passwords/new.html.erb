@@ -1,0 +1,29 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <div class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-pati-red">
+        <%= t('devise.passwords.new.forgot_your_password')%>
+      </h2>
+
+      <input type="hidden" name="remember" value="true">
+      <div class="rounded-md shadow-sm -space-y-px">
+        <div>
+          <%= f.label :email, t(:email), class: 'sr-only' %>
+          <%= f.email_field :email, placeholder: t(:email), autofocus: true, required: true, autocomplete: "email", class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-pati-red-lighter placeholder-pati-red-lighter text-pati-red rounded-md focus:outline-none focus:ring-pati-red-light focus:border-pati-red focus:z-10 sm:text-sm' %>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <div class="text-sm">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+
+      <div>
+        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-pati-white bg-pati-red-light hover:bg-pati-red focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pati-red">
+          <%= t('devise.passwords.new.send_me_reset_password_instructions') %>
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>

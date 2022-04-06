@@ -1,6 +1,8 @@
 class InboxController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    user = User.last
-    @newsletter_messages = NewsletterMessage.where(user: user).order(created_at: :desc)
+    @newsletter_messages = NewsletterMessage.where(user: current_user).order(created_at: :desc)
+    @email = "#{current_user.username}@inbox.mailpouch.com"
   end
 end
