@@ -1,0 +1,3 @@
+<span data-controller="resizable">
+  <%= form.select name, options_for_select(options, selected), {}, class: "text-amber-700 appearance-none outline-none", data: { action: "change->resizable#resize change->frequency-form#updateForm", "resizable-target": "select", "frequency-form-target" => name } %>
+</span>

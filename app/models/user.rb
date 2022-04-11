@@ -5,4 +5,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :username, uniqueness: true
+  validates :username, presence: true
+
+  has_one :preference
+
+  after_create :create_preference
+
+  def create_preference
+    User::Preference.create(
+      user: self,
+      period: 'daily',
+      at: '12:00'
+    )
+  end
 end

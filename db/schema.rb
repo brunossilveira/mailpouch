@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_06_014644) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_11_230526) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,6 +72,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_014644) do
     t.index ["user_id"], name: "index_newsletters_on_user_id"
   end
 
+  create_table "user_preferences", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "period"
+    t.string "on"
+    t.string "at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_preferences_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.datetime "created_at", null: false
@@ -90,4 +100,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_014644) do
   add_foreign_key "newsletter_messages", "newsletters"
   add_foreign_key "newsletter_messages", "users"
   add_foreign_key "newsletters", "users"
+  add_foreign_key "user_preferences", "users"
 end

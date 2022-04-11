@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["profile", "mobile", "button"]
 
-  toggleProfile() {
+  toggleProfile(event) {
     this.profileTarget.classList.toggle('hidden')
   }
 
@@ -15,7 +15,7 @@ export default class extends Controller {
   }
 
   hideElement() {
-    this.profileTarget.classList.add('hidden')
+   // this.profileTarget.classList.add('hidden')
   }
 }
 

@@ -5,4 +5,8 @@ module UserHelper
 
     image_tag(gravatar_url, alt: user.email, class: klass)
   end
+
+  def user_mailpouch_email_address
+    "#{current_user.username}@inbox.mailpouch.app"
+  end
 end

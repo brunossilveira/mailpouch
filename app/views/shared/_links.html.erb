@@ -1,8 +1,7 @@
 <div class="hidden md:block">
   <div class="ml-10 flex items-baseline space-x-4">
-    <%= link_to t(:inbox), inbox_index_path, class: "text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md #{class_names('text-amber-600 hover:text-amber-900' => false)}" %>
-    <%= link_to t(:newsletters), newsletters_path, class: "text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md #{class_names('text-amber-600 hover:text-amber-900' => current_page?(root_path))}" %>
-    <%= link_to t(:item), root_path, class: "text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md #{class_names('text-amber-600 hover:text-amber-900' => false)}" %>
-    <%= link_to t(:item), root_path, class: "text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md #{class_names('text-amber-600 hover:text-amber-900' => false)}" %>
+    <% active_class_names = 'bg-amber-100 text-amber-600 hover:text-amber-900' %>
+    <%= link_to t(:inbox), inbox_index_path, class: "text-amber-900 hover:text-amber-900 px-3 py-2 rounded-md hover:bg-amber-100 #{class_names(active_class_names => current_page?(inbox_index_path))}" %>
+    <%= link_to t(:newsletters), newsletters_path, class: "text-amber-900 hover:text-amber-900 px-3 py-2 rounded-md hover:bg-amber-100 #{class_names(active_class_names => current_page?(newsletters_path))}" %>
   </div>
 </div>

@@ -30,9 +30,20 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    attributes:
+      user:
+        username: "Username"
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              blank: "is required"
   password: 'Password'
   password_confirmation: 'Password Confirmation'
   email: 'E-mail'
   sign_in: "Sign In"
   sign_up: "Sign Up"
   create: "Create"
+  username: "Username"

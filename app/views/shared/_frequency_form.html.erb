@@ -1,0 +1,22 @@
+<%= form_with scope: :preferences, url: save_preferences_path, data: { controller: "frequency-form" } do |f| %>
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-center text-gray-600 space-x-1">
+      <div data-action="change->frequency-form#save">
+        <span>Send the inbox via email</span>
+        <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'period', options: ['daily', 'weekly'], selected: 'daily' } %>
+        <span class="hidden" data-frequency-form-target="onText">
+          on
+          <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'on', options: Date::DAYNAMES, selected: nil} %>
+        </span>
+        <span>
+          at
+          <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'at', options: (0..23).map { |t| "#{t}:00"}, selected: nil} %>
+        </span>
+      </div>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600 opacity-0 transition-all duration-300 ease-in-out" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" data-frequency-form-target="icon">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </div>
+  </div>
+<% end %>

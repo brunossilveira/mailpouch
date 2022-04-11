@@ -1,7 +1,7 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
   <div class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-md w-full space-y-8">
-      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-600">
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-amber-700">
         <%= t(:sign_in)%>
       </h2>
       <input type="hidden" name="remember" value="true">
@@ -19,8 +19,8 @@
       <div class="flex items-center justify-between">
         <% if devise_mapping.rememberable? %>
           <div class="flex items-center">
-            <%= f.check_box :remember_me, class: 'h-4 w-4 text-pati-red border-2 focus:ring-amber-600 border-amber-600 rounded' %>
-            <%= f.label :remember_me, class: 'ml-2 block text-sm text-pati-red-light' %>
+            <%= f.check_box :remember_me, class: 'h-4 w-4 text-amber-500 border-2 focus:ring-amber-600 border-amber-600 rounded' %>
+            <%= f.label :remember_me, class: 'ml-2 block text-sm text-amber-600' %>
           </div>
         <% end %>
 
