@@ -7,8 +7,6 @@ class User::Preference < ApplicationRecord
     user.update(next_inbox_at: next_inbox_at)
   end
 
-  private
-
   def next_inbox_at
     partial_time = Montrose.send(period).at(at)
 

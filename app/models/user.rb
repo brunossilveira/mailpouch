@@ -18,4 +18,8 @@ class User < ApplicationRecord
       at: '12:00'
     )
   end
+
+  def should_send_newsletter?
+    Time.zone.now > next_inbox_at && next_inbox_at > last_inbox_at
+  end
 end
