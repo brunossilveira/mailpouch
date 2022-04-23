@@ -7,7 +7,7 @@ class InboxJob < ApplicationJob
 
       if newsletter_messages.count > 0
         user.update(last_inbox_at: Time.zone.now, next_inbox_at: user.preference.next_inbox_at)
-        InboxMailer.with(user: user, newsletter_messages: newsletter_messages).inbox_email
+        InboxMailer.with(user: user, newsletter_messages: newsletter_messages).inbox_email.deliver_later
       end
     end
   end
