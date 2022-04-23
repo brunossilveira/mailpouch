@@ -12,10 +12,6 @@
           <%= f.email_field :email, placeholder: t(:email), autofocus: true, required: true, autocomplete: "email", class: 'appearance-none rounded-none relative block w-full px-3 py-2 border-2 border-amber-600 placeholder-gray-400 text-gray-600 rounded-t-md focus:outline-none focus:ring-amber-700 focus:border-amber-700 focus:z-10 sm:text-sm' %>
         </div>
         <div>
-          <%= f.label :username, t(:username), class: 'sr-only' %>
-          <%= f.text_field :username, placeholder: t(:username), required: true, autocomplete: "username", class: 'appearance-none rounded-none relative block w-full px-3 py-2 border-2 border-amber-600 placeholder-gray-400 text-gray-600 focus:outline-none focus:ring-amber-700 focus:border-amber-700 focus:z-10 sm:text-sm' %>
-        </div>
-        <div>
           <% placeholder = t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length %>
           <%= f.label :password, t(:password), class: 'sr-only' %>
           <%= f.password_field :password, placeholder: "#{t(:password)} (#{placeholder})", required: true, autocomplete: "new-password", class: 'appearance-none rounded-none relative block w-full px-3 py-2 border-2 border-amber-600 placeholder-gray-400 text-gray-600 focus:outline-none focus:ring-amber-700 focus:border-amber-700 focus:z-10 sm:text-sm' %>
