@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.0"
 
+gem "aws-sdk-s3", require: false
 gem "bootsnap", require: false
 gem "devise"
 gem "importmap-rails"
