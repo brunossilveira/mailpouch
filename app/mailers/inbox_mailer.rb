@@ -3,6 +3,6 @@ class InboxMailer < ApplicationMailer
     @user = params[:user]
     @newsletter_messages = params[:newsletter_messages]
 
-    mail(to: @user.email, subject: "Your inbox")
+    mail(to: @user.email, subject: "Here is your #{@user.preference.period} mailpouch!")
   end
 end

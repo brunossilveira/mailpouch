@@ -1,11 +1,3 @@
-<% if current_user.username.nil? %>
-  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-center bg-amber-200 rounded p-4">
-      <span class="text-amber-900">Please set a username so you can start subscribing to newsletters!</span>
-    </div>
-  </div>
-<% end %>
-
 <div class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8" data-controller="profile">
   <div class="max-w-md w-full space-y-8">
     <h2 class="mt-6 text-center text-3xl font-extrabold text-amber-800">
@@ -15,7 +7,7 @@
     <%= form_for(current_user, url: edit_profile_path, data: { turbo: false }) do |f| %>
       <div>
         <%= f.label :username, t(:username), class: 'sr-only' %>
-        <%= f.text_field :username, placeholder: t(:username), value: current_user.username, class: "appearance-none rounded-md relative block w-full px-3 py-2 border-2 placeholder-gray-400 text-gray-600 focus:outline-none focus:ring-amber-700 focus:z-10 sm:text-sm shadow #{current_user.errors[:username].present? ? 'border-red-600 focus:border-red-700' : 'border-amber-600 focus:border-amber-700'}", data: { "profile-target" => "username", action: "input->profile#showHint" }%>
+        <%= f.text_field :username, placeholder: t(:username), autocomplete: 'off', value: current_user.username, class: "appearance-none rounded-md relative block w-full px-3 py-2 border-2 placeholder-gray-400 text-gray-600 focus:outline-none focus:ring-amber-700 focus:z-10 sm:text-sm shadow #{current_user.errors[:username].present? ? 'border-red-600 focus:border-red-700' : 'border-amber-600 focus:border-amber-700'}", data: { "profile-target" => "username", action: "input->profile#showHint" }%>
 
         <% if current_user.errors[:username].present? %>
           <p class="flex items-center pt-2 text-red-600 text-sm">
@@ -26,7 +18,7 @@
             <%= current_user.errors[:username].join(', ').humanize %>
           </p>
         <% end %>
-        <p data-profile-target="hint" class="pt-2 text-gray-600/80 text-sm"></p>
+        <p data-profile-target="hint" class="pt-2 text-gray-600/80 text-sm">Your newsletters address: <%= current_user.username %>@inbox.mailpouch.app</p>
       </div>
 
       <div class="mt-5">
