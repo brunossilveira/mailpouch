@@ -5,7 +5,6 @@ class InboxMailbox < ApplicationMailbox
     subject = mail.subject
     unsubscribe_header = mail.header['List-Unsubscribe']
 
-    debugger
     if user && !subject.downcase.include?('confirm')
       newsletter_name = mail[:from].addrs.first.display_name
       email = mail.from.first
