@@ -34,7 +34,7 @@ local:
 #   mirrors: [ amazon, google, microsoft ]
 amazon:
   service: S3
-  access_key_id: <%= ENV['FELIX_AWS_ACCESS_KEY_ID'] %>
-  secret_access_key: <%= ENV['FELIX_AWS_SECRET_ACCESS_KEY'] %>
-  region: <%= ENV['FELIX_AWS_REGION'] %>
-  bucket: <%= ENV['FELIX_BUCKET_NAME'] %>
+  access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+  region: <%= ENV['AWS_REGION'] %>
+  bucket: <%= ENV['AWS_BUCKET'] %>
