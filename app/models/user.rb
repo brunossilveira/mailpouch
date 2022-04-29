@@ -19,6 +19,8 @@ class User < ApplicationRecord
   end
 
   def should_send_newsletter?
-    Time.zone.now > next_inbox_at && next_inbox_at > last_inbox_at
+    return false
+
+    #Time.zone.now > next_inbox_at && next_inbox_at > last_inbox_at
   end
 end
