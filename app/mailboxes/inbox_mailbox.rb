@@ -2,10 +2,10 @@ class InboxMailbox < ApplicationMailbox
   def process
     username = mail.to.first.split("@").first
     user = User.find_by(username: username)
-    subject = mail.subject
-    unsubscribe_header = mail.header['List-Unsubscribe']
 
-    if user && !subject.downcase.include?('confirm')
+    if user
+      subject = mail.subject
+      unsubscribe_header = mail.header['List-Unsubscribe']
       newsletter_name = mail[:from].addrs.first.display_name
       email = mail.from.first
       domain = email.split('@').last
