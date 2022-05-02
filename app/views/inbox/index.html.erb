@@ -1,8 +1,13 @@
-<div data-controller="inbox" data-action="keyup@window->inbox#close">
-  <%= render partial: 'shared/email_address' %>
-  <%= render partial: 'shared/frequency_form' %>
+<%= render partial: 'shared/email_address' %>
+<%= render partial: 'shared/frequency_form' %>
 
+<div data-controller="inbox" data-action="keyup@window->inbox#close">
   <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 space-y-4">
+    <% unless @newsletter_messages.any? %>
+      <div class="flex items-center justify-center bg-gray-200 p-4 rounded-md text-gray-600">
+        Start subscribing to newsletters to receive them in your inbox
+      </div>
+    <% end %>
     <% @newsletter_messages.each do |newsletter_message| %>
       <div class="p-1 border rounded-md shadow cursor-pointer dark:bg-gray-600 hover:opacity-60" data-action="click->inbox#toggle" data-toggle-target="<%= newsletter_message.id %>">
         <div class="flex items-center justify-between p-4 rounded-t dark:border-gray-600">
