@@ -17,7 +17,7 @@ class User < ApplicationRecord
       at: '12:00'
     )
 
-    user.update(next_inbox_at: preference.next_inbox_at)
+    update(next_inbox_at: preference.next_inbox_at)
   end
 
   def should_send_newsletter?
