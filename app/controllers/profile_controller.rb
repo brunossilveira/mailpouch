@@ -5,8 +5,12 @@ class ProfileController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
-    render :edit
+    if current_user.update(user_params)
+      byebug
+      redirect_to inbox_index_path
+    else
+      render :edit
+    end
   end
 
   private
