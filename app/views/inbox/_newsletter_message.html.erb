@@ -1,0 +1,18 @@
+<div class="group relative cursor-pointer rounded-md p-4 shadow dark:bg-gray-600 hover:opacity-60" data-action="click->inbox#toggle" data-toggle-target="<%= newsletter_message.id %>">
+  <div class="flex items-center space-x-1">
+    <h3 class="md:text-xl font-semibold text-gray-900 dark:text-white">
+      <%= newsletter_message.subject %>
+    </h3>
+  </div>
+  <div class="mt-5 flex justify-between items-start">
+    <div class="flex items-center space-x-2">
+      <img class="w-6 h-6" src="https://unavatar.io/<%= newsletter_message.newsletter.email.split('@').last %>"></img>
+      <p class="dark:text-white"><%= newsletter_message.newsletter.name %></p>
+    </div>
+    <span class="flex items-center text-gray-600 text-sm dark:text-white">
+      <%= newsletter_message.created_at.strftime("%b %d") %>
+    </span>
+  </div>
+</div>
+
+<%= render partial: 'newsletter_message_modal', locals: { newsletter_message: newsletter_message } %>
