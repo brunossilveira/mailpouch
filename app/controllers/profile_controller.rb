@@ -6,7 +6,6 @@ class ProfileController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      byebug
       redirect_to inbox_index_path
     else
       render :edit
