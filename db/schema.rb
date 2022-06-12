@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_28_021041) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_12_221131) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_28_021041) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "newsletter_messages", force: :cascade do |t|
@@ -102,6 +110,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_28_021041) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "events", "users"
   add_foreign_key "newsletter_messages", "newsletters"
   add_foreign_key "newsletter_messages", "users"
   add_foreign_key "newsletters", "users"
