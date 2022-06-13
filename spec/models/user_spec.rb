@@ -18,5 +18,11 @@ RSpec.describe 'User', type: :model do
 
       expect(user.should_send_newsletter?).to be true
     end
+
+    it 'returns true when it should send the newsletter' do
+      user = User.new(next_inbox_at: 5.minutes.ago, last_inbox_at: 24.hours.ago)
+
+      expect(user.should_send_newsletter?).to be true
+    end
   end
 end
