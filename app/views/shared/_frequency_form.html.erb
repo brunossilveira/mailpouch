@@ -3,14 +3,14 @@
     <div class="flex items-center justify-center text-gray-600 space-x-1">
       <div data-action="change->frequency-form#save">
         <span>Send the inbox via email</span>
-        <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'period', options: ['daily', 'weekly'], selected: @preference.period } %>
+        <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'period', options: ['daily', 'weekly'], selected: @preference&.period || 'daily' } %>
         <span class="hidden" data-frequency-form-target="onText">
           on
-          <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'on', options: Date::DAYNAMES, selected: @preference.on } %>
+          <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'on', options: Date::DAYNAMES, selected: @preference&.on || nil} %>
         </span>
         <span>
           at
-          <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'at', options: (0..23).map { |t| "#{t}:00"}, selected: @preference.at } %>
+          <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'at', options: (0..23).map { |t| "#{t}:00"}, selected: @preference&.at || '12:00'} %>
         </span>
       </div>
 

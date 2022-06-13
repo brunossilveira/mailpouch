@@ -4,6 +4,8 @@ class User::Preference < ApplicationRecord
   after_commit :update_next_run_at
 
   def update_next_run_at
+    return true unless period && at
+
     user.update(next_inbox_at: next_inbox_at)
   end
 
