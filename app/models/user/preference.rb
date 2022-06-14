@@ -10,6 +10,8 @@ class User::Preference < ApplicationRecord
   end
 
   def next_inbox_at
+    return nil unless period && at
+
     partial_time = Montrose.send(period).at(at)
 
     daily? ? partial_time.first : partial_time.on(on).first
