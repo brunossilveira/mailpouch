@@ -1,6 +1,8 @@
 desc "Runs inbox"
 task run_inbox: :environment do
-  puts "Running Inbox"
+  Event.create(user: nil, name: 'started_inbox_task')
+
   InboxJob.perform_later
-  puts "Finished running inbox"
+
+  Event.create(user: nil, name: 'finished_inbox_task')
 end
