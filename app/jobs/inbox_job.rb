@@ -1,11 +1,11 @@
-class InboxJob < ApplicationJob
-  def perform
-    Event.create(user: User.first, name: 'started_inbox_job')
+class InboxJob
+  include Sidekiq::Job
 
-    User.all.each do |user|
-      user.send_inbox
-    end
+  def perform(user_id)
+    user = User.find(user_id)
 
-    Event.create(user: User.first, name: 'finished_inbox_job')
+    user.send_inbox
+
+    Event.create(user: user, name: 'inbox_job')
   end
 end

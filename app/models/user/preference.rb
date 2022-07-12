@@ -2,6 +2,16 @@ class User::Preference < ApplicationRecord
   belongs_to :user
 
   after_commit :update_next_run_at
+  after_commit :schedule_inbox_job
+
+  def schedule_inbox_job
+    old_job = Sidekiq::ScheduledSet.new.find_job(user.inbox_job_id)
+    new_job = InboxJob.perform_at(next_inbox_at, user.id)
+
+    new_job.delete
+    user.update(inbox_job_id: job_id)
+  end
+
 
   def update_next_run_at
     return true unless period && at
