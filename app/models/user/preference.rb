@@ -8,7 +8,7 @@ class User::Preference < ApplicationRecord
     old_job = Sidekiq::ScheduledSet.new.find_job(user.inbox_job_id)
     new_job = InboxJob.perform_at(next_inbox_at, user.id)
 
-    old_job.delete
+    old_job&.delete
     user.update(inbox_job_id: job_id)
   end
 
