@@ -9,7 +9,7 @@ class User::Preference < ApplicationRecord
     new_job = InboxJob.perform_at(next_inbox_at, user.id)
 
     old_job&.delete
-    user.update(inbox_job_id: job_id)
+    user.update(inbox_job_id: new_job)
   end
 
 
