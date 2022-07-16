@@ -35,6 +35,9 @@ class User < ApplicationRecord
       Event.create(user: self, name: 'send_inbox', description: "Count: #{newsletter_messages.count} | Ids: #{newsletter_messages.ids}")
     end
 
-    update(last_inbox_at: Time.zone.now, next_inbox_at: preference.next_inbox_at)
+
+    new_job = InboxJob.perform_at(self.preference.next_inbox_at, self.id)
+
+    update(last_inbox_at: Time.zone.now, next_inbox_at: preference.next_inbox_at, inbox_job_id: new_job)
   end
 end
