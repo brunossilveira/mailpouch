@@ -1,4 +1,6 @@
 class NewsletterMessagesController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @newsletter_message = NewsletterMessage.find_by!(id: params[:id], user: current_user)
   end

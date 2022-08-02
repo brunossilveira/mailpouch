@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :inbox, only: [:index]
   resources :newsletters
+  resources :newsletter_messages, only: [:show]
 
   get "/profile" => "profile#edit", as: "profile"
   patch "/profile" => "profile#update", as: "edit_profile"
