@@ -2,7 +2,6 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   hideBeforeRender(event) {
-    console.log('shit')
     if (this.isOpen()) {
       event.preventDefault()
       this.element.addEventListener('hidden.bs.modal', event.detail.resume)
@@ -11,7 +10,6 @@ export default class extends Controller {
   }
 
   isOpen() {
-    console.log('shit')
     return this.element.classList.contains("show")
   }
 
@@ -19,23 +17,9 @@ export default class extends Controller {
     this.element.remove()
   }
 
-  closee() {
+  handleKeyUp() {
     if (event.keyCode == 27) {
-      document
-        .querySelectorAll('[data-toggle-name]')
-        .forEach((target) => {
-          target.classList.add('hidden')
-        })
+      this.element.remove()
     }
-  }
-
-  toggle() {
-    const targets = event.currentTarget.dataset.toggleTarget.split(",");
-
-    targets.forEach((target) =>
-      document
-        .querySelectorAll(`[data-toggle-name="${target}"]`)
-        .forEach((target) => target.classList.toggle('hidden'))
-    );
   }
 }

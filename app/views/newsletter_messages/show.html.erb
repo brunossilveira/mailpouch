@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "newsletter_message" do %>
-  <div class="fixed top-0 left-0 right-0 z-50 w-full md:inset-0 h-modal md:h-full" tabindex="-1" data-controller="modal" data-action="turbo:before-render@document->modal#hideBeforeRender">
+  <div class="fixed top-0 left-0 right-0 z-50 w-full md:inset-0 h-modal md:h-full" tabindex="-1" data-controller="modal" data-action="turbo:before-render@document->modal#hideBeforeRender keyup@window->modal#handleKeyUp">
     <div class="relative w-full h-full p-4">
       <!-- Modal content -->
       <div class="relative bg-white h-max rounded-lg shadow">
