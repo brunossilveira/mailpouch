@@ -14,11 +14,14 @@ export default class extends Controller {
   }
 
   close() {
+    location.reload()
     this.element.remove()
+
   }
 
   handleKeyUp() {
     if (event.keyCode == 27) {
+      location.reload()
       this.element.remove()
     }
   }

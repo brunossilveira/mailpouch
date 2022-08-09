@@ -15,6 +15,6 @@ Rails.application.routes.draw do
 
   get "/profile" => "profile#edit", as: "profile"
   patch "/profile" => "profile#update", as: "edit_profile"
-  post "users/preferences" => "users/preferences#create", as: "save_preferences"
-  get "/newsletter_messages/:id/body" => "newsletter_messages#body"
+  post "users/preferences" => "users/preferences#create", as: :save_preferences
+  get "/newsletter_messages/:id/read" => "newsletter_messages#read", as: :mark_as_read
 end

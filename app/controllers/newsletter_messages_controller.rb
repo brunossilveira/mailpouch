@@ -3,13 +3,13 @@ class NewsletterMessagesController < ApplicationController
 
   def show
     @newsletter_message = NewsletterMessage.find_by!(id: params[:id], user: current_user)
+    @newsletter_message.update(read: true)
   end
 
-  def body
+  def read
     @newsletter_message = NewsletterMessage.find_by!(id: params[:id], user: current_user)
+    @newsletter_message.update(read: true)
 
-    respond_to do |format|
-      format.html {  render inline: @newsletter_message.body }
-    end
+    redirect_to inbox_index_path
   end
 end

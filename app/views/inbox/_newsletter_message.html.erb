@@ -1,9 +1,12 @@
 <%= link_to newsletter_message_path(newsletter_message), data: { turbo_frame: "newsletter_message" } do %>
-  <div class="group relative cursor-pointer rounded-md p-4 shadow hover:bg-amber-50 border border-gray-200" >
-    <div class="flex items-center space-x-1">
+  <div class="group relative rounded-md p-4 my-4 shadow hover:bg-amber-50 border border-gray-200" >
+    <div class="flex items-center space-x-1 justify-between">
       <h3 class="md:text-xl font-semibold text-gray-900">
         <%= newsletter_message.subject %>
       </h3>
+      <% unless newsletter_message.read %>
+        <%= link_to "", mark_as_read_path(newsletter_message.id), class: 'rounded-full bg-amber-700 flex w-3 h-3 hover:bg-amber-600' %>
+      <% end %>
     </div>
     <div class="mt-5 flex justify-between items-start">
       <div class="flex items-center space-x-2">
