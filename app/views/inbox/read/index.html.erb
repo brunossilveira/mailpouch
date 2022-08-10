@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "read" do %>
   <div class="relative flex pt-5 items-center">
     <div class="flex-grow border-t border-amber-700"></div>
-    <%= link_to 'Read', '#', data: { :'turbo-frame' => '_top' }, class: 'flex-shrink mx-4 text-amber-700'%>
+    <%= link_to 'Hide', '#', data: { :'turbo-frame' => '_top' }, class: 'flex-shrink mx-4 text-amber-700'%>
     <div class="flex-grow border-t border-amber-700"></div>
   </div>
   <% @newsletter_messages.each do |newsletter_message| %>
