@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   resources :newsletters
   resources :newsletter_messages, only: [:show]
 
+  namespace :inbox do
+    resources :read, only: [:index]
+  end
+
   get "/profile" => "profile#edit", as: "profile"
   patch "/profile" => "profile#update", as: "edit_profile"
   post "users/preferences" => "users/preferences#create", as: :save_preferences
