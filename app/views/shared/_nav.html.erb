@@ -5,9 +5,7 @@
       <div class="flex items-center">
         <%= link_to "Mailpouch", root_path, class: "flex-shrink-0 font-bold text-3xl text-amber-900" %>
 
-        <% if user_signed_in? %>
-          <%= render partial: 'shared/links' %>
-        <% end %>
+        <%= render partial: 'shared/links' %>
       </div>
       <%= render partial: 'shared/profile' %>
 

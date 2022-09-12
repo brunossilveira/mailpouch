@@ -1,7 +1,11 @@
 <div class="hidden md:block">
   <div class="ml-10 flex items-baseline space-x-4">
     <% active_class_names = 'bg-amber-100 text-amber-600 hover:text-amber-900' %>
-    <%= link_to t(:inbox), inbox_index_path, class: "text-amber-900 hover:text-amber-900 px-3 py-2 rounded-md hover:bg-amber-100 #{class_names(active_class_names => current_page?(inbox_index_path))}" %>
-    <%= link_to t(:newsletters), newsletters_path, class: "text-amber-900 hover:text-amber-900 px-3 py-2 rounded-md hover:bg-amber-100 #{class_names(active_class_names => current_page?(newsletters_path))}" %>
+    <% if user_signed_in? %>
+      <%= link_to t(:inbox), inbox_index_path, class: "text-amber-900 hover:text-amber-900 px-3 py-2 rounded-md hover:bg-amber-100 #{class_names(active_class_names => current_page?(inbox_index_path))}" %>
+      <%= link_to t(:newsletters), newsletters_path, class: "text-amber-900 hover:text-amber-900 px-3 py-2 rounded-md hover:bg-amber-100 #{class_names(active_class_names => current_page?(newsletters_path))}" %>
+    <% else %>
+      <%= link_to t(:pricing), pricing_path, class: "text-amber-900 hover:text-amber-900 px-3 py-2 rounded-md hover:bg-amber-100 #{class_names(active_class_names => current_page?(pricing_path))}" %>
+    <% end %>
   </div>
 </div>

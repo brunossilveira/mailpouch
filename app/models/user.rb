@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  pay_customer
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -22,6 +22,10 @@ class User < ApplicationRecord
     else
       Time.zone.now > next_inbox_at
     end
+  end
+
+  def subscribed?
+    payment_processor.subscription.active?
   end
 
   def send_inbox
