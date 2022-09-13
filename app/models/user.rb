@@ -9,13 +9,21 @@ class User < ApplicationRecord
   has_one :preference
 
   after_create :create_preference
+  after_create :create_free_trial
+
 
   def create_preference
     User::Preference.create(user: self)
   end
 
+  def create_free_trial
+    trial_time = 7.days.from_now
+    set_payment_processor :fake_processor, allow_fake: true
+    payment_processor.subscribe(trial_ends_at: trial_time, ends_at: trial_time)
+  end
+
   def should_send_newsletter?
-    return false if next_inbox_at.nil?
+    return false if next_inbox_at.nil? || !subscribed?
 
     if last_inbox_at
       Time.zone.now > next_inbox_at && next_inbox_at > last_inbox_at
@@ -25,7 +33,7 @@ class User < ApplicationRecord
   end
 
   def subscribed?
-    payment_processor.subscription.active?
+    payment_processor&.subscription&.active?
   end
 
   def send_inbox
