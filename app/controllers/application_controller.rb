@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
   before_action :redirect_if_no_username
   before_action :create_checkout_session
+  before_action :set_trial_alert
+
+  def set_trial_alert
+    if current_user && current_user.on_trial?
+      flash[:notice] = "Subscribe now so you don't miss any newsletters!"
+    end
+  end
 
   def create_checkout_session
     if current_user && !current_user.subscribed?
@@ -13,7 +20,6 @@ class ApplicationController < ActionController::Base
       )
     end
   end
-
 
   def redirect_if_no_username
     if current_user && !current_user.username.present? && controller_name != "profile"

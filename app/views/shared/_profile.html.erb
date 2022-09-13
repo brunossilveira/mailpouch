@@ -16,8 +16,8 @@
 
       <div data-nav-target="profile" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
         <%= link_to t(:profile), profile_path, role: 'menuitem', class: 'block px-4 py-2 text-sm text-amber-800 hover:bg-amber-100' %>
-        <%= link_to t(:manage_subscriptions), current_user.payment_processor.billing_portal.url, role: 'menuitem', class: 'block px-4 py-2 text-sm text-amber-800 hover:bg-amber-100', target: "_blank" if current_user && current_user.subscribed? %>
-        <%= link_to t(:sign_out), destroy_user_session_path, data: { "turbo-method": :delete }, role: 'menuitem', class: 'block px-4 py-2 text-sm text-amber-800 hover:bg-amber-100' %>
+        <%= link_to t(:manage_subscriptions), current_user.payment_processor.billing_portal.url, role: 'menuitem', class: 'block px-4 py-2 text-sm text-amber-800 hover:bg-amber-100', target: "_blank" if current_user && current_user.subscribed? && !current_user.on_trial? %>
+        <%= link_to t(:sign_out), destroy_user_session_path, data: { "turbo-method": :delete }, role: 'menuitem' ,class: 'block px-4 py-2 text-sm text-amber-800 hover:bg-amber-100' %>
       </div>
     </div>
   </div>

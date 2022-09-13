@@ -1,3 +1,89 @@
-<h1>Checkout</h1>
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="bg-amber-100">
+  <div class="pt-12 sm:pt-16 lg:pt-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">Simple no-tricks pricing</h2>
+        <p class="mt-4 text-xl text-gray-600">If you're not satisfied, contact us within the first 14 days and we'll send you a full refund.</p>
+      </div>
+    </div>
+  </div>
+  <div class="mt-8 bg-amber-100 pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
+    <div class="relative">
+      <div class="absolute inset-0 h-1/2 bg-amber-100"></div>
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-lg overflow-hidden rounded-lg shadow-lg lg:flex lg:max-w-none">
+          <div class="flex-1 bg-white px-6 py-8 lg:p-12">
+            <h3 class="text-2xl font-bold text-gray-900 sm:text-3xl sm:tracking-tight">Enjoy the newsletters you love in your own time</h3>
+            <p class="mt-6 text-base text-gray-500">Choose the desired time to get your favorite newsletters and stop cluttering your inbox!</p>
+            <div class="mt-8">
+              <div class="flex items-center">
+                <h4 class="flex-shrink-0 bg-white pr-4 text-base font-semibold text-amber-600">What's included</h4>
+                <div class="flex-1 border-t-2 border-gray-200"></div>
+              </div>
+              <ul role="list" class="mt-8 space-y-5 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5 lg:space-y-0">
+                <li class="flex items-start lg:col-span-1">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: mini/check-circle -->
+                    <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-sm text-gray-700">Your custom mailpouch email address</p>
+                </li>
 
-<%= render partial: "pay/stripe/checkout_button", locals: { session: @checkout_session, title: 'Checkout' } %>
+
+                <li class="flex items-start lg:col-span-1">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: mini/check-circle -->
+                    <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-sm text-gray-700">Unlimited newsletters</p>
+                </li>
+
+
+                <li class="flex items-start lg:col-span-1">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: mini/check-circle -->
+                    <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-sm text-gray-700">Receive the digest whenever you want to</p>
+                </li>
+
+
+                <li class="flex items-start lg:col-span-1">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: mini/check-circle -->
+                    <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-sm text-gray-700">Say goodbye to a cluttered inbox</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="bg-gray-50 py-8 px-6 text-center lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-12">
+            <div class="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-gray-900">
+              <span>$4.99</span>
+              <span class="ml-3 text-xl font-medium tracking-normal text-gray-500">USD</span>
+            </div>
+            <p class="mt-4 text-sm">
+              <span class="font-medium text-gray-500 underline">Paid monthly</span>
+            </p>
+            <div class="mt-6">
+              <div class="rounded-md shadow">
+                <%= render partial: "pay/stripe/checkout_button", locals: { session: @checkout_session, title: 'Subscribe', class: 'flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-200 bg-amber-600 hover:text-gray-200 hover:bg-amber-900 md:py-4 md:text-lg md:px-10' } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

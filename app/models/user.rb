@@ -36,6 +36,10 @@ class User < ApplicationRecord
     payment_processor&.subscription&.active?
   end
 
+  def on_trial?
+    payment_processor&.on_trial?
+  end
+
   def send_inbox
     return unless should_send_newsletter?
 
