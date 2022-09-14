@@ -14,10 +14,12 @@
       <%= render partial: 'newsletter_message', locals: { newsletter_message: newsletter_message } %>
     <% end %>
 
-    <%= turbo_frame_tag "read" do %>
-      <div class="text-center pt-4">
-        <%= link_to 'All Unread', inbox_read_index_path, class: 'underline text-amber-700', data: { turbo_frame: "unread" } %>
-      </div>
+    <% if @any_newsletters %>
+      <%= turbo_frame_tag "read" do %>
+        <div class="text-center pt-4">
+          <%= link_to 'All Unread', inbox_read_index_path, class: 'underline text-amber-700', data: { turbo_frame: "unread" } %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 <% else %>

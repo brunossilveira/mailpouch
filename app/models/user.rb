@@ -18,8 +18,8 @@ class User < ApplicationRecord
 
   def create_free_trial
     trial_time = 7.days.from_now
-    set_payment_processor :fake_processor, allow_fake: true
-    payment_processor.subscribe(trial_ends_at: trial_time, ends_at: trial_time)
+    u.set_payment_processor :fake_processor, allow_fake: true
+    u.payment_processor.subscribe(trial_ends_at: trial_time, ends_at: trial_time)
   end
 
   def should_send_newsletter?
@@ -33,11 +33,17 @@ class User < ApplicationRecord
   end
 
   def subscribed?
-    payment_processor&.subscription&.active?
+    has_active_subscription? || on_trial?
   end
 
   def on_trial?
     payment_processor&.on_trial?
+  end
+
+  private
+
+  def has_active_subscription?
+    pay_customers.map(&:subscription).compact.map(&:active?).compact.include?(true)
   end
 
   def send_inbox
