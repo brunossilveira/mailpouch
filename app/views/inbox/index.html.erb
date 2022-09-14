@@ -1,6 +1,6 @@
 <% if current_user.subscribed? %>
-  <%= render partial: 'shared/email_address' %>
   <%= render partial: 'shared/frequency_form' %>
+  <%= render partial: 'shared/email_address' %>
 
   <%= turbo_frame_tag "newsletter_message", target: "_top" %>
 
@@ -21,17 +21,5 @@
         </div>
       <% end %>
     <% end %>
-  </div>
-<% else %>
-  <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 space-y-4">
-    <% if @newsletter_messages.any? %>
-      <div class="flex items-center justify-center p-4 rounded-md text-gray-600 space-x-2">
-        You have <%= @newsletter_messages.count %> unread newsletter messages
-      </div>
-    <% end %>
-    <div class="flex items-center justify-center bg-amber-200 p-4 rounded-md text-gray-600 space-x-2">
-      <span class="block">Subscribe to continue enjoying your newsletters!</span>
-      <%= render partial: "pay/stripe/checkout_button", locals: { session: @checkout_session, title: 'Subscribe', class:'block items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-200 bg-amber-600 hover:text-gray-200 hover:bg-amber-900 md:py-3 md:text-lg md:px-5' } %>
-    </div>
   </div>
 <% end %>

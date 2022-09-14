@@ -10,3 +10,4 @@ pin "hotkeys-js", to: "https://ga.jspm.io/npm:hotkeys-js@3.8.9/dist/hotkeys.esm.
 pin "stimulus", to: "https://ga.jspm.io/npm:stimulus@2.0.0/dist/stimulus.umd.js"
 pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.5/lib/index.js"
 pin "stripe", to: "https://js.stripe.com/v3/", preload: true
+pin "el-transition", to: "https://ga.jspm.io/npm:el-transition@0.0.7/index.js"
