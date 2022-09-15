@@ -17,10 +17,10 @@
 
       <main class="min-h-full">
         <% flash.each do |type, msg| %>
-          <% class_name = 'bg-red-100' if type == 'alert' %>
-          <% class_name = 'bg-blue-100' if type == 'notice' %>
-          <div class="<%= class_name %> flex justify-center rounded-md p-4 shadow">
-            <span class="text-amber-900"><%= msg.html_safe %></span>
+          <% class_name = 'font-bold text-red-600 bg-red-100' if type == 'alert' %>
+          <% class_name = 'text-gold-200 bg-blue-650 shadow shadow-blue-550' if type == 'notice' %>
+          <div class="<%= class_name %> flex justify-center p-4">
+            <span><%= msg.html_safe %></span>
           </div>
         <% end %>
         <%= yield %>

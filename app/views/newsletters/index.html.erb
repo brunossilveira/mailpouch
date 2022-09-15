@@ -2,35 +2,39 @@
 <%= render partial: 'shared/email_address' %>
 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 space-y-1" data-controller="inbox">
   <% unless @newsletters.any? %>
-    <div class="flex items-center justify-center bg-gray-200 p-4 rounded-md text-gray-600">
+    <div class="flex items-center justify-center bg-gold-200 p-4 rounded-md font-bold text-blue-650">
       Once you subscribe to newsletters they will start showing up here!
     </div>
   <% end %>
 
-  <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+  <h1 class="text-4xl tracking-tight font-bold text-gray-600 sm:text-5xl md:text-4xl pb-6">
+    Your newsletters
+  </h1>
+
+  <div class="pt-4 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
     <% @newsletters.each do |newsletter| %>
-      <div class="group relative rounded-md p-4 bg-amber-100 shadow" data-controller="popper">
+      <div class="group relative rounded-md p-4 bg-gold-500 shadow-sm shadow-blue-550" data-controller="popper">
         <div class="flex justify-between items-start">
           <div class="flex items-center space-x-2">
             <img class="w-6 h-6" src="https://unavatar.io/<%= newsletter.email.split('@').last %>"></img>
-            <p class="font-bold"><%= newsletter.name %></p>
+            <p class="font-bold text-blue-650"><%= newsletter.name %></p>
           </div>
           <% if newsletter.unsubscribe_url.present? %>
             <div role="tooltip" data-popper-target="tooltip" class="inline-block invisible absolute z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300">
               Unsubscribe
             </div>
-            <a href="<%= newsletter.unsubscribe_url %>" class="flex items-center text-gray-500 hover:text-gray-600" data-popper-target="element" data-action="mouseenter->popper#show mouseleave->popper#hide">
+            <a href="<%= newsletter.unsubscribe_url %>" class="flex items-center text-blue-650 hover:text-gray-600" data-popper-target="element" data-action="mouseenter->popper#show mouseleave->popper#hide">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
               </svg>
             </a>
           <% end %>
         </div>
-        <div class="mt-5 flex items-center space-x-1">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <div class="mt-5 flex items-center space-x-1 text-gold-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
           </svg>
-          <p class="text-sm text-gray-500"><%= newsletter.email %></p>
+          <p class="text-sm"><%= newsletter.email %></p>
         </div>
       </div>
     <% end %>

@@ -11,6 +11,17 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        gold: {
+          600: '#CA9703',
+          500: '#D5AD36',
+          200: '#F4F2C9',
+        },
+        blue: {
+          550: '#4488BF',
+          650: '#265999'
+        }
+      }
     },
   },
   plugins: [

@@ -45,6 +45,6 @@ class ApplicationController < ActionController::Base
   private
 
   def checkout_link
-    view_context.link_to 'Subscribe now', checkout_path, class: 'font-bold hover:underline cursor-pointer'
+    view_context.link_to 'Subscribe now', checkout_path, class: 'font-bold text-gold-500 hover:underline cursor-pointer'
   end
 end
