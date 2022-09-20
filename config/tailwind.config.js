@@ -12,14 +12,15 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        gold: {
-          600: '#CA9703',
-          500: '#D5AD36',
-          200: '#F4F2C9',
+        orange: {
+          600: '#D95534',
+          500: '#F0B17D',
+          200: '#EDDD9F'
+
         },
         blue: {
-          550: '#4488BF',
-          650: '#265999'
+          450: '#1FB6CC',
+          350: '#9AD4D3'
         }
       }
     },
