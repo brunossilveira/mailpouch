@@ -1,7 +1,7 @@
 <div class="hidden md:block">
   <div class="ml-10 flex items-baseline space-x-4">
-    <% active_class_names = 'bg-blue-650 text-gold-200 hover:bg-blue-550 hover:text-gold-200' %>
-    <% non_active_class_names = 'text-blue-650 hover:bg-gold-200' %>
+    <% active_class_names = 'bg-orange-600 text-white hover:bg-orange-600/75' %>
+    <% non_active_class_names = 'text-gray-600 hover:text-white hover:bg-orange-600' %>
 
     <% if user_signed_in? %>
       <%= link_to t(:inbox), inbox_index_path, class: "px-3 py-2 rounded-md #{class_names(active_class_names => current_page?(inbox_index_path))} #{class_names(non_active_class_names => !current_page?(inbox_index_path))}" %>

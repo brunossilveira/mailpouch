@@ -19,8 +19,8 @@
         <div class="flex justify-center">
           <% flash.each do |type, msg| %>
             <% class_name = 'font-bold text-red-600 bg-red-100' if type == 'alert' %>
-            <% class_name = 'w-1/4 m-6 border-2 border-black rounded-md text-white bg-blue-550 rotate-1 hover:-rotate-1 shadow' if type == 'extra' %>
-            <% class_name = 'text-gold-200 bg-blue-550 shadow shadow-blue-550' if type == 'notice' %>
+            <% class_name = 'w-1/4 m-6 border-2 border-black rounded-md text-gray-700 bg-white rotate-1 hover:-rotate-1 shadow-[10px_10px] shadow-orange-600' if type == 'extra' %>
+            <% class_name = 'text-orange-200 bg-blue-450 shadow shadow-blue-550' if type == 'notice' %>
             <div class="<%= class_name %> flex justify-center p-4">
               <span><%= msg.html_safe %></span>
             </div>

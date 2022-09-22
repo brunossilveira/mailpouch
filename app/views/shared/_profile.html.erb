@@ -3,7 +3,7 @@
     <div class="ml-3 relative">
       <% if user_signed_in? %>
         <div data-action="click->nav#toggleProfile">
-          <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-650 focus:ring-blue-200" id="user-menu" aria-haspopup="true" data-action="blur->nav#hideElement">
+          <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-orange-600 focus:ring-orange-500" id="user-menu" aria-haspopup="true" data-action="blur->nav#hideElement">
             <span class="sr-only">Open user menu</span>
             <%= user_profile_image(current_user, klass: 'h-8 w-8 rounded-full') %>
           </button>
@@ -15,9 +15,9 @@
       <% end %>
 
       <div data-nav-target="profile" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-        <%= link_to t(:profile), profile_path, role: 'menuitem', class: 'block px-4 py-2 text-sm text-blue-650 hover:bg-gold-200' %>
-        <%= link_to t(:manage_subscriptions), current_user.payment_processor.billing_portal.url, role: 'menuitem', class: 'block px-4 py-2 text-sm text-blue-650 hover:bg-gold-200', target: "_blank" if current_user && current_user.subscribed? && !current_user.on_trial? %>
-        <%= link_to t(:sign_out), destroy_user_session_path, data: { "turbo-method": :delete }, role: 'menuitem' ,class: 'block px-4 py-2 text-sm text-blue-650 hover:bg-gold-200' %>
+        <%= link_to t(:profile), profile_path, role: 'menuitem', class: 'block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white' %>
+        <%= link_to t(:manage_subscriptions), current_user.payment_processor.billing_portal.url, role: 'menuitem', class: 'block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white', target: "_blank" if current_user && current_user.subscribed? && !current_user.on_trial? %>
+        <%= link_to t(:sign_out), destroy_user_session_path, data: { "turbo-method": :delete }, role: 'menuitem' ,class: 'block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white' %>
       </div>
     </div>
   </div>
