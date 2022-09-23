@@ -1,25 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :redirect_if_no_username
   before_action :create_checkout_session
-  before_action :set_trial_alert
   before_action :set_unsubscribed_alert
-
-  def set_trial_alert
-    if current_user && current_user.on_trial?
-      flash[:notice] = "Subscribe now so you don't miss any newsletters!"
-    end
-  end
 
   def set_unsubscribed_alert
     if current_user && !current_user.subscribed?
-      message = ""
-      unread_messages_count = NewsletterMessage.where(user: current_user).unread.count
-
-      if unread_messages_count > 0
-        message = "You have #{unread_messages_count} newsletters!"
-      end
-
-      flash[:extra] = "#{message} #{checkout_link} so you don't miss any newsletters!"
+      flash[:extra] = "#{checkout_link} so you don't miss any newsletters!"
     end
   end
 
