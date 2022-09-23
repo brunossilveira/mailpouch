@@ -1,6 +1,6 @@
 <script>window.process = { env: {} }</script>
 <%= link_to newsletter_message_path(newsletter_message), data: { turbo_frame: "newsletter_message" } do %>
-  <div class="group relative rounded-md p-4 my-4 shadow hover:bg-amber-50 border border-gray-200">
+  <div class="group relative rounded-md p-4 my-4 hover:bg-blue-350/40 border border-gray-200 shadow shadow-orange-500">
     <div class="flex items-center space-x-1 justify-between">
       <h3 class="md:text-xl font-semibold text-gray-900">
         <%= newsletter_message.subject %>
@@ -10,7 +10,7 @@
           <div role="tooltip" data-popper-target="tooltip" class="inline-block invisible absolute z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300">
             Mark as Read
           </div>
-          <%= link_to "", mark_as_read_path(newsletter_message.id), class: 'rounded-full bg-amber-600 flex w-3 h-3 hover:bg-amber-400', data: { :'popper-target' => 'element', action: 'mouseenter->popper#show mouseleave->popper#hide' } %>
+          <%= link_to "", mark_as_read_path(newsletter_message.id), class: 'rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400', data: { :'popper-target' => 'element', action: 'mouseenter->popper#show mouseleave->popper#hide' } %>
         </div>
       <% end %>
     </div>

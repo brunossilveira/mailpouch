@@ -15,18 +15,27 @@
     <div class="bg-white min-h-screen">
       <%= render partial: 'shared/nav' %>
 
-      <main class="min-h-full">
-        <div class="flex justify-center">
-          <% flash.each do |type, msg| %>
-            <% class_name = 'font-bold text-red-600 bg-red-100' if type == 'alert' %>
-            <% class_name = 'w-1/4 m-6 border-2 border-black rounded-md text-gray-700 bg-white rotate-1 hover:-rotate-1 shadow-[10px_10px] shadow-orange-600' if type == 'extra' %>
-            <% class_name = 'text-orange-200 bg-blue-450 shadow shadow-blue-550' if type == 'notice' %>
-            <div class="<%= class_name %> flex justify-center p-4">
-              <span><%= msg.html_safe %></span>
-            </div>
-          <% end %>
-        </div>
+      <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
+        <% flash.each do |type, msg| %>
+          <% class_name = 'font-bold text-red-600 bg-red-100' if type == 'alert' %>
+          <% class_name = 'text-gray-700 bg-blue-350/40 ' if type == 'notice' %>
+          <div class="flex justify-center p-4 border-2 border-black rounded-md <%= class_name %>">
+            <span><%= msg.html_safe %></span>
+          </div>
+        <% end %>
+      </div>
 
+      <% if unsubscribe_alert %>
+        <div class="max-w-xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
+          <div class="p-4 m-6 border-2 border-black rounded-md text-gray-700 bg-white rotate-1 hover:-rotate-1 shadow-[10px_10px] shadow-orange-600">
+            <div class="flex justify-center">
+            <span><%= unsubscribe_alert %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <main class="min-h-full">
         <%= yield %>
       </main>
     </div>

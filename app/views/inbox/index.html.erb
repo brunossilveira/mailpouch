@@ -17,9 +17,15 @@
     <% if @any_newsletters %>
       <%= turbo_frame_tag "read" do %>
         <div class="text-center pt-4">
-          <%= link_to 'All Unread', inbox_read_index_path, class: 'underline text-gray-700', data: { turbo_frame: "unread" } %>
+          <%= link_to 'All Unread', inbox_read_index_path, class: 'underline text-gray-700 hover:text-orange-600', data: { turbo_frame: "unread" } %>
         </div>
       <% end %>
     <% end %>
   </div>
+<% else %>
+  <% if @newsletter_messages.any? %>
+    <div class="flex items-center justify-center text-gray-600">
+      You have <%= @newsletter_messages.count %> unread messages
+    </div>
+  <% end %>
 <% end %>
