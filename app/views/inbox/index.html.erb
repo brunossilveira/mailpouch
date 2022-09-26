@@ -1,15 +1,17 @@
+<script>window.process = { env: {} }</script>
 <% if current_user.subscribed? %>
   <%= render partial: 'shared/frequency_form' %>
   <%= render partial: 'shared/email_address' %>
 
   <%= turbo_frame_tag "newsletter_message", target: "_top" %>
 
-  <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 space-y-4">
+  <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
     <% unless @any_newsletters %>
-      <div class="flex items-center justify-center bg-orange-200 p-4 rounded-md font-bold text-gray-600">
+      <div class="flex items-center justify-center bg-orange-200 p-4 font-bold text-gray-600 mb-6">
         Start subscribing to newsletters to receive them in your inbox!
       </div>
     <% end %>
+
     <% @newsletter_messages.each do |newsletter_message| %>
       <%= render partial: 'newsletter_message', locals: { newsletter_message: newsletter_message } %>
     <% end %>
