@@ -3,7 +3,7 @@ steps:
   - id: "build image"
     name: "gcr.io/cloud-builders/docker"
     entrypoint: 'bash'
-    args: ["-c", "docker build --build-arg PIPE_ENV=staging --build-arg MASTER_KEY=$$RAILS_KEY -t gcr.io/${PROJECT_ID}/${_SERVICE_NAME} . "]
+    args: ["-c", "docker build --build-arg PIPE_ENV=${_PIPE_ENV} --build-arg MASTER_KEY=$$RAILS_KEY -t gcr.io/${PROJECT_ID}/${_SERVICE_NAME} . "]
     secretEnv: ["RAILS_KEY"]
 
   - id: "push image"
@@ -16,7 +16,7 @@ steps:
     args:
       [
         "-c",
-        "/buildstep/execute.sh -i gcr.io/${PROJECT_ID}/${_SERVICE_NAME} -s ${PROJECT_ID}:${_REGION}:${_INSTANCE_NAME} -e RAILS_ENV=production -e PIPE_ENV=staging -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rails db:migrate"
+        "/buildstep/execute.sh -i gcr.io/${PROJECT_ID}/${_SERVICE_NAME} -s ${PROJECT_ID}:${_REGION}:${_INSTANCE_NAME} -e RAILS_ENV=${_RAILS_ENV} -e PIPE_ENV=${_PIPE_ENV} -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rails db:migrate"
       ]
     secretEnv: ["RAILS_KEY"]
 
@@ -25,6 +25,8 @@ substitutions:
   _SERVICE_NAME: mailpouch-staging
   _INSTANCE_NAME: mailpouch-staging
   _SECRET_NAME: master-key-staging
+  _PIPE_ENV: staging
+  _RAILS_ENV: production
 
 availableSecrets:
   secretManager:
