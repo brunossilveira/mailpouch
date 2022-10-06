@@ -81,4 +81,7 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
+  database: <%= Rails.application.credentials.gcp[:database][:name] %>
+  username: <%= Rails.application.credentials.gcp[:database][:username] %>
+  database: <%= Rails.application.credentials.gcp[:database][:password] %>
+  host: <%= Rails.application.credentials.gcp[:database][:host] %>
