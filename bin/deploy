@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+gcloud builds submit --config cloudbuild.yaml \
+         --substitutions _SERVICE_NAME=mailpouch-staging,_INSTANCE_NAME=mailpouch-staging,_REGION=us-east1,_SECRET_NAME=master-key-staging
+
+         gcloud run deploy mailpouch-staging \
+           --platform managed \
+           --region us-east1 \
+           --image gcr.io/mailpouch-staging/mailpouch-staging

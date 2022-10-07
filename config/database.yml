@@ -83,5 +83,5 @@ production:
   <<: *default
   database: <%= Rails.application.credentials.gcp[:database][:database] %>
   username: <%= Rails.application.credentials.gcp[:database][:username] %>
-  database: <%= Rails.application.credentials.gcp[:database][:password] %>
+  password: <%= Rails.application.credentials.gcp[:database][:password] %>
   host: <%= Rails.application.credentials.gcp[:database][:host] %>
