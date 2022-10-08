@@ -79,9 +79,3 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-#production:
-#  <<: *default
-#  database: <%= Rails.application.credentials.gcp[:database][:database] %>
-#  username: <%= Rails.application.credentials.gcp[:database][:username] %>
-#  password: <%= Rails.application.credentials.gcp[:database][:password] %>
-#  host: <%= Rails.application.credentials.gcp[:database][:host] %>
