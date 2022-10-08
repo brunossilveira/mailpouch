@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-gcloud builds submit --config cloudbuild.yaml \
-         --substitutions _SERVICE_NAME=mailpouch-staging,_INSTANCE_NAME=mailpouch-staging,_REGION=us-east1,_SECRET_NAME=master-key-staging
+gcloud builds submit \
+  --tag us-central1-docker.pkg.dev/mailpouch-364912/mailpouch/mailpouch-gke .
 
-         gcloud run deploy mailpouch-staging \
-           --platform managed \
-           --region us-east1 \
-           --image gcr.io/mailpouch-staging/mailpouch-staging
+kubectl create -f .kube/migrations.yml
+kubectl wait --for=condition=complete --timeout=600s job/migrate
+kubectl delete job migrations
+kubectl delete pods -l app=mailpouch
+kubectl delete pods -l app=sidekiq
