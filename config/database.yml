@@ -13,4 +13,4 @@ test:
 
 production:
   <<: *default
-  url: <%= Rails.application.credentials[:database][:url] %>
+  url: <%= Rails.application.credentials.dig(:database, :url) %>
