@@ -5,7 +5,8 @@ default: &default
 
 development:
   <<: *default
-  database: mailpouch_development
+  url: postgres://mailpouch:dGzDjzlHnPsYXBxYAuipshEWgHXKswOimEYNcJlkyPVqTSDXbV@35.226.132.124:5432/mailpouch
+
 
 test:
   <<: *default
@@ -13,4 +14,3 @@ test:
 
 production:
   <<: *default
-  url: <%= Rails.application.credentials[:database][:url] %>
