@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
-gem "aws-sdk-s3", require: false
+gem "google-cloud-storage"
 gem "bootsnap", require: false
 gem "devise"
 gem "importmap-rails"
