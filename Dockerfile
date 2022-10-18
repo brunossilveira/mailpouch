@@ -32,5 +32,5 @@ COPY . /app
 
 RUN bundle exec rake assets:precompile
 
-EXPOSE 8080
-CMD ["bundle exec", "puma", "-C", "config/puma.rb", "-p", "8080"]
+EXPOSE 3000
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
