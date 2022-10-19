@@ -8,9 +8,6 @@ local:
 
 google:
   service: GCS
-  project:
-  bucket:
-  credentials:
-  #project: <%= Rails.application.credentials.dig(:storage, :project) %>
-  #bucket: <%= Rails.application.credentials.dig(:storage, :bucket) %>
-  #credentials: <%= Rails.application.credentials.dig(:storage, :credentials) %>
+  project: <%= Rails.application.credentials.dig(:storage, :project) %>
+  bucket: <%= Rails.application.credentials.dig(:storage, :bucket) %>
+  credentials: <%= Rails.application.credentials.dig(:storage, :credentials) %>
