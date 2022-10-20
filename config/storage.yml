@@ -10,4 +10,4 @@ google:
   service: GCS
   project: <%= Rails.application.credentials.dig(:storage, :project) %>
   bucket: <%= Rails.application.credentials.dig(:storage, :bucket) %>
-  credentials: <%= Rails.application.credentials.dig(:storage, :credentials) %>
+  credentials: <%= Rails.application.credentials.dig(:storage, :credentials).to_json %>
