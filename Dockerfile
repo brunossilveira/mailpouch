@@ -30,7 +30,7 @@ RUN bundle config frozen true \
 # Copy application code to the container image
 COPY . /app
 
-RUN bundle exec rake assets:precompile
+RUN bin/rails assets:clobber && bundle exec rails assets:precompile
 
 EXPOSE 3000
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
