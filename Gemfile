@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.1.2"
 
 gem "google-cloud-storage"
+gem "lograge"
 gem "bootsnap", require: false
 gem "devise"
 gem "importmap-rails"
