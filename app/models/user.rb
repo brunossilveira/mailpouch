@@ -40,12 +40,6 @@ class User < ApplicationRecord
     payment_processor&.on_trial?
   end
 
-  private
-
-  def has_active_subscription?
-    pay_customers.map(&:subscription).compact.map(&:active?).compact.include?(true)
-  end
-
   def send_inbox
     return unless should_send_newsletter?
 
@@ -61,5 +55,11 @@ class User < ApplicationRecord
     new_job = InboxJob.perform_at(self.preference.next_inbox_at, self.id)
 
     update(last_inbox_at: Time.zone.now, next_inbox_at: preference.next_inbox_at, inbox_job_id: new_job)
+  end
+
+  private
+
+  def has_active_subscription?
+    pay_customers.map(&:subscription).compact.map(&:active?).compact.include?(true)
   end
 end
