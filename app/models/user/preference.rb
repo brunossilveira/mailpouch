@@ -4,7 +4,18 @@ class User::Preference < ApplicationRecord
   after_commit :update_next_run_at
   after_commit :schedule_inbox_job
 
+  before_update :clear_fields_when_never
+
+  def clear_fields_when_never
+    return true unless period == 'never'
+
+    self.on = nil
+    self.at = nil
+  end
+
   def schedule_inbox_job
+    return true if next_inbox_at
+
     old_job = Sidekiq::ScheduledSet.new.find_job(user.inbox_job_id)
     new_job = InboxJob.perform_at(next_inbox_at, user.id)
 
@@ -14,13 +25,13 @@ class User::Preference < ApplicationRecord
 
 
   def update_next_run_at
-    return true unless period && at
+    return true if next_inbox_at
 
     user.update(next_inbox_at: next_inbox_at)
   end
 
   def next_inbox_at
-    return nil unless period && at
+    return nil unless at
 
     partial_time = Montrose.send(period).at(at)
 

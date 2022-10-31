@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import { useDebounce } from 'stimulus-use'
 
 export default class extends Controller {
-  static targets = ["period", "onText", "icon"]
+  static targets = ["period", "onText", "atText", "icon"]
   static debounces = ["save"]
 
   connect() {
@@ -22,6 +22,12 @@ export default class extends Controller {
   }
 
   updateForm() {
+    if (this.periodTarget.value == "never") {
+      this.atTextTarget.classList.add('hidden')
+    } else {
+      this.atTextTarget.classList.remove('hidden')
+    }
+
     if (this.periodTarget.value == "weekly") {
       this.onTextTarget.classList.remove('hidden')
     } else {
