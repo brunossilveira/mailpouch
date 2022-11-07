@@ -43,7 +43,8 @@ class User < ApplicationRecord
   def send_inbox
     return unless should_send_newsletter?
 
-    newsletter_messages = NewsletterMessage.where(user: self).where(created_at: (last_inbox_at..next_inbox_at)).order(created_at: :desc)
+    user = User.first
+    newsletter_messages = NewsletterMessage.where(user: user).where(created_at: (user.last_inbox_at..user.next_inbox_at)).order(created_at: :desc)
 
     if !newsletter_messages.count.zero?
       InboxMailer.with(user: self, newsletter_messages: newsletter_messages).inbox_email.deliver_now

@@ -14,7 +14,7 @@ class User::Preference < ApplicationRecord
   end
 
   def schedule_inbox_job
-    return true if next_inbox_at
+    return true unless next_inbox_at
 
     old_job = Sidekiq::ScheduledSet.new.find_job(user.inbox_job_id)
     new_job = InboxJob.perform_at(next_inbox_at, user.id)
@@ -25,7 +25,7 @@ class User::Preference < ApplicationRecord
 
 
   def update_next_run_at
-    return true if next_inbox_at
+    return true unless next_inbox_at
 
     user.update(next_inbox_at: next_inbox_at)
   end
@@ -33,9 +33,9 @@ class User::Preference < ApplicationRecord
   def next_inbox_at
     return nil unless at
 
-    partial_time = Montrose.send(period).at(at)
+    partial_time = Montrose.send(p.period).at(p.at)
 
-    daily? ? partial_time.first : partial_time.on(on).first
+    p.daily? ? partial_time.first : partial_time.on(p.on).first
   end
 
   def daily?
