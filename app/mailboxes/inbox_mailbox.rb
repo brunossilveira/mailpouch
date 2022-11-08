@@ -10,7 +10,7 @@ class InboxMailbox < ApplicationMailbox
       email = mail.from.first
       domain = email.split('@').last
       unsubscribe_url = unsubscribe_header.field.value.split(',').first.delete('<').delete('>') if unsubscribe_header
-      newsletter = Newsletter.find_by(email: email) || Newsletter.find_or_create_by(email: domain, name: newsletter_name, user: user)
+      newsletter = Newsletter.find_by(email: domain, user: user) || Newsletter.find_or_create_by(email: domain, name: newsletter_name, user: user)
 
       NewsletterMessage.create(user: user, newsletter: newsletter, subject: mail.subject, body: mail.html_part.body, unsubscribe_url: unsubscribe_url)
     end
