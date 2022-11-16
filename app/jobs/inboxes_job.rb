@@ -1,4 +1,4 @@
-class InboxJob
+class InboxesJob
   include Sidekiq::Job
 
   def perform
