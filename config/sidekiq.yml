@@ -19,5 +19,5 @@
 
 schedule:
   inboxes_job:
-    cron: '*/15 * * * * *'   # Runs once every 15 minutes
+    cron: '*/15 * * * *'   # Runs once every 15 minutes
     class: InboxesJob
