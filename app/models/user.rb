@@ -22,13 +22,13 @@ class User < ApplicationRecord
     payment_processor.subscribe(trial_ends_at: trial_time, ends_at: trial_time)
   end
 
-  def should_send_newsletter?
-    return false if next_inbox_at.nil? || !subscribed?
+  def should_send_inbox?
+    return false if preference.next_inbox_at.nil? || !subscribed?
 
     if last_inbox_at
-      Time.zone.now > next_inbox_at && next_inbox_at > last_inbox_at
+      Time.zone.now > preference.next_inbox_at && preference.next_inbox_at > last_inbox_at
     else
-      Time.zone.now > next_inbox_at
+      Time.zone.now > preference.next_inbox_at
     end
   end
 
@@ -41,10 +41,7 @@ class User < ApplicationRecord
   end
 
   def send_inbox
-    return unless should_send_newsletter?
-
-    user = User.first
-    newsletter_messages = NewsletterMessage.where(user: user).where(created_at: (user.last_inbox_at..user.next_inbox_at)).order(created_at: :desc)
+    newsletter_messages = NewsletterMessage.where(user: self).where(created_at: (last_inbox_at..preference.next_inbox_at)).order(created_at: :desc)
 
     if !newsletter_messages.count.zero?
       InboxMailer.with(user: self, newsletter_messages: newsletter_messages).inbox_email.deliver_now
@@ -52,10 +49,7 @@ class User < ApplicationRecord
       Event.create(user: self, name: 'send_inbox', description: "Count: #{newsletter_messages.count} | Ids: #{newsletter_messages.ids}")
     end
 
-
-    new_job = InboxJob.perform_at(self.preference.next_inbox_at, self.id)
-
-    update(last_inbox_at: Time.zone.now, next_inbox_at: preference.next_inbox_at, inbox_job_id: new_job)
+    update(last_inbox_at: Time.zone.now)
   end
 
   private
