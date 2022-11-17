@@ -26,14 +26,14 @@ class User < ApplicationRecord
     return false if preference.next_inbox_at.nil? || !subscribed?
 
     Time.use_zone(preference.timezone) do
+      # - 1 day is necessary because when this runs, minute has already passed and the original value will be for the next day
+      next_inbox_at = preference.next_inbox_at - 1.day
       now = Time.zone.now
 
-      Event.create(user: self, name: 'should_send_inbox?', description: "last_inbox_at : #{last_inbox_at} | now: #{Time.zone.now} | next_inbox_at: #{preference.next_inbox_at}")
-
       if last_inbox_at
-        now > preference.next_inbox_at && preference.next_inbox_at > last_inbox_at
+        now > next_inbox_at && next_inbox_at > last_inbox_at
       else
-        now > preference.next_inbox_at
+        now > next_inbox_at
       end
     end
   end
