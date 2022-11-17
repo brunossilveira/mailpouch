@@ -25,11 +25,15 @@ class User < ApplicationRecord
   def should_send_inbox?
     return false if preference.next_inbox_at.nil? || !subscribed?
 
-    Time.use_zone(preference.timezone) do
+    Time.use_zone(user.preference.timezone) do
+      now = Time.zone.now
+
+      Event.create(user: self, name: 'should_send_inbox?', description: "last_inbox_at : #{last_inbox_at} | now: #{Time.zone.now} | next_inbox_at: #{preference.next_inbox_at}")
+
       if last_inbox_at
-        Time.zone.now > preference.next_inbox_at && preference.next_inbox_at > last_inbox_at
+        now > preference.next_inbox_at && preference.next_inbox_at > last_inbox_at
       else
-        Time.zone.now > preference.next_inbox_at
+        now > preference.next_inbox_at
       end
     end
   end
