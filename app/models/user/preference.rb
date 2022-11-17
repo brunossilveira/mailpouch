@@ -13,11 +13,11 @@ class User::Preference < ApplicationRecord
   def next_inbox_at
     return nil unless at
 
-    partial_time = Montrose.send(period).at(at)
+    Time.use_zone(timezone) do
+      partial_time = Montrose.send(period).at(at)
 
-    time = daily? ? partial_time.first : partial_time.on(on).first
-
-    time.in_time_zone(timezone)
+      daily? ? partial_time.first : partial_time.on(on).first
+    end
   end
 
   def daily?
