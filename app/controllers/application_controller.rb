@@ -1,6 +1,15 @@
 class ApplicationController < ActionController::Base
+  before_action :set_user_timezone
   before_action :redirect_if_no_username
   before_action :create_checkout_session
+
+  def set_user_timezone(&block)
+    current_user.preference.update(timezone: timezone_from_cookies) if current_user && current_user.preference.timezone.nil?
+  end
+
+  def timezone_from_cookies
+    cookies.fetch(:timezone, nil)
+  end
 
   def create_checkout_session
     if current_user && !current_user.subscribed?

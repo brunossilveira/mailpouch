@@ -15,7 +15,9 @@ class User::Preference < ApplicationRecord
 
     partial_time = Montrose.send(period).at(at)
 
-    daily? ? partial_time.first : partial_time.on(on).first
+    time = daily? ? partial_time.first : partial_time.on(on).first
+
+    time.in_time_zone(timezone)
   end
 
   def daily?
