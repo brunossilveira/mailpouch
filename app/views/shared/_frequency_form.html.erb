@@ -10,7 +10,7 @@
         </span>
         <span class="hidden" data-frequency-form-target="atText">
           at
-          <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'at', options: (0..23).map { |t| "#{t}:00"}, selected: @preference&.at || '12:00'} %>
+          <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'at', options: TimeInterval.list, selected: @preference&.at || '12:00'} %>
         </span>
       </div>
 
