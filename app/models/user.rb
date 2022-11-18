@@ -11,7 +11,6 @@ class User < ApplicationRecord
   after_create :create_preference
   after_create :create_free_trial
 
-
   def create_preference
     User::Preference.create(user: self)
   end
@@ -24,18 +23,6 @@ class User < ApplicationRecord
 
   def should_send_inbox?
     return false if preference.next_inbox_at.nil? || !subscribed?
-
-    Time.use_zone(preference.timezone) do
-      # - 1 day is necessary because when this runs, minute has already passed and the original value will be for the next day
-      next_inbox_at = preference.next_inbox_at - 1.day
-      now = Time.zone.now
-
-      if last_inbox_at
-        now > next_inbox_at && next_inbox_at > last_inbox_at
-      else
-        now > next_inbox_at
-      end
-    end
   end
 
   def subscribed?
@@ -47,7 +34,9 @@ class User < ApplicationRecord
   end
 
   def send_inbox
-    newsletter_messages = NewsletterMessage.where(user: self).where(created_at: (last_inbox_at..preference.next_inbox_at)).order(created_at: :desc)
+    return unless should_send_inbox?
+
+    newsletter_messages = NewsletterMessage.where(user: self).unread.where(created_at: (last_inbox_at..Time.zone.now).order(created_at: :desc)
 
     if !newsletter_messages.count.zero?
       InboxMailer.with(user: self, newsletter_messages: newsletter_messages).inbox_email.deliver_now

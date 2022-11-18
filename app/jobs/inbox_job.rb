@@ -6,6 +6,6 @@ class InboxJob
 
     user.send_inbox
 
-    Event.create(user: user, name: 'inbox_job')
+    InboxJob.perform_at(user.next_inbox_at, user.id) if user.next_inbox_at
   end
 end
