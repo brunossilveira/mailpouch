@@ -6,6 +6,8 @@ class InboxJob
 
     user.send_inbox
 
-    InboxJob.perform_at(user.next_inbox_at, user.id) if user.next_inbox_at
+    next_inbox_at = user.preference.next_inbox_at
+
+    InboxJob.perform_at(next_inbox_at, user.id) if next_inbox_at
   end
 end
