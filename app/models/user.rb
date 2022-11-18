@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def should_send_inbox?
-    preference.next_inbox_at.nil? || !subscribed?
+    preference.next_inbox_at.present? && subscribed?
   end
 
   def subscribed?
