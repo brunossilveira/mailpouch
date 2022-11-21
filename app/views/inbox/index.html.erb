@@ -16,10 +16,14 @@
       <div class="flex items-center justify-end mb-2">
         <%= button_to 'Mark All As Read', inbox_read_index_path, class: 'text-sm hover:text-orange-600' %>
       </div>
-    <% end %>
 
-    <% @newsletter_messages.each do |newsletter_message| %>
-      <%= render partial: 'newsletter_message', locals: { newsletter_message: newsletter_message } %>
+      <% @newsletter_messages.each do |newsletter_message| %>
+        <%= render partial: 'newsletter_message', locals: { newsletter_message: newsletter_message } %>
+      <% end %>
+    <% else %>
+      <div class="flex items-center justify-center text-gray-600 mb-6">
+        No unread messages on your inbox!
+      </div>
     <% end %>
 
     <% if @any_newsletters && @newsletter_messages.count.zero? %>
