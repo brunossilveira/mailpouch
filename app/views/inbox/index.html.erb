@@ -12,11 +12,17 @@
       </div>
     <% end %>
 
+    <% if @newsletter_messages.any? %>
+      <div class="flex items-center justify-end mb-2">
+        <%= button_to 'Mark All As Read', inbox_read_index_path, class: 'text-sm hover:text-orange-600' %>
+      </div>
+    <% end %>
+
     <% @newsletter_messages.each do |newsletter_message| %>
       <%= render partial: 'newsletter_message', locals: { newsletter_message: newsletter_message } %>
     <% end %>
 
-    <% if @any_newsletters %>
+    <% if @any_newsletters && @newsletter_messages.count.zero? %>
       <%= turbo_frame_tag "read" do %>
         <div class="text-center pt-4">
           <%= link_to 'All Unread', inbox_read_index_path, class: 'underline text-gray-700 hover:text-orange-600', data: { turbo_frame: "unread" } %>

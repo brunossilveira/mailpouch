@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :newsletter_messages, only: [:show]
 
   namespace :inbox do
-    resources :read, only: [:index]
+    resources :read, only: [:index, :create]
   end
 
   get "/profile" => "profile#edit", as: "profile"

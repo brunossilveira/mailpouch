@@ -4,4 +4,10 @@ class Inbox::ReadController < ApplicationController
   def index
     @newsletter_messages = NewsletterMessage.where(user:  current_user).read
   end
+
+  def create
+    NewsletterMessage.where(user: current_user).unread.update_all(read: true)
+
+    redirect_to inbox_index_path
+  end
 end
