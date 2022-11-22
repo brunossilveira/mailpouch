@@ -11,6 +11,12 @@ class User < ApplicationRecord
   after_create :create_preference
   after_create :create_free_trial
 
+  def mailbox_email_address
+    domain = ENV.fetch('MAILBOX_EMAIL_DOMAIN', 'inbox.mailpouch.app')
+
+    "#{username}@#{domain}"
+  end
+
   def create_preference
     User::Preference.create(user: self)
   end

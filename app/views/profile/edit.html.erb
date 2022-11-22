@@ -18,7 +18,8 @@
             <%= current_user.errors[:username].join(', ').humanize %>
           </p>
         <% end %>
-        <p data-profile-target="hint" class="pt-2 text-gray-500 text-sm">Your newsletters address: <%= current_user.username %>@inbox.mailpouch.app</p>
+        <p data-profile-target="hint" class="pt-2 text-gray-500 text-sm">Your newsletters address: <%= current_user.mailbox_email_address %></p>
+        <p data-profile-target="domain" class="hidden"><%= current_user.mailbox_email_address.split('@').last %></p>
       </div>
 
       <% unless current_user.reload.username.present? %>

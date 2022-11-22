@@ -2,7 +2,7 @@
   <div data-controller="clipboard" class="sm:flex items-center justify-center rounded-md p-4 space-x-1">
     <span class="text-gray-600 sm:text-md">Subscribe to newsletters using this address:</span>
     <span data-action="click->clipboard#copy" class="flex font-bold hover:text-orange-600 cursor-pointer items-center space-x-1">
-      <span data-clipboard-target="source"><%= user_mailpouch_email_address %></span>
+      <span data-clipboard-target="source"><%= current_user.mailbox_email_address %></span>
       <svg
         data-clipboard-target="copy"
         data-transition-enter="transition ease-in-out duration-500"
