@@ -10,4 +10,4 @@ google:
   service: GCS
   project: <%= ENV['GOOGLE_STORAGE_PROJECT'] %>
   bucket: <%= ENV['GOOGLE_STORAGE_BUCKET'] %>
-  credentials: <%= ENV['GOOGLE_STORAGE_CREDENTIALS'] %>
+  credentials: <%= ENV['GOOGLE_STORAGE_CREDENTIALS'].as_json %>
