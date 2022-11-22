@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "read" do %>
   <div class="text-center py-4">
-    <%= link_to 'Hide', '#', data: { :'turbo-frame' => '_top' }, class: 'underline text-gray-700 hover:text-orange-600' %>
+    <%= link_to 'Hide Unread', '#', data: { :'turbo-frame' => '_top' }, class: 'text-sm underline text-gray-700 hover:text-orange-600' %>
   </div>
   <% @newsletter_messages.each do |newsletter_message| %>
     <%= render partial: 'inbox/newsletter_message', locals: { newsletter_message: newsletter_message } %>
