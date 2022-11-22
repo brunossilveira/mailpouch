@@ -8,6 +8,6 @@ local:
 
 google:
   service: GCS
-  project: <%= Rails.application.credentials.dig(:storage, :project) %>
-  bucket: <%= Rails.application.credentials.dig(:storage, :bucket) %>
-  credentials: <%= Rails.application.credentials.dig(:storage, :credentials).to_json %>
+  project: <%= ENV['GOOGLE_STORAGE_PROJECT'] %>
+  bucket: <%= ENV['GOOGLE_STORAGE_BUCKET'] %>
+  credentials: <%= ENV['GOOGLE_STORAGE_CREDENTIALS'] %>
