@@ -272,6 +272,11 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
+    sentry-rails (5.6.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.6.0)
+    sentry-ruby (5.6.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     sidekiq (6.4.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -346,6 +351,8 @@ DEPENDENCIES
   redis (~> 4.0)
   rspec-rails
   selenium-webdriver
+  sentry-rails
+  sentry-ruby
   sidekiq (~> 6.4)
   sprockets-rails
   stimulus-rails
