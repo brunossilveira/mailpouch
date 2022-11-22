@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "inbox@mailpouch.app"
+  default from: "Mailpouch <inbox@mailpouch.app>"
   layout "mailer"
 end
