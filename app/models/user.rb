@@ -48,6 +48,8 @@ class User < ApplicationRecord
       InboxMailer.with(user: self, newsletter_messages: newsletter_messages).inbox_email.deliver_now
 
       Event.create(user: self, name: 'send_inbox', description: "Count: #{newsletter_messages.count} | Ids: #{newsletter_messages.ids}")
+
+      newsletter_messages.update_all(read: true)
     end
 
     update(last_inbox_at: Time.zone.now)
