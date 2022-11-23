@@ -1,7 +1,7 @@
 <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
   <div data-controller="clipboard" class="sm:flex items-center justify-center rounded-md p-4 space-x-1">
     <span class="text-gray-600 sm:text-md">Subscribe to newsletters using this address:</span>
-    <span data-action="click->clipboard#copy" class="flex font-bold hover:text-orange-600 cursor-pointer items-center space-x-1">
+    <span data-action="click->clipboard#copy" class="flex font-bold hover:text-orange-600 cursor-pointer items-center space-x-1 justify-center">
       <span data-clipboard-target="source"><%= current_user.mailbox_email_address %></span>
       <svg
         data-clipboard-target="copy"
