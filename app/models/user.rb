@@ -61,5 +61,3 @@ class User < ApplicationRecord
     pay_customers.map(&:subscription).compact.map(&:active?).compact.include?(true)
   end
 end
-
-InboxMailer.with(user: User.first, newsletter_messages: NewsletterMessage.all).inbox_email.deliver_now
