@@ -23,7 +23,7 @@
         <br>
 
         <div class="w-full max-h-[48rem] overflow-y-scroll">
-          <%= ActionView::Base.full_sanitizer.sanitize(@newsletter_message.body, tags: %w(img br p span)) %>
+          <%= ActionView::Base.full_sanitizer.sanitize(@newsletter_message.body, tags: %w(img br p span table tr td tbody)) %>
         </div>
         <!-- Modal footer -->
         <div class="flex items-center p-6 space-x-2 border-t border-gray-400 rounded-b justify-end">
