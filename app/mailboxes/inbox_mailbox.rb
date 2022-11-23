@@ -23,7 +23,7 @@ class InboxMailbox < ApplicationMailbox
       elements: %w[a p strong ul li ol img br b hr h1 h2 h3 h4],
       attributes: {
         'a' => %w[href title],
-        'img' => %w[alt src title]
+        'img' => %w[alt src title width height]
       },
       protocols: {
         'a' => {'href' => ['http', 'https', 'mailto']}
