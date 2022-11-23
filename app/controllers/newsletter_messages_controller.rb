@@ -2,6 +2,10 @@ class NewsletterMessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :redirect_if_not_subscribed
 
+  def parsed
+    @newsletter_message = NewsletterMessage.find_by!(id: params[:id], user: current_user)
+  end
+
   def show
     @newsletter_message = NewsletterMessage.find_by!(id: params[:id], user: current_user)
     @newsletter_message.update(read: true)
