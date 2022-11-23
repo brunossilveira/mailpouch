@@ -21,6 +21,8 @@ class NewsletterMessagesController < ApplicationController
       .scrub!(:whitewash)
       .scrub!(scrub)
       .to_s.html_safe
+
+    @blah = @newsletter_message.body
   end
 
   def read
