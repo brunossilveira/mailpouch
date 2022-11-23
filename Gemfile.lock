@@ -268,6 +268,9 @@ GEM
     rspec-support (3.11.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sanitize (6.0.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.12.0)
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -353,6 +356,7 @@ DEPENDENCIES
   rails (~> 7.0.2, >= 7.0.2.3)
   redis (~> 4.0)
   rspec-rails
+  sanitize
   selenium-webdriver
   sentry-rails
   sentry-ruby
