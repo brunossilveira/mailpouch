@@ -14,7 +14,13 @@ class NewsletterMessagesController < ApplicationController
       node.name = "div" if node.name == "tbody"
     end
 
-    @sanitized_body = Loofah.fragment(@newsletter_message.body).scrub!(:prune).scrub!(scrub).to_s.html_safe
+    @sanitized_body = Loofah.fragment(@newsletter_message.body)
+      .scrub!(:prune)
+      .scrub!(:strip)
+      .scrub!(:escape)
+      .scrub!(:whitewash)
+      .scrub!(scrub)
+      .to_s.html_safe
   end
 
   def read
