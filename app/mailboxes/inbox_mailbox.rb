@@ -5,6 +5,7 @@ class InboxMailbox < ApplicationMailbox
 
     if user
       body = mail.html_part.body
+      text_body = mail.text_part.body
 
       subject = mail.subject
       unsubscribe_header = mail.header['List-Unsubscribe']
@@ -14,7 +15,7 @@ class InboxMailbox < ApplicationMailbox
       unsubscribe_url = unsubscribe_header.field.value.split(',').first.delete('<').delete('>') if unsubscribe_header
       newsletter = Newsletter.find_by(email: domain, user: user) || Newsletter.find_or_create_by(email: domain, name: newsletter_name, user: user)
 
-      NewsletterMessage.create(user: user, newsletter: newsletter, subject: mail.subject, body: body, body_parsed: body_parsed(body), body_raw: body_raw(body), unsubscribe_url: unsubscribe_url)
+      NewsletterMessage.create(user: user, newsletter: newsletter, subject: mail.subject, body: body, body_parsed: body_parsed(body), body_raw: body_raw(body), body_text: body_text, unsubscribe_url: unsubscribe_url)
     end
   end
 
