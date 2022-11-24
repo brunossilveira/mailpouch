@@ -5,7 +5,7 @@ class InboxMailbox < ApplicationMailbox
 
     if user
       body = mail.html_part.body
-      text_body = mail.text_part.body
+      body_text = mail.text_part.body
 
       subject = mail.subject
       unsubscribe_header = mail.header['List-Unsubscribe']
