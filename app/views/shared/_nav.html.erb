@@ -28,6 +28,8 @@
         <%= link_to t(:inbox), inbox_index_path, class: "text-gray-600 block px-3 py-2 rounded-md text-base font-medium" %>
         <%= link_to t(:newsletters), newsletters_path, class: "text-gray-600 block px-3 py-2 rounded-md text-base font-medium" %>
       <% else %>
+        <%= link_to 'Why Newsletters?', '/5-reasons-newsletters-are-important', class: 'text-gray-600 block px-3 py-2 rounded-md text-base font-medium' %>
+        <%= link_to '5 best newsletters', '/5-best-newsletters-effective-newsletters', class: 'text-gray-600 block px-3 py-2 rounded-md text-base font-medium' %>
         <%= link_to t(:pricing), pricing_path, class: "text-gray-600 block px-3 py-2 rounded-md text-base font-medium" %>
       <% end %>
     </div>
@@ -49,7 +51,7 @@
         </div>
       <% else %>
         <div class="px-2 space-y-1">
-          <%= link_to t(:sign_in), new_user_session_path, role: 'menuitem', class: 'text-gray-600 block px-3 py-2 rounded-md text-base font-medium' %>
+          <%= link_to t(:sign_up), new_user_registration_path, role: 'menuitem', class: 'text-gray-600 block px-3 py-2 rounded-md text-base font-medium' %>
         </div>
       <% end %>
     </div>
