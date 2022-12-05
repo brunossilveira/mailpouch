@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :username, uniqueness: true, allow_blank: true
+  validates :username, length: {minimum: 5, maximum: 16}, uniqueness: true, allow_blank: true
 
   has_one :preference
 
