@@ -1,7 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mailpouch</title>
+    <title><%= title %></title>
+    <meta name="description" content="<%= description %>">
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= image %>" />
+    <meta property="og:description" content="<%= description %>" />
+    <meta property="og:site_name" content="<%= title %>" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= title %>">
+    <meta name="twitter:description" content="<%= description %>">
+    <meta name="twitter:image:src" content="<%= image %>">
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
