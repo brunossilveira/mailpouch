@@ -33,7 +33,7 @@
 </div>
 
 <!-- Description -->
-<div class="relative bg-white overflow-x-hidden">
+<div class="relative bg-blue-450/10 overflow-x-hidden">
   <div class="max-w-7xl mx-auto py-16 lg:py-24 px-6 md:px-12 text-lg md:text-xl text-gray-700 !leading-10 tracking-wide">
     <div class="relative text-3xl">
       <p>
@@ -71,7 +71,7 @@
         It is not always easy to find the newsletters when you want to read in your free time — out of your inbox.
 
         <span class="bg-orange-200/50">
-        So what if there was a better way—a way to keep all the advantages of the email newsletter medium somewhere?
+          So what if there was a better way—a way to keep all the advantages of the email newsletter medium somewhere?
         </span>
 
         Or a way to receive it on your own time in your inbox and make it easier for you to enjoy them anywhere, anytime?
@@ -84,65 +84,59 @@
   </div>
 </div>
 
-<!-- Video -->
-<div class="py-12 bg-white">
-  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-    <iframe class="w-full h-96" src="https://www.youtube.com" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-</div>
-
-
 <!-- Steps -->
-<div class="bg-orange-200">
-  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-    <ol class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3">
-      <li class="flex">
-        <div class="ml-6 p-4 bg-white rounded shadow-[10px_10px] shadow-orange-600">
-          <h2 class="flex items-center text-lg font-semibold leading-6">
-            <span class="font-bold text-gray-700">Step 1</span>
-            <span class="ml-2 h-4 w-px bg-slate-200"></span>
-            <span class="ml-2 text-gray-600">Sign Up</span>
-          </h2>
-          <p class="mt-2 text-lg leading-7 text-gray-600">Sign up with your personal email to get your special email.</p>
-        </div>
-      </li>
+<div class="overflow-hidden py-16 lg:py-24">
+  <div class="relative mx-auto max-w-xl px-6 lg:max-w-7xl lg:px-8">
+    <div class="relative">
+      <h2 class="text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">How does it work exactly?</h2>
+      <p class="mx-auto mt-4 max-w-3xl text-center text-xl text-gray-500">It is extremely simple!</p>
+    </div>
 
-      <li class="flex">
-        <div class="ml-6 p-4 bg-white rounded shadow-[10px_10px] shadow-orange-600">
-          <h2 class="flex items-center text-lg font-semibold leading-6">
-            <span class="font-bold text-gray-700">Step 2</span>
-            <span class="ml-2 h-4 w-px bg-slate-600"></span>
-            <span class="ml-2 text-gray-600">
-              <span class="xl:hidden">Subscribe</span>
-              <span class="hidden xl:inline">Subscribe to newsletters</span>
-            </span>
-          </h2>
-          <p class="mt-2 text-lg leading-7 text-gray-600">
-            Use your mailpouch email to subscribe to your favorite newsletters’ and select the time when you want to receive them.
-            Either you can read it in the browser or get a digest at a chosen time in your personal inbox.
-          </p>
-        </div>
-      </li>
+    <div class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+      <div class="relative">
+        <h3 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Step 1</h3>
+        <p class="mt-3 font-semibold text-lg text-gray-500">Sign Up and get your mailpouch email address.</p>
+        <p class="mt-3 text-md text-gray-500">After signing up with you personal email, you will get a special email. You can then click to copy it.</p>
 
-      <li class="flex">
-        <div class="ml-6 p-4 bg-white rounded shadow-[10px_10px] shadow-orange-600">
-          <h2 class="flex items-center text-lg font-semibold leading-6">
-            <span class="font-bold text-gray-700">Step 3</span>
-            <span class="ml-2 h-4 w-px bg-slate-600"></span>
-            <span class="ml-2 text-gray-600">
-              <span class="xl:hidden">That's it!</span>
-              <span class="hidden xl:inline">That's it!</span>
-            </span>
-          </h2>
-          <p class="mt-2 text-lg leading-7 text-gray-600">There’s no step 3. Yes, it’s that easy ;) Enjoy!</p>
+      </div>
+
+      <div class="relative -mx-4 mt-10 lg:mt-0" aria-hidden="true">
+        <%= image_tag('home/steps/first-bigger', class: 'relative mx-auto w-full rounded shadow-xl ring-1 ring-black ring-opacity-5') %>
+      </div>
+    </div>
+
+    <div class="relative mt-12 sm:mt-16 lg:mt-24">
+      <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:items-center lg:gap-12">
+        <div class="lg:col-start-2">
+          <h3 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Step 2</h3>
+          <p class="mt-3 font-semibold text-lg text-gray-500">Subscribe to newsletters</p>
+          <p class="mt-3 text-md text-gray-500">Use your mailpouch email to subscribe to your favorite newsletters’ and select the time when you want to receive them. Either you can read it in the browser or get a digest at a chosen time in your personal inbox.</p>
         </div>
-      </li>
-    </ol>
+
+        <div class="relative -mx-4 mt-10 lg:col-start-1 lg:mt-0">
+          <%= image_tag('home/steps/second-bigger', class: 'relative mx-auto w-full rounded shadow-xl ring-1 ring-black ring-opacity-5') %>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+      <div class="relative">
+        <h3 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Step 3</h3>
+        <p class="mt-3 font-semibold text-lg text-gray-500">That's it!</p>
+        <p class="mt-3 text-md text-gray-500">There’s no step 3. Yes, it’s that easy ;) Enjoy!</p>
+
+      </div>
+
+      <div class="relative -mx-4 mt-10 lg:mt-0" aria-hidden="true">
+        <%= image_tag('home/steps/third-bigger', class: 'relative mx-auto w-full rounded shadow-xl ring-1 ring-black ring-opacity-5') %>
+      </div>
+    </div>
   </div>
 </div>
+
 
 <!-- Features -->
-<div class="py-12 border-b bg-white">
+<div class="py-12 border-b bg-blue-450/10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="lg:text-center pb-8">
       <p class="mt-2 text-gray-600 font-bold text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl">
@@ -234,7 +228,7 @@
 
 
 <!-- Testimonials -->
-<div class="bg-orange-200 relative">
+<div class="bg-white relative border-b">
   <div class="max-w-7xl mx-auto px-6 md:px-12">
     <div class="flex flex-wrap -mx-6 md:-mx-12">
       <div class="flex flex-col px-12 py-16 w-full sm:w-1/3">
