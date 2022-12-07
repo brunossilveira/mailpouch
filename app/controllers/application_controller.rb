@@ -32,6 +32,6 @@ class ApplicationController < ActionController::Base
   end
 
   def load_preference
-    @preference = current_user.preference
+    @preference = current_user&.preference
   end
 end
