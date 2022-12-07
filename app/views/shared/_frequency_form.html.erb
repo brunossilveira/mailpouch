@@ -1,22 +1,24 @@
-<%= form_with scope: :preferences, url: save_preferences_path, data: { controller: "frequency-form" } do |f| %>
-  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-center text-gray-600 space-x-1">
-      <div data-action="change->frequency-form#save">
-        <span>Send the inbox via email</span>
-        <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'period', options: ['never', 'daily', 'weekly'], selected: @preference&.period || 'never' } %>
-        <span class="hidden" data-frequency-form-target="onText">
-          on
-          <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'on', options: Date::DAYNAMES, selected: @preference&.on || nil} %>
-        </span>
-        <span class="hidden" data-frequency-form-target="atText">
-          at
-          <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'at', options: TimeInterval.list, selected: @preference&.at || '12:00'} %>
-        </span>
-      </div>
+<% if current_user %>
+  <%= form_with scope: :preferences, url: save_preferences_path, data: { controller: "frequency-form" } do |f| %>
+    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center text-gray-600 space-x-1">
+        <div data-action="change->frequency-form#save">
+          <span>Send the inbox via email</span>
+          <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'period', options: ['never', 'daily', 'weekly'], selected: @preference&.period || 'never' } %>
+          <span class="hidden" data-frequency-form-target="onText">
+            on
+            <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'on', options: Date::DAYNAMES, selected: @preference&.on || nil} %>
+          </span>
+          <span class="hidden" data-frequency-form-target="atText">
+            at
+            <%= render partial: 'shared/resizable_select', locals: { form: f, name: 'at', options: TimeInterval.list, selected: @preference&.at || '12:00'} %>
+          </span>
+        </div>
 
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 opacity-0 transition-all duration-300 ease-in-out" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" data-frequency-form-target="icon">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 opacity-0 transition-all duration-300 ease-in-out" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" data-frequency-form-target="icon">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

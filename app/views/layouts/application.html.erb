@@ -30,6 +30,9 @@
   <body>
     <div class="bg-white min-h-screen">
       <%= render partial: 'shared/nav' %>
+      <div class="border-b">
+        <%= render partial: 'shared/frequency_form' %>
+      </div>
 
       <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
         <% flash.each do |type, msg| %>

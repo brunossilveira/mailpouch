@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :set_user_timezone
   before_action :redirect_if_no_username
   before_action :create_checkout_session
+  before_action :load_preference
 
   def set_user_timezone(&block)
     current_user.preference.update(timezone: timezone_from_cookies) if current_user && current_user.preference.timezone.nil?
@@ -28,5 +29,9 @@ class ApplicationController < ActionController::Base
       flash[:notice] = "Please set a username so you can start subscribing to newsletters!"
       redirect_to profile_path
     end
+  end
+
+  def load_preference
+    @preference = current_user.preference
   end
 end
