@@ -5,14 +5,16 @@ class InboxMailbox < ApplicationMailbox
 
     if user
       body = NewsletterMessages::Body.new(mail)
+      unsubscribe_header = NewsletterMessages::UnsubscribeHeader.new(mail)
 
       subject = mail.subject
-      unsubscribe_header = mail.header['List-Unsubscribe']
+
       newsletter_name = mail[:from].addrs.first.display_name
+
       email = mail.from.first
       domain = email.split('@').last
-      unsubscribe_url = unsubscribe_header.field.value.split(',').first.delete('<').delete('>') if unsubscribe_header
-      newsletter = Newsletter.find_by(email: domain, user: user) || Newsletter.find_or_create_by(email: domain, name: newsletter_name, user: user)
+
+      newsletter = Newsletter.find_or_create_with_name(domain: domain, user: user, name: newsletter_name)
 
       NewsletterMessage.create(
         user: user,
@@ -22,7 +24,7 @@ class InboxMailbox < ApplicationMailbox
         body_parsed: body.parsed,
         body_raw: body.raw,
         body_text: body.text,
-        unsubscribe_url: unsubscribe_url
+        unsubscribe_url: unsubscribe_header.url
       )
     end
   end
