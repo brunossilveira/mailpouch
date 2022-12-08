@@ -1,5 +1,7 @@
 module NewsletterMessages
   class Body
+    attr_reader :mail
+
     def initialize(mail)
       @mail = mail
     end
