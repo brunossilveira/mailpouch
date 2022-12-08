@@ -4,7 +4,7 @@ class InboxMailbox < ApplicationMailbox
     user = User.find_by(username: username)
 
     if user
-      body = Mail::Body.new(mail)
+      body = NewsletterMessages::Body.new(mail)
 
       subject = mail.subject
       unsubscribe_header = mail.header['List-Unsubscribe']

@@ -1,4 +1,4 @@
-module Mail
+module NewsletterMessages
   class Body
     def initialize(mail)
       @mail = mail
