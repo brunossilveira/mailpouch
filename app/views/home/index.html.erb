@@ -25,7 +25,7 @@
       <div class="w-full flex-1 bg-blue-450/10"></div>
     </div>
 
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
       <div class="flex items-center space-x-3 bg-gray-300 p-2 rounded-t-lg border">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 stroke-2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
@@ -67,285 +67,798 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
         </svg>
       </div>
-      <%= image_tag('home/inbox-wide.png', class: 'relative rounded-lg shadow-xl') %>
+
+      <div class="bg-white">
+        <nav data-controller="nav" class="border-b">
+          <div class="max-w-7xl mx-auto p-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+              <div class="flex items-center">
+                <p class="flex-shrink-0 font-bold text-4xl">Mailpouch</p>
+                <div class="hidden md:block">
+                  <div class="ml-10 flex items-baseline space-x-4">
+                    <a href="#" class="px-3 py-2 rounded-md bg-orange-600 text-white hover:bg-orange-600/75">Inbox</a>
+                    <a href="#" class="px-3 py-2 rounded-md text-gray-600 hover:text-white hover:bg-orange-600">Newsletters</a>
+                  </div>
+                </div>
+              </div>
+
+              <img alt="bruno" class="h-8 w-8 rounded-full" src="https://secure.gravatar.com/avatar/4eaad424791f8ce642619cc6967c96a3?d=mp">
+            </div>
+          </div>
+        </nav>
+
+        <div class="border-b">
+          <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-center text-gray-600 space-x-1">
+              <div data-controller="frequency-form">
+                <span>Send the inbox via email</span>
+                <span data-controller="resizable">
+                  <select class="cursor-pointer text-orange-600 hover:text-orange-500 appearance-none outline-none" data-action="change->resizable#resize change->frequency-form#updateForm" data-resizable-target="select" data-frequency-form-target="period" name="preferences[period]" id="preferences_period" style="width: 35px;"><option value="never">never</option>
+                    <option selected="selected" value="daily">daily</option>
+                    <option value="weekly">weekly</option></select>
+                </span>
+
+                <span class="hidden" data-frequency-form-target="onText">
+                  on
+                  <span data-controller="resizable">
+                    <select class="cursor-pointer text-orange-600 hover:text-orange-500 appearance-none outline-none" data-action="change->resizable#resize change->frequency-form#updateForm" data-resizable-target="select" data-frequency-form-target="on" name="preferences[on]" id="preferences_on" style="width: 56px;"><option selected="selected" value="Sunday">Sunday</option>
+                      <option value="Monday">Monday</option>
+                      <option value="Tuesday">Tuesday</option>
+                      <option value="Wednesday">Wednesday</option>
+                      <option value="Thursday">Thursday</option>
+                      <option value="Friday">Friday</option>
+                      <option value="Saturday">Saturday</option></select>
+                  </span>
+
+                </span>
+                <span class="" data-frequency-form-target="atText">
+                  at
+                  <span data-controller="resizable">
+                    <select class="cursor-pointer text-orange-600 hover:text-orange-500 appearance-none outline-none" data-action="change->resizable#resize change->frequency-form#updateForm" data-resizable-target="select" data-frequency-form-target="at" name="preferences[at]" id="preferences_at" style="width: 42px;"><option value="0:00">0:00</option>
+                      <option value="0:15">0:15</option>
+                      <option value="0:30">0:30</option>
+                      <option value="0:45">0:45</option>
+                      <option value="1:00">1:00</option>
+                      <option value="1:15">1:15</option>
+                      <option value="1:30">1:30</option>
+                      <option value="1:45">1:45</option>
+                      <option value="2:00">2:00</option>
+                      <option value="2:15">2:15</option>
+                      <option value="2:30">2:30</option>
+                      <option value="2:45">2:45</option>
+                      <option value="3:00">3:00</option>
+                      <option value="3:15">3:15</option>
+                      <option value="3:30">3:30</option>
+                      <option value="3:45">3:45</option>
+                      <option value="4:00">4:00</option>
+                      <option value="4:15">4:15</option>
+                      <option value="4:30">4:30</option>
+                      <option value="4:45">4:45</option>
+                      <option value="5:00">5:00</option>
+                      <option value="5:15">5:15</option>
+                      <option value="5:30">5:30</option>
+                      <option value="5:45">5:45</option>
+                      <option value="6:00">6:00</option>
+                      <option value="6:15">6:15</option>
+                      <option value="6:30">6:30</option>
+                      <option value="6:45">6:45</option>
+                      <option value="7:00">7:00</option>
+                      <option value="7:15">7:15</option>
+                      <option value="7:30">7:30</option>
+                      <option value="7:45">7:45</option>
+                      <option value="8:00">8:00</option>
+                      <option value="8:15">8:15</option>
+                      <option value="8:30">8:30</option>
+                      <option value="8:45">8:45</option>
+                      <option value="9:00">9:00</option>
+                      <option value="9:15">9:15</option>
+                      <option value="9:30">9:30</option>
+                      <option value="9:45">9:45</option>
+                      <option value="10:00">10:00</option>
+                      <option value="10:15">10:15</option>
+                      <option value="10:30">10:30</option>
+                      <option value="10:45">10:45</option>
+                      <option value="11:00">11:00</option>
+                      <option value="11:15">11:15</option>
+                      <option value="11:30">11:30</option>
+                      <option value="11:45">11:45</option>
+                      <option value="12:00">12:00</option>
+                      <option value="12:15">12:15</option>
+                      <option value="12:30">12:30</option>
+                      <option value="12:45">12:45</option>
+                      <option value="13:00">13:00</option>
+                      <option value="13:15">13:15</option>
+                      <option value="13:30">13:30</option>
+                      <option value="13:45">13:45</option>
+                      <option value="14:00">14:00</option>
+                      <option value="14:15">14:15</option>
+                      <option value="14:30">14:30</option>
+                      <option value="14:45">14:45</option>
+                      <option value="15:00">15:00</option>
+                      <option value="15:15">15:15</option>
+                      <option value="15:30">15:30</option>
+                      <option value="15:45">15:45</option>
+                      <option value="16:00">16:00</option>
+                      <option value="16:15">16:15</option>
+                      <option value="16:30">16:30</option>
+                      <option value="16:45">16:45</option>
+                      <option value="17:00">17:00</option>
+                      <option value="17:15">17:15</option>
+                      <option value="17:30">17:30</option>
+                      <option value="17:45">17:45</option>
+                      <option value="18:00">18:00</option>
+                      <option value="18:15">18:15</option>
+                      <option value="18:30">18:30</option>
+                      <option value="18:45">18:45</option>
+                      <option value="19:00">19:00</option>
+                      <option value="19:15">19:15</option>
+                      <option value="19:30">19:30</option>
+                      <option value="19:45">19:45</option>
+                      <option value="20:00">20:00</option>
+                      <option value="20:15">20:15</option>
+                      <option value="20:30">20:30</option>
+                      <option value="20:45">20:45</option>
+                      <option selected="selected" value="21:00">21:00</option>
+                      <option value="21:15">21:15</option>
+                      <option value="21:30">21:30</option>
+                      <option value="21:45">21:45</option>
+                      <option value="22:00">22:00</option>
+                      <option value="22:15">22:15</option>
+                      <option value="22:30">22:30</option>
+                      <option value="22:45">22:45</option>
+                      <option value="23:00">23:00</option>
+                      <option value="23:15">23:15</option>
+                      <option value="23:30">23:30</option>
+                      <option value="23:45">23:45</option></select>
+                  </span>
+
+                </span>
+              </div>
+
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 opacity-0 transition-all duration-300 ease-in-out" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" data-frequency-form-target="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 rounded-lg shadow-xl">
+          <div class="flex items-center justify-end mb-2">
+            <button class="text-sm hover:text-orange-600">Mark All As Read</button>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://unavatar.io/newsletters.cnn.com?fallback=https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">CNN's 5 Things</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    Biden to sign same-sex marriage bill into law today
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 13
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">The Assist</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    ✅ the essential guide to creating the perfect checklist
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 13
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://unavatar.io/jamesclear.com?fallback=https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">James Clear</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    Price drop! Atomic Habits lowest price ever (plus links to 50+ languages)
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 12
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://unavatar.io/jamesclear.com?fallback=https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">James Clear</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    My best articles
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 12
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://unavatar.io/newsletters.cnn.com?fallback=https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">CNN's 5 Things</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    Millions of Americans are under winter weather alerts
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 12
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://unavatar.io/newsletters.cnn.com?fallback=https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">CNN's 5 Things</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    Congress turns its attention to crypto and concert tickets this week
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 11
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">The Assist</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    5 simple steps for making habits stick
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 10
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://unavatar.io/hackernewsletter.com?fallback=https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">Hacker Newsletter</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    Hacker Newsletter #630
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 09
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://unavatar.io/newsletters.cnn.com?fallback=https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">CNN's 5 Things</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    Brittney Griner lands in the US after prisoner exchange with Russia
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 09
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://unavatar.io/jamesclear.com?fallback=https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">James Clear</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    3-2-1: A mindset that can take you far in life, aging well, and the value of darkness
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 08
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://unavatar.io/newsletters.cnn.com?fallback=https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">CNN's 5 Things</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    House to pass bill to protect same-sex marriage in landmark vote
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 08
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://unavatar.io/newsletters.cnn.com?fallback=https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">CNN's 5 Things</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    Democrats secure Senate win in Georgia
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 07
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">The Assist</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    Meet Claribel Lizardo-Gonzalez 👋
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 07
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
+            <div class="flex items-center justify-between">
+              <a class="cursor-pointer grow">
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-2">
+                    <img class="w-6 h-6" src="https://unavatar.io/newsletters.cnn.com?fallback=https://source.boringavatars.com/pixel/42/2?colors=D95534,F0B17D,EDDD9F,1FB6CC,9AD4D3">
+                    <p class="text-gray-500">CNN's 5 Things</p>
+                  </div>
+
+                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
+
+                  <h3 class="md:text-lg text-gray-600">
+                    Georgia voters to cast ballots today in crucial Senate runoff election
+                  </h3>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4">
+                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-amber-400"></a>
+                <span class="text-gray-600 text-sm">
+                  Dec 06
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="text-center pt-4">
+            <a class="text-sm underline text-gray-700 hover:text-orange-600" data-turbo-frame="unread" href="javascript:;">Show Unread</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Description -->
-<div class="relative bg-blue-450/10 overflow-x-hidden">
-  <div class="max-w-7xl mx-auto py-16 lg:py-24 px-6 md:px-12 text-lg md:text-xl text-gray-700 !leading-10 tracking-wide">
-    <div class="relative text-3xl">
-      <p>
-        <span class="bg-blue-450/30">
-          You might agree with me that newsletters are a great source of information.
-        </span>
+  <!-- Description -->
+  <div class="relative bg-blue-450/10 overflow-x-hidden">
+    <div class="max-w-7xl mx-auto py-16 lg:py-24 px-6 md:px-12 text-lg md:text-xl text-gray-700 !leading-10 tracking-wide">
+      <div class="relative text-3xl">
+        <p>
+          <span class="bg-blue-450/30">
+            You might agree with me that newsletters are a great source of information.
+          </span>
 
-        Unlike the traditional online sources, you don’t have to search them up and suss out the good from the bad ones.
+          Unlike the traditional online sources, you don’t have to search them up and suss out the good from the bad ones.
 
-        <span class="bg-orange-600/30">
-          Instead, you subscribe to your favorite newsletters — from the publications and authors you love and trust.
-        </span>
+          <span class="bg-orange-600/30">
+            Instead, you subscribe to your favorite newsletters — from the publications and authors you love and trust.
+          </span>
 
-        And they are delivered directly to you — right into your inbox.
+          And they are delivered directly to you — right into your inbox.
 
-        <span class="bg-orange-200/50">
-          Isn’t that amazing?
-        </span>
+          <span class="bg-orange-200/50">
+            Isn’t that amazing?
+          </span>
 
-        But sometimes what happens is…
+          But sometimes what happens is…
 
-        <span class="bg-blue-350/30">
-          That your inbox gets cluttered and mixed up with your important emails.
-        </span>
-      </p>
-      <p class="mt-8">
-        You get interrupted by receiving the newsletters non — stop every day.
+          <span class="bg-blue-350/30">
+            That your inbox gets cluttered and mixed up with your important emails.
+          </span>
+        </p>
+        <p class="mt-8">
+          You get interrupted by receiving the newsletters non — stop every day.
 
-        And this starts annoying you.
+          And this starts annoying you.
 
-        <span class="bg-orange-600/30">
-          You miss out on your urgent emails, daily reminders, and important stuff.
-        </span>
+          <span class="bg-orange-600/30">
+            You miss out on your urgent emails, daily reminders, and important stuff.
+          </span>
 
-        It is not always easy to find the newsletters when you want to read in your free time — out of your inbox.
+          It is not always easy to find the newsletters when you want to read in your free time — out of your inbox.
 
-        <span class="bg-orange-200/50">
-          So what if there was a better way—a way to keep all the advantages of the email newsletter medium somewhere?
-        </span>
+          <span class="bg-orange-200/50">
+            So what if there was a better way—a way to keep all the advantages of the email newsletter medium somewhere?
+          </span>
 
-        Or a way to receive it on your own time in your inbox and make it easier for you to enjoy them anywhere, anytime?
+          Or a way to receive it on your own time in your inbox and make it easier for you to enjoy them anywhere, anytime?
 
-        <span class="bg-blue-450/30">
-          I built Mailpouch with that purpose: a place where you can enjoy your favorite newsletters <strong>whenever and wherever you want</strong>.
-        </span>
-      </p>
+          <span class="bg-blue-450/30">
+            I built Mailpouch with that purpose: a place where you can enjoy your favorite newsletters <strong>whenever and wherever you want</strong>.
+          </span>
+        </p>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Steps -->
-<div class="overflow-hidden py-16 lg:py-24">
-  <div class="relative mx-auto max-w-xl px-6 lg:max-w-7xl lg:px-8">
-    <div class="relative">
-      <h2 class="text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">How does it work exactly?</h2>
-      <p class="mx-auto mt-4 max-w-3xl text-center text-xl text-gray-500">It is extremely simple!</p>
-    </div>
-
-    <div class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+  <!-- Steps -->
+  <div class="overflow-hidden py-16 lg:py-24">
+    <div class="relative mx-auto max-w-xl px-6 lg:max-w-7xl lg:px-8">
       <div class="relative">
-        <h3 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Step 1</h3>
-        <p class="mt-3 font-semibold text-lg text-gray-500">Sign Up and get your mailpouch email address.</p>
-        <p class="mt-3 text-md text-gray-500">After signing up with you personal email, you will get a special email. You can then click to copy it.</p>
-
+        <h2 class="text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">How does it work exactly?</h2>
+        <p class="mx-auto mt-4 max-w-3xl text-center text-xl text-gray-500">It is extremely simple!</p>
       </div>
 
-      <div class="relative -mx-4 mt-10 lg:mt-0" aria-hidden="true">
-        <%= image_tag('home/steps/first-bigger.gif', class: 'relative mx-auto w-full rounded shadow-xl ring-1 ring-black ring-opacity-5') %>
-      </div>
-    </div>
+      <div class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+        <div class="relative">
+          <h3 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Step 1</h3>
+          <p class="mt-3 font-semibold text-lg text-gray-500">Sign Up and get your mailpouch email address.</p>
+          <p class="mt-3 text-md text-gray-500">After signing up with you personal email, you will get a special email. You can then click to copy it.</p>
 
-    <div class="relative mt-12 sm:mt-16 lg:mt-24">
-      <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:items-center lg:gap-12">
-        <div class="lg:col-start-2">
-          <h3 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Step 2</h3>
-          <p class="mt-3 font-semibold text-lg text-gray-500">Subscribe to newsletters</p>
-          <p class="mt-3 text-md text-gray-500">Use your mailpouch email to subscribe to your favorite newsletters’ and select the time when you want to receive them. Either you can read it in the browser or get a digest at a chosen time in your personal inbox.</p>
         </div>
 
-        <div class="relative -mx-4 mt-10 lg:col-start-1 lg:mt-0">
-          <%= image_tag('home/steps/second-bigger.gif', class: 'relative mx-auto w-full rounded shadow-xl ring-1 ring-black ring-opacity-5') %>
+        <div class="relative -mx-4 mt-10 lg:mt-0" aria-hidden="true">
+          <%= image_tag('home/steps/first-bigger.gif', class: 'relative mx-auto w-full rounded shadow-xl ring-1 ring-black ring-opacity-5') %>
         </div>
       </div>
-    </div>
 
-    <div class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
-      <div class="relative">
-        <h3 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Step 3</h3>
-        <p class="mt-3 font-semibold text-lg text-gray-500">That's it!</p>
-        <p class="mt-3 text-md text-gray-500">There’s no step 3. Yes, it’s that easy ;) Enjoy!</p>
+      <div class="relative mt-12 sm:mt-16 lg:mt-24">
+        <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:items-center lg:gap-12">
+          <div class="lg:col-start-2">
+            <h3 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Step 2</h3>
+            <p class="mt-3 font-semibold text-lg text-gray-500">Subscribe to newsletters</p>
+            <p class="mt-3 text-md text-gray-500">Use your mailpouch email to subscribe to your favorite newsletters’ and select the time when you want to receive them. Either you can read it in the browser or get a digest at a chosen time in your personal inbox.</p>
+          </div>
 
+          <div class="relative -mx-4 mt-10 lg:col-start-1 lg:mt-0">
+            <%= image_tag('home/steps/second-bigger.gif', class: 'relative mx-auto w-full rounded shadow-xl ring-1 ring-black ring-opacity-5') %>
+          </div>
+        </div>
       </div>
 
-      <div class="relative -mx-4 mt-10 lg:mt-0" aria-hidden="true">
-        <%= image_tag('home/steps/third-bigger.gif', class: 'relative mx-auto w-full rounded shadow-xl ring-1 ring-black ring-opacity-5') %>
+      <div class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+        <div class="relative">
+          <h3 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Step 3</h3>
+          <p class="mt-3 font-semibold text-lg text-gray-500">That's it!</p>
+          <p class="mt-3 text-md text-gray-500">There’s no step 3. Yes, it’s that easy ;) Enjoy!</p>
+
+        </div>
+
+        <div class="relative -mx-4 mt-10 lg:mt-0" aria-hidden="true">
+          <%= image_tag('home/steps/third-bigger.gif', class: 'relative mx-auto w-full rounded shadow-xl ring-1 ring-black ring-opacity-5') %>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- Features -->
-<div class="py-12 border-b bg-blue-450/10">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="lg:text-center pb-8">
-      <p class="mt-2 text-gray-600 font-bold text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl">
-        Why Should You Choose Mailpouch?
-      </p>
-    </div>
-
-    <div class="mt-10">
-      <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-        <div class="flex">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-orange-600 text-white">
-              <!-- Heroicon name: outline/globe-alt -->
-              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-              </svg>
-            </div>
-          </div>
-          <div class="ml-4">
-            <dt class="text-lg leading-6 font-bold">
-            Control
-            </dt>
-            <dd class="mt-2 text-base text-gray-600">
-            No need to use your personal email for subscribing to your favorite newsletters and get your inbox cluttered.
-            </dd>
-          </div>
-        </div>
-
-        <div class="flex">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-orange-600 text-white">
-              <!-- Heroicon name: outline/scale -->
-              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-              </svg>
-            </div>
-          </div>
-          <div class="ml-4">
-            <dt class="text-lg leading-6 font-bold">
-            Flexibility
-            </dt>
-            <dd class="mt-2 text-base text-gray-600">
-            You choose your own time to receive your favorite newsletters and enjoy them whenever you want.
-            </dd>
-          </div>
-        </div>
-
-        <div class="flex">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-orange-600 text-white">
-              <!-- Heroicon name: outline/lightning-bolt -->
-              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-          </div>
-          <div class="ml-4">
-            <dt class="text-lg leading-6 font-bold">
-            Choice to Pick
-            </dt>
-            <dd class="mt-2 text-base text-gray-600">
-            Pick where to receive your newsletters. Either you can get them on the application or your email at the desired time.
-            </dd>
-          </div>
-        </div>
-
-        <div class="flex">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-orange-600 text-white">
-              <!-- Heroicon name: outline/annotation -->
-              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-              </svg>
-            </div>
-          </div>
-          <div class="ml-4">
-            <dt class="text-lg leading-6 font-bold text-blue-650">
-            No More Cluttered Inbox
-            </dt>
-            <dd class="mt-2 text-base text-gray-600">
-            No chance to miss out on your important emails and unlimited joy in your newsletters in your free time.
-            </dd>
-          </div>
-        </div>
-      </dl>
     </div>
   </div>
-</div>
 
 
-<!-- Testimonials -->
-<div class="bg-white relative border-b">
-  <div class="max-w-7xl mx-auto px-6 md:px-12">
-    <div class="flex flex-wrap -mx-6 md:-mx-12">
-      <div class="flex flex-col px-12 py-16 w-full sm:w-1/3">
-        <div class="flex flex-grow">
-          <div class="!leading-relaxed flex flex-col">
-            <blockquote class="text-white italic mt-1 md:text-lg relative">
-              <div class="absolute pin-t pin-l -mt-2 -ml-2">
-                <svg class="w-8 h-8 text-blue-350" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15.264 19.552C15.264 23.2 17.664 25.12 20.352 25.12C23.328 25.12 26.112 22.624 26.112 19.456C26.112 16.864 24.288 15.136 22.08 15.136C21.888 15.136 21.408 15.136 21.312 15.136C22.368 12.064 25.824 8.8 29.376 7.072L26.4 4C20.448 6.976 15.264 13.504 15.264 19.552ZM0 19.552C0 23.2 2.304 25.12 5.088 25.12C8.064 25.12 10.848 22.624 10.848 19.456C10.848 16.864 8.928 15.136 6.72 15.136C6.528 15.136 6.048 15.136 5.952 15.136C7.008 12.064 10.56 8.8 14.016 7.072L11.136 4C5.184 6.976 0 13.504 0 19.552Z" class="fill-current"></path>
+  <!-- Features -->
+  <div class="py-12 border-b bg-blue-450/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center pb-8">
+        <p class="mt-2 text-gray-600 font-bold text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl">
+          Why Should You Choose Mailpouch?
+        </p>
+      </div>
+
+      <div class="mt-10">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-orange-600 text-white">
+                <!-- Heroicon name: outline/globe-alt -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                 </svg>
               </div>
-              <p class="relative font-medium text-gray-600">
-                I had to unsubscribe to almost all my newsletters in the past because, at the end of each day, I used to have the uncluttered personal mailbox, but when I got to know about this application, I absolutely loved using it. I don’t have to use my personal email now and I can enjoy my favorite newsletters any time.
-              </p>
-            </blockquote>
-            <div class="pt-6 mt-auto">
-              <div class="flex items-start md:items-center justify-between">
-                <div class="flex items-start md:items-center">
-                  <div class="pl-4">
-                    <div class="text-orange-600 uppercase font-semibold tracking-wider text-sm">Joseph Murphy</div>
-                    <div class="font-bold text-blue-450 text-sm">Netherlands</div>
-                  </div>
+            </div>
+            <div class="ml-4">
+              <dt class="text-lg leading-6 font-bold">
+              Control
+              </dt>
+              <dd class="mt-2 text-base text-gray-600">
+              No need to use your personal email for subscribing to your favorite newsletters and get your inbox cluttered.
+              </dd>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-orange-600 text-white">
+                <!-- Heroicon name: outline/scale -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                </svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <dt class="text-lg leading-6 font-bold">
+              Flexibility
+              </dt>
+              <dd class="mt-2 text-base text-gray-600">
+              You choose your own time to receive your favorite newsletters and enjoy them whenever you want.
+              </dd>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-orange-600 text-white">
+                <!-- Heroicon name: outline/lightning-bolt -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <dt class="text-lg leading-6 font-bold">
+              Choice to Pick
+              </dt>
+              <dd class="mt-2 text-base text-gray-600">
+              Pick where to receive your newsletters. Either you can get them on the application or your email at the desired time.
+              </dd>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-orange-600 text-white">
+                <!-- Heroicon name: outline/annotation -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                </svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <dt class="text-lg leading-6 font-bold text-blue-650">
+              No More Cluttered Inbox
+              </dt>
+              <dd class="mt-2 text-base text-gray-600">
+              No chance to miss out on your important emails and unlimited joy in your newsletters in your free time.
+              </dd>
+            </div>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Testimonials -->
+  <div class="bg-white relative border-b">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="flex flex-wrap -mx-6 md:-mx-12">
+        <div class="flex flex-col px-12 py-16 w-full sm:w-1/3">
+          <div class="flex flex-grow">
+            <div class="!leading-relaxed flex flex-col">
+              <blockquote class="text-white italic mt-1 md:text-lg relative">
+                <div class="absolute pin-t pin-l -mt-2 -ml-2">
+                  <svg class="w-8 h-8 text-blue-350" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.264 19.552C15.264 23.2 17.664 25.12 20.352 25.12C23.328 25.12 26.112 22.624 26.112 19.456C26.112 16.864 24.288 15.136 22.08 15.136C21.888 15.136 21.408 15.136 21.312 15.136C22.368 12.064 25.824 8.8 29.376 7.072L26.4 4C20.448 6.976 15.264 13.504 15.264 19.552ZM0 19.552C0 23.2 2.304 25.12 5.088 25.12C8.064 25.12 10.848 22.624 10.848 19.456C10.848 16.864 8.928 15.136 6.72 15.136C6.528 15.136 6.048 15.136 5.952 15.136C7.008 12.064 10.56 8.8 14.016 7.072L11.136 4C5.184 6.976 0 13.504 0 19.552Z" class="fill-current"></path>
+                  </svg>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="flex flex-col px-12 py-16 w-full sm:w-1/3 sm:border-l border-orange-600 border-t-2 sm:border-0">
-        <div class="flex flex-grow">
-          <div class="!leading-relaxed flex flex-col">
-            <blockquote class="text-white italic mt-1 md:text-lg relative">
-              <div class="absolute pin-t pin-l -mt-2 -ml-2">
-                <svg class="w-8 h-8 text-blue-350" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15.264 19.552C15.264 23.2 17.664 25.12 20.352 25.12C23.328 25.12 26.112 22.624 26.112 19.456C26.112 16.864 24.288 15.136 22.08 15.136C21.888 15.136 21.408 15.136 21.312 15.136C22.368 12.064 25.824 8.8 29.376 7.072L26.4 4C20.448 6.976 15.264 13.504 15.264 19.552ZM0 19.552C0 23.2 2.304 25.12 5.088 25.12C8.064 25.12 10.848 22.624 10.848 19.456C10.848 16.864 8.928 15.136 6.72 15.136C6.528 15.136 6.048 15.136 5.952 15.136C7.008 12.064 10.56 8.8 14.016 7.072L11.136 4C5.184 6.976 0 13.504 0 19.552Z" class="fill-current"></path>
-                </svg>
-              </div>
-              <div class="relative font-medium text-gray-600">
-                I simply love this application. It allows me to enjoy my favorite newsletters in my personal space. I’d highly recommend this to everyone to try it once. You’ll get addicted to it, for sure.
-              </div>
-            </blockquote>
-            <div class="pt-6 mt-auto">
-              <div class="flex items-start md:items-center justify-between">
-                <div class="flex items-start md:items-center">
-                  <div class="pl-4">
-                    <div class="text-orange-600 uppercase font-semibold tracking-wider text-sm">
-                      Angelina
+                <p class="relative font-medium text-gray-600">
+                  I had to unsubscribe to almost all my newsletters in the past because, at the end of each day, I used to have the uncluttered personal mailbox, but when I got to know about this application, I absolutely loved using it. I don’t have to use my personal email now and I can enjoy my favorite newsletters any time.
+                </p>
+              </blockquote>
+              <div class="pt-6 mt-auto">
+                <div class="flex items-start md:items-center justify-between">
+                  <div class="flex items-start md:items-center">
+                    <div class="pl-4">
+                      <div class="text-orange-600 uppercase font-semibold tracking-wider text-sm">Joseph Murphy</div>
+                      <div class="font-bold text-blue-450 text-sm">Netherlands</div>
                     </div>
-                    <div class="font-bold text-blue-450 text-sm">Germany</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="flex flex-col px-12 py-16 w-full sm:w-1/3 sm:border-l border-orange-600 border-t-2 sm:border-0">
-        <div class="flex flex-grow">
-          <div class="!leading-relaxed flex flex-col">
-            <blockquote class="text-white italic mt-1 md:text-lg relative">
-              <div class="absolute pin-t pin-l -mt-2 -ml-2">
-                <svg class="w-8 h-8 text-blue-350" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15.264 19.552C15.264 23.2 17.664 25.12 20.352 25.12C23.328 25.12 26.112 22.624 26.112 19.456C26.112 16.864 24.288 15.136 22.08 15.136C21.888 15.136 21.408 15.136 21.312 15.136C22.368 12.064 25.824 8.8 29.376 7.072L26.4 4C20.448 6.976 15.264 13.504 15.264 19.552ZM0 19.552C0 23.2 2.304 25.12 5.088 25.12C8.064 25.12 10.848 22.624 10.848 19.456C10.848 16.864 8.928 15.136 6.72 15.136C6.528 15.136 6.048 15.136 5.952 15.136C7.008 12.064 10.56 8.8 14.016 7.072L11.136 4C5.184 6.976 0 13.504 0 19.552Z" class="fill-current"></path>
-                </svg>
-              </div>
-              <div class="relative font-medium text-gray-600">
-                Never had I ever thought that there could be an application that can restrict the non-stop interruption of newsletters in my personal inbox. I would definitely recommend this application to everyone out there. It is so simple to use.
-              </div>
-            </blockquote>
-            <div class="pt-6 mt-auto">
-              <div class="flex items-start md:items-center justify-between">
-                <div class="flex items-start md:items-center">
-                  <div class="pl-4">
-                    <div class="text-orange-600 uppercase font-semibold tracking-wider text-sm">
-                      John Maxwell
+        <div class="flex flex-col px-12 py-16 w-full sm:w-1/3 sm:border-l border-orange-600 border-t-2 sm:border-0">
+          <div class="flex flex-grow">
+            <div class="!leading-relaxed flex flex-col">
+              <blockquote class="text-white italic mt-1 md:text-lg relative">
+                <div class="absolute pin-t pin-l -mt-2 -ml-2">
+                  <svg class="w-8 h-8 text-blue-350" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.264 19.552C15.264 23.2 17.664 25.12 20.352 25.12C23.328 25.12 26.112 22.624 26.112 19.456C26.112 16.864 24.288 15.136 22.08 15.136C21.888 15.136 21.408 15.136 21.312 15.136C22.368 12.064 25.824 8.8 29.376 7.072L26.4 4C20.448 6.976 15.264 13.504 15.264 19.552ZM0 19.552C0 23.2 2.304 25.12 5.088 25.12C8.064 25.12 10.848 22.624 10.848 19.456C10.848 16.864 8.928 15.136 6.72 15.136C6.528 15.136 6.048 15.136 5.952 15.136C7.008 12.064 10.56 8.8 14.016 7.072L11.136 4C5.184 6.976 0 13.504 0 19.552Z" class="fill-current"></path>
+                  </svg>
+                </div>
+                <div class="relative font-medium text-gray-600">
+                  I simply love this application. It allows me to enjoy my favorite newsletters in my personal space. I’d highly recommend this to everyone to try it once. You’ll get addicted to it, for sure.
+                </div>
+              </blockquote>
+              <div class="pt-6 mt-auto">
+                <div class="flex items-start md:items-center justify-between">
+                  <div class="flex items-start md:items-center">
+                    <div class="pl-4">
+                      <div class="text-orange-600 uppercase font-semibold tracking-wider text-sm">
+                        Angelina
+                      </div>
+                      <div class="font-bold text-blue-450 text-sm">Germany</div>
                     </div>
-                    <div class="font-bold text-blue-450 text-sm">United States</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col px-12 py-16 w-full sm:w-1/3 sm:border-l border-orange-600 border-t-2 sm:border-0">
+          <div class="flex flex-grow">
+            <div class="!leading-relaxed flex flex-col">
+              <blockquote class="text-white italic mt-1 md:text-lg relative">
+                <div class="absolute pin-t pin-l -mt-2 -ml-2">
+                  <svg class="w-8 h-8 text-blue-350" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.264 19.552C15.264 23.2 17.664 25.12 20.352 25.12C23.328 25.12 26.112 22.624 26.112 19.456C26.112 16.864 24.288 15.136 22.08 15.136C21.888 15.136 21.408 15.136 21.312 15.136C22.368 12.064 25.824 8.8 29.376 7.072L26.4 4C20.448 6.976 15.264 13.504 15.264 19.552ZM0 19.552C0 23.2 2.304 25.12 5.088 25.12C8.064 25.12 10.848 22.624 10.848 19.456C10.848 16.864 8.928 15.136 6.72 15.136C6.528 15.136 6.048 15.136 5.952 15.136C7.008 12.064 10.56 8.8 14.016 7.072L11.136 4C5.184 6.976 0 13.504 0 19.552Z" class="fill-current"></path>
+                  </svg>
+                </div>
+                <div class="relative font-medium text-gray-600">
+                  Never had I ever thought that there could be an application that can restrict the non-stop interruption of newsletters in my personal inbox. I would definitely recommend this application to everyone out there. It is so simple to use.
+                </div>
+              </blockquote>
+              <div class="pt-6 mt-auto">
+                <div class="flex items-start md:items-center justify-between">
+                  <div class="flex items-start md:items-center">
+                    <div class="pl-4">
+                      <div class="text-orange-600 uppercase font-semibold tracking-wider text-sm">
+                        John Maxwell
+                      </div>
+                      <div class="font-bold text-blue-450 text-sm">United States</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -355,19 +868,18 @@
       </div>
     </div>
   </div>
-</div>
 
-<!-- CTA -->
-<div class="py-12 bg-gold-200">
-  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-    <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
-      <span class="block text-gray-600">Ready to create your mailpouch?</span>
-      <span class="block text-blue-450">You’re just a click away!</span>
-    </h2>
-    <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-      <div class="inline-flex rounded-md shadow">
-        <%= link_to 'Sign Up for a 7-day free trial', new_user_registration_path, class: 'w-full flex items-center justify-center px-12 py-3 font-medium leading-6 rounded text-white bg-orange-600 shadow-[10px_10px] shadow-blue-450 rotate-1 hover:-rotate-1' %>
+  <!-- CTA -->
+  <div class="py-12 bg-gold-200">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+      <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+        <span class="block text-gray-600">Ready to create your mailpouch?</span>
+        <span class="block text-blue-450">You’re just a click away!</span>
+      </h2>
+      <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+        <div class="inline-flex rounded-md shadow">
+          <%= link_to 'Sign Up for a 7-day free trial', new_user_registration_path, class: 'w-full flex items-center justify-center px-12 py-3 font-medium leading-6 rounded text-white bg-orange-600 shadow-[10px_10px] shadow-blue-450 rotate-1 hover:-rotate-1' %>
+        </div>
       </div>
     </div>
   </div>
-</div>
