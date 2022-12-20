@@ -1,16 +1,17 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="bg-amber-100">
+<div class="bg-white">
   <div class="pt-12 sm:pt-16 lg:pt-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">Simple no-tricks pricing</h2>
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">Pricing</h2>
         <p class="mt-4 text-xl text-gray-600">If you're not satisfied, contact us within the first 14 days and we'll send you a full refund.</p>
+        <p class="mt-4 text-gray-600">You can start for free with our 7 day trial!</p>
       </div>
-    </div>
+    </div>l
   </div>
-  <div class="mt-8 bg-amber-100 pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
+  <div class="mt-8 pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
     <div class="relative">
-      <div class="absolute inset-0 h-1/2 bg-amber-100"></div>
+      <div class="absolute inset-0 h-1/2"></div>
       <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-lg overflow-hidden rounded-lg shadow-lg lg:flex lg:max-w-none">
           <div class="flex-1 bg-white px-6 py-8 lg:p-12">
@@ -18,7 +19,7 @@
             <p class="mt-6 text-base text-gray-500">Choose the desired time to get your favorite newsletters and stop cluttering your inbox!</p>
             <div class="mt-8">
               <div class="flex items-center">
-                <h4 class="flex-shrink-0 bg-white pr-4 text-base font-semibold text-amber-600">What's included</h4>
+                <h4 class="flex-shrink-0 bg-white pr-4 text-base font-semibold text-blue-450">What's included</h4>
                 <div class="flex-1 border-t-2 border-gray-200"></div>
               </div>
               <ul role="list" class="mt-8 space-y-5 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5 lg:space-y-0">
@@ -77,7 +78,7 @@
             </p>
             <div class="mt-6">
               <div class="rounded-md shadow">
-                <%= link_to 'Sign Up for a 7-day trial', new_user_registration_path, class: 'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-200 bg-amber-600 hover:text-gray-200 hover:bg-amber-900 md:py-4 md:text-lg md:px-10' %>
+                <%= link_to 'Start for Free!', new_user_registration_path, class: 'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange-600 hover:bg-orange-600/75 md:py-4 md:text-lg md:px-10' %>
               </div>
             </div>
           </div>
