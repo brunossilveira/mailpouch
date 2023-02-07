@@ -33,11 +33,11 @@
   </div>
 </div>
 
-<% if current_user.username.blank? %>
+<% if ENV['FACEBOOK_PIXEL'] && current_user.username.blank? %>
   <script>
     fbq('track', 'StartTrial', {
       currency: 'USD',
-      subscription_id: <%= current_user.id %>,
+      subscription_id: '<%= current_user.id %>',
     });
   </script>
 <% end %>
