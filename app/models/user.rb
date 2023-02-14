@@ -4,8 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :username, length: { minimum: 5, maximum: 16}, format: { without: /\s/, message: 'must contain no spaces' }, uniqueness: true, allow_blank: true
-  validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/, message: 'must only contain low case letters and numbers' }
+  validates :username, length: {minimum: 5, maximum: 16}, format: { with: /\A[a-z0-9]+\Z/, message: 'must contain lower case letters, number and no white spaces' }, uniqueness: true, allow_blank: true
 
   has_one :preference
 

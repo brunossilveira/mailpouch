@@ -6,7 +6,7 @@ class CheckoutController < ApplicationController
 
     @checkout_session = current_user.payment_processor.checkout(
       mode: "subscription",
-      line_items: ENV.fetch('STRIPE_PRICE_ID', 'price_1LepW7CTF1HsdpZG7awop8A2')
+      line_items: ENV.fetch('STRIPE_PRICE_ID', 'price_1MbDpuCTF1HsdpZGYzlkgvKd')
     )
   end
 end
