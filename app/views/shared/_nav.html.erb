@@ -1,7 +1,8 @@
 <nav data-controller="nav" class="border-b">
   <div class="max-w-7xl mx-auto p-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <div class="flex items-center">
+      <div class="flex items-center space-x-2">
+        <%= image_tag("logo.png", class: "h-10", alt: 'logo') %>
         <%= link_to "Mailpouch", root_path, class: "flex-shrink-0 font-bold text-4xl" %>
 
         <%= render partial: 'shared/links' %>
