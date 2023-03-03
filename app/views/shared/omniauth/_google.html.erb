@@ -1,0 +1,6 @@
+<%= form_tag(user_google_oauth2_omniauth_authorize_path, method: 'post') do %>
+  <%= button_to user_google_oauth2_omniauth_authorize_path, type: 'submit', class: 'group relative w-full flex items-center justify-center py-1 px-4 font-medium leading-6 rounded border-2 border-gray-100 bg-gray-100 hover:bg-gray-200 hover:border-orange-600', data: { turbo: false } do %>
+    <%= image_tag 'omniauth/google.png', class: 'w-8 flex-none' %>
+    <span class="flex-1">Continue with Google</span>
+  <% end %>
+<% end %>

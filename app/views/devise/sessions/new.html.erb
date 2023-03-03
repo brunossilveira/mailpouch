@@ -1,50 +1,54 @@
 <%= content_for :title, 'Sign In' %>
 <%= content_for :description, "Sign In" %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
-  <div class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full space-y-8">
-      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-600">
-        <%= t(:sign_in)%>
-      </h2>
-      <input type="hidden" name="remember" value="true">
-      <div class="rounded-md shadow-sm -space-y-px">
-        <div>
-          <%= f.label :email, t(:email), class: 'sr-only' %>
-          <%= f.email_field :email, placeholder: t(:email), autofocus: true, required: true, autocomplete: "email", class: 'appearance-none rounded-none relative block w-full px-3 py-2 border-2 placeholder-gray-400 text-gray-600 rounded-t-md focus:outline-none focus:ring-orange-600 focus:border-orange-600 focus:z-10 sm:text-sm' %>
-        </div>
-        <div>
-          <%= f.label :password, t(:password), class: 'sr-only' %>
-          <%= f.password_field :password, placeholder: t(:password), required: true, autocomplete: "current-password", class: 'appearance-none rounded-none relative block w-full px-3 py-2 border-2 placeholder-gray-400 text-gray-600 rounded-b-md focus:outline-none focus:ring-orange-600 focus:border-orange-600 focus:z-10 sm:text-sm' %>
-        </div>
-      </div>
+<div class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-600">
+      <%= t(:sign_in)%>
+    </h2>
 
-      <div class="flex items-center justify-between">
-        <% if devise_mapping.rememberable? %>
-          <div class="flex items-center">
-            <%= f.check_box :remember_me, class: 'h-4 w-4 text-gray-500 border-2 focus:ring-orange-600 border-orange-600 rounded accent-orange-600' %>
-            <%= f.label :remember_me, class: 'ml-2 block text-sm text-gray-600' %>
+    <%= render partial: 'shared/omniauth/google' %>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
+      <div class="max-w-md w-full space-y-8">
+        <input type="hidden" name="remember" value="true">
+        <div class="rounded-md shadow-sm -space-y-px">
+          <div>
+            <%= f.label :email, t(:email), class: 'sr-only' %>
+            <%= f.email_field :email, placeholder: t(:email), autofocus: true, required: true, autocomplete: "email", class: 'appearance-none rounded-none relative block w-full px-3 py-2 border-2 placeholder-gray-400 text-gray-600 rounded-t-md focus:outline-none focus:ring-orange-600 focus:border-orange-600 focus:z-10 sm:text-sm' %>
           </div>
-        <% end %>
+          <div>
+            <%= f.label :password, t(:password), class: 'sr-only' %>
+            <%= f.password_field :password, placeholder: t(:password), required: true, autocomplete: "current-password", class: 'appearance-none rounded-none relative block w-full px-3 py-2 border-2 placeholder-gray-400 text-gray-600 rounded-b-md focus:outline-none focus:ring-orange-600 focus:border-orange-600 focus:z-10 sm:text-sm' %>
+          </div>
+        </div>
 
-        <div class="text-sm">
-          <%= render "devise/shared/links" %>
+        <div class="flex items-center justify-between">
+          <% if devise_mapping.rememberable? %>
+            <div class="flex items-center">
+              <%= f.check_box :remember_me, class: 'h-4 w-4 text-gray-500 border-2 focus:ring-orange-600 border-orange-600 rounded accent-orange-600' %>
+              <%= f.label :remember_me, class: 'ml-2 block text-sm text-gray-600' %>
+            </div>
+          <% end %>
+
+          <div class="text-sm">
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+
+        <div class="pt-8">
+          <button type="submit" class="group relative w-full flex justify-center py-2 px-4 font-medium leading-6 rounded text-white bg-orange-600 shadow-[10px_10px] shadow-blue-450 rotate-1 hover:-rotate-1">
+            <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+              <!-- Heroicon name: lock-closed -->
+              <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+              </svg>
+            </span>
+
+            <%= t(:sign_in) %>
+          </button>
         </div>
       </div>
-
-      <div class="pt-8">
-        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 px-12 py-3 font-medium leading-6 rounded text-white bg-orange-600 shadow-[10px_10px] shadow-blue-450 rotate-1 hover:-rotate-1">
-          <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-            <!-- Heroicon name: lock-closed -->
-            <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
-            </svg>
-          </span>
-
-          <%= t(:sign_in) %>
-        </button>
-      </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
-
+</div>

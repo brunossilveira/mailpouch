@@ -2,9 +2,10 @@ class User < ApplicationRecord
   pay_customer
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+    :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
   validates :username, length: {minimum: 5, maximum: 16}, format: { with: /\A[a-z0-9]+\Z/, message: 'must contain lower case letters, number and no white spaces' }, uniqueness: true, allow_blank: true
+  validates :email, uniqueness: true
 
   has_one :preference
 
@@ -15,6 +16,20 @@ class User < ApplicationRecord
     self.username = email.split('@').first
     self.username = nil unless valid?
     save
+  end
+
+  def self.from_omniauth(auth)
+    email = auth.info.email
+    find_or_create_by(email: email) do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.provider = auth.provider
+      user.uid = auth.uid
+
+      # If you are using confirmable and the provider(s) you use validate emails,
+      # uncomment the line below to skip the confirmation emails.
+      # user.skip_confirmation!
+    end
   end
 
   def mailbox_email_address
