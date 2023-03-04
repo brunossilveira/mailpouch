@@ -69,21 +69,25 @@
         <%= render partial: 'shared/frequency_form' %>
       </div>
 
-      <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
-        <% flash.each do |type, msg| %>
-          <% class_name = 'font-bold text-red-600 bg-red-100' if type == 'alert' %>
-          <% class_name = 'text-gray-700 bg-blue-350/40 ' if type == 'notice' %>
-          <div class="flex justify-center p-4 border-2 border-black rounded-md <%= class_name %>">
-            <span><%= msg.html_safe %></span>
-          </div>
-        <% end %>
-      </div>
+      <%= render partial: 'shared/email_address' %>
+
+      <% if flash.any? %>
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
+          <% flash.each do |type, msg| %>
+            <% class_name = 'font-bold text-red-600 bg-red-100' if type == 'alert' %>
+            <% class_name = 'text-gray-700 bg-blue-350/40 ' if type == 'notice' %>
+            <div class="flex justify-center p-4 border-2 border-black rounded-md <%= class_name %>">
+              <span><%= msg.html_safe %></span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
 
       <% if unsubscribe_alert %>
         <div class="max-w-xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
           <div class="p-4 m-6 border-2 border-black rounded-md text-gray-700 bg-white rotate-1 hover:-rotate-1 shadow-[10px_10px] shadow-orange-600">
             <div class="flex justify-center">
-            <span><%= unsubscribe_alert %></span>
+              <span><%= unsubscribe_alert %></span>
             </div>
           </div>
         </div>
