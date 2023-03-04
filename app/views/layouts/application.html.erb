@@ -27,6 +27,8 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
+    <link rel="canonical" href="<%=url_for(:only_path => false, :protocol => 'https') %>" />
+
     <% if ENV['GOOGLE_ANALYTICS_STREAM_ID'] %>
       <!-- Google tag (gtag.js) -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=<%= ENV['GOOGLE_ANALYTICS_STREAM_ID'] %>"></script>
