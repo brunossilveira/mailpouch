@@ -11,6 +11,10 @@ class User < ApplicationRecord
   after_create :create_preference
   after_create :create_free_trial
 
+  before_create do
+    self.username = email.split('@').first
+  end
+
   def mailbox_email_address
     domain = ENV.fetch('MAILBOX_EMAIL_DOMAIN', 'inbox.mailpouch.app')
 
