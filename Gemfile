@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.3"
 
+gem "administrate"
 gem "google-cloud-storage"
 gem "lograge"
 gem "bootsnap", require: false

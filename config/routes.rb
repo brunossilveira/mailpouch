@@ -3,6 +3,14 @@ Rails.application.routes.draw do
 
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
+
+    namespace :admin do
+      resources :newsletter_messages
+      resources :newsletters
+      resources :users
+
+      root to: "users#index"
+    end
   end
 
   root to: 'home#index'
