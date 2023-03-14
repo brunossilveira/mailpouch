@@ -11,8 +11,10 @@ class User < ApplicationRecord
   after_create :create_preference
   after_create :create_free_trial
 
-  before_create do
+  after_create do
     self.username = email.split('@').first
+    self.username = nil unless valid?
+    save
   end
 
   def mailbox_email_address
