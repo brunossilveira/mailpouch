@@ -1,595 +1,43 @@
 <%= content_for :title, 'Unclutter your inbox' %>
 <%= content_for :description, "Choose the desired time to get your favorite newsletters and stop cluttering your inbox!" %>
 
-<!-- Hero -->
 <div class="relative">
-  <div class="max-w-7xl mx-auto pm:px-6 lg:px-8">
-    <div class="lg:text-center">
-      <main class="mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-        <h1 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-700 sm:text-5xl md:text-6xl">
-          <span class="block">Mailpouch helps you </span>
-          <span class="text-block text-blue-450">unclutter your inbox</span>
+  <!-- Hero -->
+  <div class="relative isolate">
+    <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-24">
+      <div class="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
+        <h1 class="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+          Mailpouch helps you <span class="text-blue-450">unclutter your inbox</span>
         </h1>
-        <p class="text-xl leading-10 text-gray-600 mt-8">
-          No need to use your personal email address! Batch all your newsletters into 1.
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          No need to use your personal email address! Batch all your newsletters into 1 and enjoy your favorite newsletters in your own time.
         </p>
-        <div class="mt-5 sm:mt-8 sm:flex justify-center">
-          <div class="rounded-md shadow">
-            <%= link_to 'Start for Free!', new_user_registration_path, class: 'w-full flex items-center justify-center px-12 py-3 font-medium leading-6 rounded text-white bg-orange-600 shadow-[10px_10px] shadow-blue-450 rotate-1 hover:-rotate-1' %>
-          </div>
+        <div class="mt-10 flex items-center gap-x-6">
+          <%= link_to 'Start for Free!', new_user_registration_path, class: 'flex items-center justify-center px-12 py-3 font-medium leading-6 rounded text-white bg-orange-600 shadow-[10px_10px] shadow-blue-450 rotate-1 hover:-rotate-1' %>
         </div>
-
-        <div class="mt-5 sm:mt-8 sm:flex justify-center">
-          <span class="text-sm italic text-gray-500">* No credit card required</span>
-        </div>
-      </main>
-    </div>
-  </div>
-
-  <div class="relative pt-12">
-    <div class="absolute inset-0 flex flex-col" aria-hidden="true">
-      <div class="flex-1"></div>
-      <div class="w-full flex-1 bg-blue-450/10"></div>
-    </div>
-
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="flex items-center space-x-3 bg-gray-300 p-2 rounded-t-lg border">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 stroke-2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 stroke-2 stroke-gray-500">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 stroke-2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 stroke-2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-        </svg>
-
-        <div class="flex items-center w-full bg-gray-500/80 px-2 py-1 rounded-full justify-between">
-          <div class="flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-gray-300 stroke-2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-            </svg>
-            <p class="text-sm text-white">mailpouch.app</p>
-          </div>
-          <div class="flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-gray-300 stroke-2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m0-3l-3-3m0 0l-3 3m3-3V15" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 fill-blue-450 stroke-2">
-              <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
-            </svg>
-          </div>
-        </div>
-
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 stroke-2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 stroke-2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 stroke-2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-        </svg>
       </div>
 
-      <div class="bg-white">
-        <nav data-controller="nav" class="border-b">
-          <div class="max-w-7xl mx-auto p-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-              <div class="flex items-center">
-                <p class="flex-shrink-0 font-bold text-4xl">Mailpouch</p>
-                <div class="hidden md:block">
-                  <div class="ml-10 flex items-baseline space-x-4">
-                    <a href="javascript:;" class="px-3 py-2 rounded-md bg-orange-600 text-white hover:bg-orange-600/75">Inbox</a>
-                    <a href="javascript:;" class="px-3 py-2 rounded-md text-gray-600 hover:text-white hover:bg-orange-600">Newsletters</a>
-                  </div>
-                </div>
-              </div>
-
-              <img alt="bruno" class="h-8 w-8 rounded-full" src="https://secure.gravatar.com/avatar/4eaad424791f8ce642619cc6967c96a3?d=mp">
-            </div>
-          </div>
-        </nav>
-
-        <div class="border-b">
-          <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-center text-gray-600 space-x-1">
-              <div data-controller="frequency-form">
-                <span>Send the inbox via email</span>
-                <span data-controller="resizable">
-                  <select class="cursor-pointer text-orange-600 hover:text-orange-500 appearance-none outline-none" data-action="change->resizable#resize change->frequency-form#updateForm" data-resizable-target="select" data-frequency-form-target="period" name="preferences[period]" id="preferences_period" style="width: 35px;"><option value="never">never</option>
-                    <option selected="selected" value="daily">daily</option>
-                    <option value="weekly">weekly</option></select>
-                </span>
-
-                <span class="hidden" data-frequency-form-target="onText">
-                  on
-                  <span data-controller="resizable">
-                    <select class="cursor-pointer text-orange-600 hover:text-orange-500 appearance-none outline-none" data-action="change->resizable#resize change->frequency-form#updateForm" data-resizable-target="select" data-frequency-form-target="on" name="preferences[on]" id="preferences_on" style="width: 56px;"><option selected="selected" value="Sunday">Sunday</option>
-                      <option value="Monday">Monday</option>
-                      <option value="Tuesday">Tuesday</option>
-                      <option value="Wednesday">Wednesday</option>
-                      <option value="Thursday">Thursday</option>
-                      <option value="Friday">Friday</option>
-                      <option value="Saturday">Saturday</option></select>
-                  </span>
-
-                </span>
-                <span class="" data-frequency-form-target="atText">
-                  at
-                  <span data-controller="resizable">
-                    <select class="cursor-pointer text-orange-600 hover:text-orange-500 appearance-none outline-none" data-action="change->resizable#resize change->frequency-form#updateForm" data-resizable-target="select" data-frequency-form-target="at" name="preferences[at]" id="preferences_at" style="width: 42px;"><option value="0:00">0:00</option>
-                      <option value="0:15">0:15</option>
-                      <option value="0:30">0:30</option>
-                      <option value="0:45">0:45</option>
-                      <option value="1:00">1:00</option>
-                      <option value="1:15">1:15</option>
-                      <option value="1:30">1:30</option>
-                      <option value="1:45">1:45</option>
-                      <option value="2:00">2:00</option>
-                      <option value="2:15">2:15</option>
-                      <option value="2:30">2:30</option>
-                      <option value="2:45">2:45</option>
-                      <option value="3:00">3:00</option>
-                      <option value="3:15">3:15</option>
-                      <option value="3:30">3:30</option>
-                      <option value="3:45">3:45</option>
-                      <option value="4:00">4:00</option>
-                      <option value="4:15">4:15</option>
-                      <option value="4:30">4:30</option>
-                      <option value="4:45">4:45</option>
-                      <option value="5:00">5:00</option>
-                      <option value="5:15">5:15</option>
-                      <option value="5:30">5:30</option>
-                      <option value="5:45">5:45</option>
-                      <option value="6:00">6:00</option>
-                      <option value="6:15">6:15</option>
-                      <option value="6:30">6:30</option>
-                      <option value="6:45">6:45</option>
-                      <option value="7:00">7:00</option>
-                      <option value="7:15">7:15</option>
-                      <option value="7:30">7:30</option>
-                      <option value="7:45">7:45</option>
-                      <option value="8:00">8:00</option>
-                      <option value="8:15">8:15</option>
-                      <option value="8:30">8:30</option>
-                      <option value="8:45">8:45</option>
-                      <option value="9:00">9:00</option>
-                      <option value="9:15">9:15</option>
-                      <option value="9:30">9:30</option>
-                      <option value="9:45">9:45</option>
-                      <option value="10:00">10:00</option>
-                      <option value="10:15">10:15</option>
-                      <option value="10:30">10:30</option>
-                      <option value="10:45">10:45</option>
-                      <option value="11:00">11:00</option>
-                      <option value="11:15">11:15</option>
-                      <option value="11:30">11:30</option>
-                      <option value="11:45">11:45</option>
-                      <option value="12:00">12:00</option>
-                      <option value="12:15">12:15</option>
-                      <option value="12:30">12:30</option>
-                      <option value="12:45">12:45</option>
-                      <option value="13:00">13:00</option>
-                      <option value="13:15">13:15</option>
-                      <option value="13:30">13:30</option>
-                      <option value="13:45">13:45</option>
-                      <option value="14:00">14:00</option>
-                      <option value="14:15">14:15</option>
-                      <option value="14:30">14:30</option>
-                      <option value="14:45">14:45</option>
-                      <option value="15:00">15:00</option>
-                      <option value="15:15">15:15</option>
-                      <option value="15:30">15:30</option>
-                      <option value="15:45">15:45</option>
-                      <option value="16:00">16:00</option>
-                      <option value="16:15">16:15</option>
-                      <option value="16:30">16:30</option>
-                      <option value="16:45">16:45</option>
-                      <option value="17:00">17:00</option>
-                      <option value="17:15">17:15</option>
-                      <option value="17:30">17:30</option>
-                      <option value="17:45">17:45</option>
-                      <option value="18:00">18:00</option>
-                      <option value="18:15">18:15</option>
-                      <option value="18:30">18:30</option>
-                      <option value="18:45">18:45</option>
-                      <option value="19:00">19:00</option>
-                      <option value="19:15">19:15</option>
-                      <option value="19:30">19:30</option>
-                      <option value="19:45">19:45</option>
-                      <option value="20:00">20:00</option>
-                      <option value="20:15">20:15</option>
-                      <option value="20:30">20:30</option>
-                      <option value="20:45">20:45</option>
-                      <option selected="selected" value="21:00">21:00</option>
-                      <option value="21:15">21:15</option>
-                      <option value="21:30">21:30</option>
-                      <option value="21:45">21:45</option>
-                      <option value="22:00">22:00</option>
-                      <option value="22:15">22:15</option>
-                      <option value="22:30">22:30</option>
-                      <option value="22:45">22:45</option>
-                      <option value="23:00">23:00</option>
-                      <option value="23:15">23:15</option>
-                      <option value="23:30">23:30</option>
-                      <option value="23:45">23:45</option></select>
-                  </span>
-
-                </span>
-              </div>
-
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 opacity-0 transition-all duration-300 ease-in-out" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" data-frequency-form-target="icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 rounded-lg shadow-xl">
-          <div class="flex items-center justify-end mb-2">
-            <button class="text-sm hover:text-orange-600">Mark All As Read</button>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/cnn.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">CNN's 5 Things</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    Biden to sign same-sex marriage bill into law today
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 13
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/theassist.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">The Assist</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    ✅ the essential guide to creating the perfect checklist
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 13
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/jamesclear.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">James Clear</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    Price drop! Atomic Habits lowest price ever (plus links to 50+ languages)
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 12
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/jamesclear.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">James Clear</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    My best articles
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 12
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/cnn.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">CNN's 5 Things</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    Millions of Americans are under winter weather alerts
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 12
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/cnn.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">CNN's 5 Things</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    Congress turns its attention to crypto and concert tickets this week
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 11
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/theassist.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">The Assist</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    5 simple steps for making habits stick
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 10
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/hackernews.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">Hacker Newsletter</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    Hacker Newsletter #630
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 09
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/cnn.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">CNN's 5 Things</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    Brittney Griner lands in the US after prisoner exchange with Russia
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 09
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/jamesclear.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">James Clear</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    3-2-1: A mindset that can take you far in life, aging well, and the value of darkness
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 08
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/cnn.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">CNN's 5 Things</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    House to pass bill to protect same-sex marriage in landmark vote
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 08
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/cnn.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">CNN's 5 Things</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    Democrats secure Senate win in Georgia
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 07
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/theassist.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">The Assist</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    Meet Claribel Lizardo-Gonzalez 👋
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 07
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-2 rounded border-2 border-300/30 hover:border-gray-400/100">
-            <div class="flex items-center justify-between">
-              <a class="cursor-pointer grow">
-                <div class="flex items-center space-x-2">
-                  <div class="flex items-center space-x-2">
-                    <%= image_tag("home/cnn.png", class: "w-6 h-6") %>
-                    <p class="text-gray-500">CNN's 5 Things</p>
-                  </div>
-
-                  <span class="ml-1 h-4 w-px bg-slate-300"></span>
-
-                  <h3 class="md:text-lg text-gray-600">
-                    Georgia voters to cast ballots today in crucial Senate runoff election
-                  </h3>
-                </div>
-              </a>
-              <div class="flex items-center space-x-4">
-                <a class="rounded-full bg-orange-600 flex w-3 h-3 hover:bg-orange-600/90"></a>
-                <span class="text-gray-600 text-sm">
-                  Dec 06
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="text-center pt-4">
-            <a class="text-sm underline text-gray-700 hover:text-orange-600" data-turbo-frame="unread" href="javascript:;">Show Unread</a>
-          </div>
+      <div class="mt-16 sm:mt-24 lg:mt-0 lg:flex-shrink-0 lg:flex-grow relative">
+        <svg viewBox="0 0 366 729" role="img" class="mx-auto w-[22.875rem] max-w-full drop-shadow-xl">
+          <defs>
+          <clipPath id="2ade4387-9c63-4fc4-b754-10e687a0d332">
+          <rect width="316" height="684" rx="36" />
+          </clipPath>
+          </defs>
+          <path fill="#4B5563" d="M363.315 64.213C363.315 22.99 341.312 1 300.092 1H66.751C25.53 1 3.528 22.99 3.528 64.213v44.68l-.857.143A2 2 0 0 0 1 111.009v24.611a2 2 0 0 0 1.671 1.973l.95.158a2.26 2.26 0 0 1-.093.236v26.173c.212.1.398.296.541.643l-1.398.233A2 2 0 0 0 1 167.009v47.611a2 2 0 0 0 1.671 1.973l1.368.228c-.139.319-.314.533-.511.653v16.637c.221.104.414.313.56.689l-1.417.236A2 2 0 0 0 1 237.009v47.611a2 2 0 0 0 1.671 1.973l1.347.225c-.135.294-.302.493-.49.607v377.681c0 41.213 22 63.208 63.223 63.208h95.074c.947-.504 2.717-.843 4.745-.843l.141.001h.194l.086-.001 33.704.005c1.849.043 3.442.37 4.323.838h95.074c41.222 0 63.223-21.999 63.223-63.212v-394.63c-.259-.275-.48-.796-.63-1.47l-.011-.133 1.655-.276A2 2 0 0 0 366 266.62v-77.611a2 2 0 0 0-1.671-1.973l-1.712-.285c.148-.839.396-1.491.698-1.811V64.213Z" />
+          <path fill="#343E4E" d="M16 59c0-23.748 19.252-43 43-43h246c23.748 0 43 19.252 43 43v615c0 23.196-18.804 42-42 42H58c-23.196 0-42-18.804-42-42V59Z" />
+          <foreignObject width="316" height="684" transform="translate(24 24)" clip-path="url(#2ade4387-9c63-4fc4-b754-10e687a0d332)">
+          <%= image_tag('home/uncluttered.png') %>
+          </foreignObject>
+        </svg>
+        <div class="absolute border-dashed border-2 border-blue-500 rounded shadow-md p-4 w-40 bottom-28 right-0 bg-white">
+          This will be your inbox after Mailpouch
         </div>
       </div>
     </div>
   </div>
+
+  <%= render partial: 'shared/sample_product_ui' %>
 
   <!-- Description -->
   <div class="relative bg-blue-450/10 overflow-x-hidden">
@@ -651,16 +99,27 @@
         <p class="mx-auto mt-4 max-w-3xl text-center text-xl text-gray-500">It is extremely simple!</p>
       </div>
 
-      <div class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+      <div class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-10">
         <div class="relative">
           <h3 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Step 1</h3>
           <p class="mt-3 font-semibold text-lg text-gray-500">Sign Up and get your mailpouch email address.</p>
           <p class="mt-3 text-md text-gray-500">After signing up with you personal email, you will get a special email. You can then click to copy it.</p>
-
         </div>
 
-        <div class="relative -mx-4 mt-10 lg:mt-0" aria-hidden="true">
-          <%= image_tag('home/steps/first-bigger.gif', class: 'relative mx-auto w-full rounded shadow-xl ring-1 ring-black ring-opacity-5') %>
+        <div class="relative mx-auto w-full rounded shadow-xl ring-1 ring-black ring-opacity-5">
+          <div data-controller="clipboard" class="sm:flex items-center justify-center rounded-md p-4 space-x-1 p-2">
+            <span class="text-gray-600 text-sm">Subscribe to newsletters using this address:</span>
+            <span data-action="click->clipboard#copy" class="flex font-bold hover:text-orange-600 cursor-pointer items-center space-x-1 justify-center">
+              <span data-clipboard-target="source">email@inbox.mailpouch.app</span>
+              <svg data-clipboard-target="copy" data-transition-enter="transition ease-in-out duration-500" data-transition-enter-start="transform opacity-0 scale-95" data-transition-enter-end="transform opacity-100 scale-100" data-transition-leave="transition ease-in-out duration-500" data-transition-leave-start="transform opacity-100 scale-100" data-transition-leave-end="transform opacity-0 scale-95" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+              </svg>
+
+              <svg data-clipboard-target="copied" data-transition-enter="transition ease-in-out duration-500" data-transition-enter-start="transform opacity-0 scale-95" data-transition-enter-end="transform opacity-100 scale-100" data-transition-leave="transition ease-in-out duration-500" data-transition-leave-start="transform opacity-100 scale-100" data-transition-leave-end="transform opacity-0 scale-95" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-green-600 stroke-2 hidden">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </span>
+          </div>
         </div>
       </div>
 
