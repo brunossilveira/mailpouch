@@ -1,19 +1,25 @@
+<%= content_for :title, 'Unclutter your inbox' %>
+<%= content_for :description, "Choose the desired time to get your favorite newsletters and stop cluttering your inbox!" %>
+
 <!-- Hero -->
 <div class="relative">
   <div class="max-w-7xl mx-auto pm:px-6 lg:px-8">
     <div class="lg:text-center">
       <main class="mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
         <h1 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-700 sm:text-5xl md:text-6xl">
-          <span class="block">Enjoy the newsletters you love</span>
-          <span class="block text-blue-450">in your own time</span>
+          <p class="block">Mailpouch helps you <span class="text-blue-450">unclutter your inbox</span></p>
         </h1>
         <p class="text-2xl leading-10	text-gray-600 mt-8">
-          Choose the desired time to get your favorite newsletters and <span class="font-bold">stop cluttering your inbox!</span>
+          Batch all your newsletters into 1 <span class="font-bold">without having to use your personal email address</span>
         </p>
         <div class="mt-5 sm:mt-8 sm:flex justify-center">
           <div class="rounded-md shadow">
             <%= link_to 'Start for Free!', new_user_registration_path, class: 'w-full flex items-center justify-center px-12 py-3 font-medium leading-6 rounded text-white bg-orange-600 shadow-[10px_10px] shadow-blue-450 rotate-1 hover:-rotate-1' %>
           </div>
+        </div>
+
+        <div class="mt-5 sm:mt-8 sm:flex justify-center">
+          <span class="text-sm italic text-gray-500">* No credit card required</span>
         </div>
       </main>
     </div>
