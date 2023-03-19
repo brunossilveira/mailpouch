@@ -38,3 +38,14 @@
     </div>
   <% end %>
 <% end %>
+
+<% if ENV['FACEBOOK_PIXEL'] && !current_user.sent_conversion? %>
+  <script>
+    fbq('track', 'StartTrial', {
+      currency: 'USD',
+      subscription_id: '<%= current_user.id %>',
+    });
+  </script>
+
+  <% current_user.update(sent_conversion: true) %>
+<% end %>
