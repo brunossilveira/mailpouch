@@ -24,7 +24,7 @@ class NewsletterDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    tser
+    user
     domain
     email
     name
