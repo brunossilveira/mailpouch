@@ -10,18 +10,17 @@ class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     admin: Field::Boolean,
+    sent_conversion: Field::Boolean,
     charges: Field::HasMany,
     email: Field::String,
     encrypted_password: Field::String,
     last_inbox_at: Field::DateTime,
     pay_customers: Field::HasMany,
     payment_processor: Field::HasOne,
-    preference: Field::HasOne,
     provider: Field::String,
     remember_created_at: Field::DateTime,
     reset_password_sent_at: Field::DateTime,
     reset_password_token: Field::String,
-    subscriptions: Field::HasMany,
     uid: Field::String,
     username: Field::String,
     created_at: Field::DateTime,
@@ -45,18 +44,14 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     admin
-    charges
     email
     encrypted_password
     last_inbox_at
-    pay_customers
-    payment_processor
-    preference
     provider
+    sent_conversion
     remember_created_at
     reset_password_sent_at
     reset_password_token
-    subscriptions
     uid
     username
     created_at
@@ -74,12 +69,10 @@ class UserDashboard < Administrate::BaseDashboard
     last_inbox_at
     pay_customers
     payment_processor
-    preference
     provider
     remember_created_at
     reset_password_sent_at
     reset_password_token
-    subscriptions
     uid
     username
   ].freeze
