@@ -1,6 +1,6 @@
 class InboxMailbox < ApplicationMailbox
   def process
-    Event.create(user: User.first, title: 'received_inbox', description: "From: #{mail.from.first} | To: #{mail.to.first}")
+    Event.create(user: User.first, name: 'received_inbox', description: "From: #{mail.from.first} | To: #{mail.to.first}")
 
     username = mail.to.first.split("@").first
     user = User.find_by(username: username)

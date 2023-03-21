@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :newsletter_messages
       resources :newsletters
       resources :users
+      resources :events
 
       root to: "users#index"
     end
