@@ -1,10 +1,11 @@
 class InboxMailbox < ApplicationMailbox
   def process
+    Event.create(user: User.first, title: 'received_inbox', description: "From: #{mail.from.first} | To: #{mail.to.first}")
+
     username = mail.to.first.split("@").first
     user = User.find_by(username: username)
 
     if user
-      Event.create(user: user, title: 'received_inbox', description: mail.from.first))
       body = NewsletterMessages::Body.new(mail)
       unsubscribe_header = NewsletterMessages::UnsubscribeHeader.new(mail)
 
