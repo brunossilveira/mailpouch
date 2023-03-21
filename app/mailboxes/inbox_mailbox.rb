@@ -4,6 +4,7 @@ class InboxMailbox < ApplicationMailbox
     user = User.find_by(username: username)
 
     if user
+      Event.create(user: user, title: 'received_inbox', description: mail.from.first))
       body = NewsletterMessages::Body.new(mail)
       unsubscribe_header = NewsletterMessages::UnsubscribeHeader.new(mail)
 
