@@ -3,11 +3,7 @@
   <%= turbo_frame_tag "newsletter_message", target: "_top" %>
 
   <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-    <% unless @any_newsletters %>
-      <div class="flex items-center justify-center bg-orange-200 p-4 font-bold text-gray-600 mb-6">
-        Start subscribing to newsletters to receive them in your inbox!
-      </div>
-    <% end %>
+    <%= render partial: 'zero_data_state' %>
 
     <% if @newsletter_messages.any? %>
       <div class="flex items-center justify-end mb-2">
@@ -18,7 +14,7 @@
         <%= render partial: 'newsletter_message', locals: { newsletter_message: newsletter_message } %>
       <% end %>
     <% else %>
-      <div class="flex items-center justify-center text-gray-600 mb-6">
+      <div class="flex items-center justify-center text-gray-600 m-6">
         No unread messages in your inbox!
       </div>
     <% end %>

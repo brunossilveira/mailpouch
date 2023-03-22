@@ -1,0 +1,12 @@
+<% unless @any_newsletters %>
+  <div class="bg-gray-100 rounded p-8">
+
+    <div class="items-center justify-center p-4 mb-6 space-y-2">
+      <p class="block text-center font-bold text-gray-600">Start subscribing to newsletters to receive them in your inbox!</p>
+      <p class="block text-center text-gray-500">In case you don't have any favorite newsletters, you can use our database.</p>
+    </div>
+
+    <%= turbo_frame_tag "newsletter_database", src: 'newsletter_database' do %>
+    <% end %>
+  </div>
+<% end %>
