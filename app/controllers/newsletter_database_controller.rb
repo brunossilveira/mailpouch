@@ -8,6 +8,7 @@ class NewsletterDatabaseController < ApplicationController
     end
 
     @categories = results.collect { |r| r['category'] }.uniq
+    @category = params[:category]
 
     if params[:category].present?
       results = results.select { |r| r['category'] == params[:category] }
