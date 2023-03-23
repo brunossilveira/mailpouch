@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :username, length: {minimum: 5, maximum: 16}, format: { with: /\A[a-z0-9]+\Z/, message: 'must contain lower case letters, number and no white spaces' }, uniqueness: true, allow_blank: true
   validates :email, uniqueness: true
 
-  has_one :preference
+  has_one :preference, dependent: :destroy
 
   after_create :create_preference
   after_create :create_free_trial
