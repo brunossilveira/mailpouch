@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :redirect_if_no_username
   before_action :create_checkout_session
   before_action :load_preference
+  before_action :save_last_access_at
 
   def set_user_timezone(&block)
     current_user.preference.update(timezone: timezone_from_cookies) if current_user && current_user.preference.timezone.nil?
@@ -33,5 +34,9 @@ class ApplicationController < ActionController::Base
 
   def load_preference
     @preference = current_user&.preference
+  end
+
+  def save_last_access_at
+    current_user&.update(last_access_at: Time.zone.now)
   end
 end

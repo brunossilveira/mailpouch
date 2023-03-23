@@ -25,6 +25,7 @@ class UserDashboard < Administrate::BaseDashboard
     username: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    last_access_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -37,6 +38,7 @@ class UserDashboard < Administrate::BaseDashboard
     admin
     charges
     email
+    last_access_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -56,6 +58,7 @@ class UserDashboard < Administrate::BaseDashboard
     username
     created_at
     updated_at
+    last_access_at
   ].freeze
 
   # FORM_ATTRIBUTES
