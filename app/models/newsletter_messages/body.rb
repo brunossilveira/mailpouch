@@ -8,6 +8,8 @@ module NewsletterMessages
 
     def unparsed
       mail.html_part.body
+    rescue NoMethodError
+      mail.body
     end
 
     def text
