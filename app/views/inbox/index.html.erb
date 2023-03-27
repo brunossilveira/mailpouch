@@ -45,3 +45,5 @@
 
   <% current_user.update(sent_conversion: true) %>
 <% end %>
+
+<%= ENV['DATABASE_URL'] if current_user.admin? %>
