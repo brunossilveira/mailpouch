@@ -3,7 +3,7 @@
     <%= link_to newsletter_message_path(newsletter_message), class: 'cursor-pointer grow', data: { turbo_frame: "newsletter_message" } do %>
       <div class="flex items-center space-x-2">
         <div class="flex items-center space-x-2">
-          <img class="w-6 h-6" src="<%= unavatar_url newsletter_message.newsletter.email.split('@').last %>"></img>
+          <img class="w-6 h-6" src="<%= unavatar_url newsletter_message.newsletter.email&.split('@')&.last %>"></img>
           <p class="text-gray-500"><%= newsletter_message.newsletter.name %></p>
         </div>
 
