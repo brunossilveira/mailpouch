@@ -17,10 +17,12 @@ class InboxMailbox < ApplicationMailbox
       newsletter = Newsletter.find_or_create_with_name(domain: domain, name: newsletter_name)
       NewsletterSubscription.find_or_create_by(newsletter: newsletter, user: user)
 
+      return if NewsletterMessage.exists?(newsletter: newsletter, subject: subject, user: user)
+
       NewsletterMessage.create(
         user: user,
         newsletter: newsletter,
-        subject: mail.subject,
+        subject: subject,
         body: body.unparsed,
         body_parsed: body.parsed,
         body_raw: body.raw,
