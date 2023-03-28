@@ -18,7 +18,7 @@
       <div class="group relative rounded-md p-4 border-2 border-orange-600" data-controller="popper">
         <div class="flex justify-between items-start">
           <div class="flex items-center space-x-2">
-            <img class="w-6 h-6" src="<%= unavatar_url newsletter.email.split('@').last %>"></img>
+            <img class="w-6 h-6" src="<%= unavatar_url newsletter.email&.split('@')&.last %>"></img>
             <p class="font-bold text-gray-600"><%= newsletter.name %></p>
           </div>
           <% if newsletter.unsubscribe_url.present? %>
