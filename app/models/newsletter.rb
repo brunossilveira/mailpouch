@@ -1,12 +1,14 @@
 class Newsletter < ApplicationRecord
   belongs_to :user
 
-  def self.find_or_create_with_name(domain:, user:, name:)
-    self.find_by(email: domain, user: user) ||
-      self.find_or_create_by(email: domain, user: user, name: name)
-  end
+  def self.find_or_create_with_name(domain:, name:)
+    just_domain = self.find_by(email: domain)
 
-  def unsubscribe_url
-    NewsletterMessage.where(newsletter: self).last.unsubscribe_url
+    if just_domain
+      just_domain.update(name: name)
+      just-domain
+    else
+      self.find_or_create_by(email: domain, name: name)
+    end
   end
 end

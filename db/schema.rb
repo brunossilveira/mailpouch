@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_23_001807) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_27_211614) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -74,6 +74,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_001807) do
     t.text "body_text"
     t.index ["newsletter_id"], name: "index_newsletter_messages_on_newsletter_id"
     t.index ["user_id"], name: "index_newsletter_messages_on_user_id"
+  end
+
+  create_table "newsletter_subscriptions", force: :cascade do |t|
+    t.bigint "newsletter_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["newsletter_id"], name: "index_newsletter_subscriptions_on_newsletter_id"
+    t.index ["user_id"], name: "index_newsletter_subscriptions_on_user_id"
   end
 
   create_table "newsletters", force: :cascade do |t|
@@ -172,7 +181,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_001807) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "timezone"
-    t.integer "inbox_format"
     t.index ["user_id"], name: "index_user_preferences_on_user_id"
   end
 
@@ -200,6 +208,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_001807) do
   add_foreign_key "events", "users"
   add_foreign_key "newsletter_messages", "newsletters"
   add_foreign_key "newsletter_messages", "users"
+  add_foreign_key "newsletter_subscriptions", "newsletters"
+  add_foreign_key "newsletter_subscriptions", "users"
   add_foreign_key "newsletters", "users"
   add_foreign_key "pay_charges", "pay_customers", column: "customer_id"
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
