@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :newsletter_messages
       resources :newsletters
+      resources :newsletter_subscriptions
       resources :users
       resources :events
 
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :inbox, only: [:index]
-  resources :newsletters
+  resources :newsletter_subscriptions
   resources :newsletter_messages, only: [:show]
 
   namespace :inbox do

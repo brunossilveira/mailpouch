@@ -1,4 +1,4 @@
-class NewslettersController < ApplicationController
+class NewsletterSubscriptionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
