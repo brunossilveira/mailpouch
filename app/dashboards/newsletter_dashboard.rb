@@ -11,7 +11,12 @@ class NewsletterDashboard < Administrate::BaseDashboard
     id: Field::Number,
     email: Field::String,
     name: Field::String,
-    user: Field::BelongsTo,
+    tags: Field::String,
+    tagline: Field::String,
+    description: Field::String,
+    frequency: Field::String,
+    subscribe_url: Field::String,
+    subscribers_count: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -23,9 +28,14 @@ class NewsletterDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    user
-    email
     name
+    email
+    tags
+    tagline
+    description
+    frequency
+    subscribe_url
+    subscribers_count
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -34,7 +44,12 @@ class NewsletterDashboard < Administrate::BaseDashboard
     id
     email
     name
-    user
+    tags
+    tagline
+    description
+    frequency
+    subscribe_url
+    subscribers_count
     created_at
     updated_at
   ].freeze
@@ -45,7 +60,6 @@ class NewsletterDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     email
     name
-    user
   ].freeze
 
   # COLLECTION_FILTERS
