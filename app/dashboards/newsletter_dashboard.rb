@@ -9,7 +9,6 @@ class NewsletterDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    domain: Field::String,
     email: Field::String,
     name: Field::String,
     user: Field::BelongsTo,
@@ -25,7 +24,6 @@ class NewsletterDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     user
-    domain
     email
     name
   ].freeze
@@ -34,7 +32,6 @@ class NewsletterDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    domain
     email
     name
     user
@@ -46,7 +43,6 @@ class NewsletterDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    domain
     email
     name
     user
