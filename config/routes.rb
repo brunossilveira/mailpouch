@@ -36,5 +36,8 @@ Rails.application.routes.draw do
   get "//:id/parsed" => "newsletter_messages#parsed"
   get "checkout", to: "checkout#show"
   get "pricing", to: "pricing#show"
+  get "/send_reminder" => "send_reminder#index"
+
+  # This needs to always be last
   get "/:page" => "pages#show"
 end
