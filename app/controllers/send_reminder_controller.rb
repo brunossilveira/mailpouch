@@ -4,7 +4,7 @@ class SendReminderController < ApplicationController
   def index
     head :unauthorized unless current_user.admin?
 
-    user = User.find(:user_id)
+    user = User.find(params[:user_id])
 
     ReminderMailer.with(user: user).deliver_now
 
