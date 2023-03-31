@@ -1,4 +1,6 @@
 class ReminderMailer < ApplicationMailer
+  default from: "Mailpouch <bruno@mailpouch.app>"
+
   def reminder_email
     @user = params[:user]
 
