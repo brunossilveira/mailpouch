@@ -6,7 +6,7 @@ class SendReminderController < ApplicationController
 
     user = User.find(params[:user_id])
 
-    ReminderMailer.with(user: user).deliver_now
+    ReminderMailer.with(user: user).reminder_email.deliver_now
 
     render nothing: true
   end
