@@ -8,6 +8,6 @@ class SendReminderController < ApplicationController
 
     ReminderMailer.with(user: user).reminder_email.deliver_now
 
-    render nothing: true
+    redirect_to admin_user_path(user)
   end
 end
