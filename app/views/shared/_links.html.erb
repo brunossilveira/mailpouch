@@ -7,6 +7,7 @@
       <%= link_to t(:inbox), inbox_index_path, class: "px-3 py-2 rounded-md #{class_names(active_class_names => current_page?(inbox_index_path))} #{class_names(non_active_class_names => !current_page?(inbox_index_path))}" %>
       <%= link_to t(:newsletters), newsletter_subscriptions_path, class: "px-3 py-2 rounded-md #{class_names(active_class_names => current_page?(newsletter_subscriptions_path))} #{class_names(non_active_class_names => !current_page?(newsletter_subscriptions_path))}" %>
     <% else %>
+      <%= link_to 'The Best Email Newsletters', newsletter_database_path, class: "px-3 py-2 rounded-md #{class_names(active_class_names => current_page?('/5-reasons-newsletters-are-important'))} #{class_names(non_active_class_names => !current_page?(pricing_path))}" %>
       <%= link_to 'Why Newsletters?', '/5-reasons-newsletters-are-important', class: "px-3 py-2 rounded-md #{class_names(active_class_names => current_page?('/5-reasons-newsletters-are-important'))} #{class_names(non_active_class_names => !current_page?(pricing_path))}" %>
       <%= link_to '5 best newsletters', '/5-best-newsletters-effective-newsletters', class: "px-3 py-2 rounded-md #{class_names(active_class_names => current_page?('/5-best-newsletters-effective-newsletters'))} #{class_names(non_active_class_names => !current_page?(pricing_path))}" %>
       <%= link_to t(:pricing), pricing_path, class: "px-3 py-2 rounded-md #{class_names(active_class_names => current_page?(pricing_path))} #{class_names(non_active_class_names => !current_page?(pricing_path))}" %>
