@@ -3,7 +3,7 @@
     <ul class="hidden mb-5 md:flex flex-wrap justify-center">
       <% @categories.each do |category| %>
         <li>
-          <%= link_to category, newsletter_database_path(category: category), class: 'shadow shadow-[5px_5px] shadow-orange-600 m-1 block rounded-lg bg-blue-350/70 text-gray-600 text-sm p-2 hover:text-white hover:bg-blue-450 font-semibold' %>
+          <%= link_to category.humanize, newsletter_database_path(category: category), class: 'shadow shadow-[5px_5px] shadow-orange-600 m-1 block rounded-lg bg-blue-350/70 text-gray-600 text-sm p-2 hover:text-white hover:bg-blue-450 font-semibold' %>
         </li>
       <% end %>
     </ul>
@@ -12,7 +12,7 @@
       <div class="relative mt-2">
         <button data-action="click->select#handleSelect" type="button" class="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
           <span class="flex items-center">
-            <span data-select-target="selected" class="ml-3 block truncate"><%= @category || 'Select a category' %></span>
+            <span data-select-target="selected" class="ml-3 block truncate"><%= @category&.humanize || 'Select a category' %></span>
           </span>
 
           <span class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
@@ -25,7 +25,7 @@
         <ul data-select-target="options" class="hidden absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
           <% @categories.each do |category| %>
           <li data-action="click->select#submit" class="text-gray-900 relative cursor-default select-none py-2 pl-3 pr-9">
-            <%= link_to category, newsletter_database_path(category: category), class: '' %>
+            <%= link_to category.humanize, newsletter_database_path(category: category), class: '' %>
           </li>
           <% end %>
         </ul>
@@ -35,19 +35,19 @@
     <ul class="md:hidden flex flex-wrap justify-center pt-4">
       <% @newsletters.each do |newsletter| %>
         <li class="w-full">
-          <%= link_to newsletter['ext_url'], target:'_blank', class: 'shadow m-1 block rounded-lg bg-gray-300 text-sm px-4 py-2 hover:bg-orange-200 text-gray-600' do %>
+          <%= link_to newsletter.subscribe_url, target:'_blank', class: 'shadow m-1 block rounded-lg bg-gray-300 text-sm px-4 py-2 hover:bg-orange-200 text-gray-600' do %>
             <div class="flex justify-between">
               <p class="font-semibold">
-                <%= newsletter['title'] %>
+                <%= newsletter.name %>
               </p>
 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
               </svg>
             </div>
-            <p class="italic mt-1">Sent <%= newsletter['details']%></p>
+            <p class="italic mt-1">Sent <%= newsletter.frequency %></p>
             <p class="mt-3">
-              <%= newsletter['short_description'].html_safe %>
+              <%= newsletter.tagline&.html_safe %>
             </p>
           <% end %>
       <% end %>
@@ -57,20 +57,20 @@
 
     <ul class="hidden md:max-h-96 md:overflow-scroll md:grid md:grid-cols-4 md:gap-2 md:pt-4 md:border-t-2">
       <% @newsletters.each do |newsletter| %>
-        <%= link_to newsletter['ext_url'], target:'_blank', class: 'shadow m-1 block rounded-lg bg-gray-300 text-sm px-4 py-2 hover:bg-orange-200 text-gray-600' do %>
+        <%= link_to newsletter.subscribe_url, target:'_blank', class: 'shadow m-1 block rounded-lg bg-gray-300 text-sm px-4 py-2 hover:bg-orange-200 text-gray-600' do %>
           <li>
             <div class="flex justify-between">
               <p class="font-semibold">
-                <%= newsletter['title'] %>
+                <%= newsletter.name %>
               </p>
 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
               </svg>
             </div>
-            <p class="italic mt-1">Sent <%= newsletter['details']%></p>
+            <p class="italic mt-1">Sent <%= newsletter.frequency %></p>
             <p class="mt-3">
-              <%= newsletter['short_description'].html_safe %>
+              <%= newsletter.tagline&.html_safe %>
             </p>
           </li>
         <% end %>

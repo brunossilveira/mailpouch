@@ -2,18 +2,45 @@ require 'csv'
 
 desc "Populates Newsletters from CSV file"
 task populate_newsletters: :environment do
-  newsletters = CSV.read("newsletters.csv", headers: true)
+  CSV.foreach("inboxreads.csv", headers: true) do |row|
+    newsletter = Newsletter.find_by(name: row['name'])
 
-  newsletters.each do |n|
-    newsletter = Newsletter.find_or_create_by(name: n['name'])
+    if newsletter
+      puts "found!"
+    else
+      newsletter = Newsletter.create(name: row['name']) unless newsletter
+    end
 
     update_params = {
-      tags: n['tags'].split(','),
-      tagline: n['tagline'],
-      description: n['description'],
-      frequency: n['frequency'],
-      subscribe_url: n['link'],
-      subscribers_count: n['subscribers']
+      tags: row['tags'].split(','),
+      tagline: row['tagline'],
+      category: row['topic'],
+      description: row['description'],
+      frequency: row['frequency'],
+      subscribe_url: row['link'],
+      subscribers_count: row['subscribers']
+    }
+
+    newsletter.update(update_params)
+  end
+
+  CSV.foreach("findnewsletters.csv", headers: true) do |row|
+    newsletter = Newsletter.find_by(name: row['name'])
+
+    if newsletter
+      puts "found!"
+    else
+      newsletter = Newsletter.create(name: row['name']) unless newsletter
+    end
+
+    update_params = {
+      tags: [row['topic']],
+      tagline: row['tagline'],
+      category: row['topic'],
+      description: row['description'],
+      frequency: row['frequency'],
+      subscribe_url: row['link'],
+      subscribers_count: row['subscribers']
     }
 
     newsletter.update(update_params)

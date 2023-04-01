@@ -1,19 +1,9 @@
 class NewsletterDatabaseController < ApplicationController
   def index
-    results = Rails.cache.fetch('newsletter_database', expires_in: 1.day) do
-      uri = URI('https://findnewsletters.com/search.json')
-      data = Net::HTTP.get(uri)
-
-      JSON.parse(data)
-    end
-
-    @categories = results.collect { |r| r['category'] }.uniq
+    @categories = Newsletter.pluck(:category).uniq.compact
     @category = params[:category]
 
-    if params[:category].present?
-      results = results.select { |r| r['category'] == params[:category] }
-    end
-
-    @newsletters = results
+    @newsletters = Newsletter.all
+    @newsletters = @newsletters.where(category: @category) if @category
   end
 end
