@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get "checkout", to: "checkout#show"
   get "pricing", to: "pricing#show"
   get "/send_reminder" => "send_reminder#index"
+  get "/blog" => "blog#index"
 
   # This needs to always be last
   get "/:page" => "pages#show"
