@@ -1,9 +1,8 @@
 class NewsletterDatabaseController < ApplicationController
   def index
-    @categories = Newsletter.pluck(:category).uniq.compact
-    @category = params[:category]
+    @categories = Newsletter.pluck(:category).map(&:downcase).uniq.compact
+    @category = params[:category] || 'startups'
 
-    @newsletters = Newsletter.all
-    @newsletters = @newsletters.where(category: @category) if @category
+    @newsletters = Newsletter.where(category: [@category.downcase, @category.humanize])
   end
 end

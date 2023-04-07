@@ -12,7 +12,11 @@
       <ul class="hidden mb-5 md:flex flex-wrap justify-center">
         <% @categories.each do |category| %>
           <li>
-            <%= link_to category.humanize, newsletter_database_path(category: category), class: 'shadow shadow-[5px_5px] shadow-orange-600 m-1 block rounded-lg bg-blue-350/70 text-gray-600 text-sm p-2 hover:text-white hover:bg-blue-450 font-semibold' %>
+            <% if category == @category %>
+              <%= link_to category.humanize, best_newsletters_path(category: category), class: 'shadow shadow-[5px_5px] shadow-blue-350 m-1 block rounded-lg bg-orange-600 text-white text-sm p-2 hover:text-gray-600 hover:bg-orange-500 font-semibold' %>
+            <% else %>
+              <%= link_to category.humanize, best_newsletters_path(category: category), class: 'shadow shadow-[5px_5px] shadow-orange-600 m-1 block rounded-lg bg-blue-350/70 text-gray-600 text-sm p-2 hover:text-white hover:bg-blue-450 font-semibold' %>
+            <% end %>
           </li>
         <% end %>
       </ul>
@@ -34,7 +38,7 @@
           <ul data-select-target="options" class="hidden absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
             <% @categories.each do |category| %>
               <li data-action="click->select#submit" class="text-gray-900 relative cursor-default select-none py-2 pl-3 pr-9">
-                <%= link_to category.humanize, newsletter_database_path(category: category), class: '' %>
+                <%= link_to category.humanize, best_newsletters_path(category: category), class: '' %>
               </li>
             <% end %>
           </ul>

@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   patch "/profile" => "profile#update", as: "edit_profile"
   post "users/preferences" => "users/preferences#create", as: :save_preferences
   get "/newsletter_messages/:id/read" => "newsletter_messages#read", as: :mark_as_read
-  get "/newsletter_database" => "newsletter_database#index"
+  get "/best-newsletters" => "newsletter_database#index"
   get "/newsletter_messages/:id/parsed" => "newsletter_messages#parsed"
   get "//:id/parsed" => "newsletter_messages#parsed"
   get "checkout", to: "checkout#show"
