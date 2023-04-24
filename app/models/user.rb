@@ -43,7 +43,7 @@ class User < ApplicationRecord
   end
 
   def create_free_trial
-    trial_time = 7.days.from_now
+    trial_time = 2.years.from_now
     set_payment_processor :fake_processor, allow_fake: true
     payment_processor.subscribe(trial_ends_at: trial_time, ends_at: trial_time)
   end
