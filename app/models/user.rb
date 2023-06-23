@@ -53,7 +53,8 @@ class User < ApplicationRecord
   end
 
   def subscribed?
-    has_active_subscription? || on_trial?
+    true
+    #has_active_subscription? || on_trial?
   end
 
   def on_trial?
