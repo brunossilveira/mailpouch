@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   get "/newsletter_messages/:id/read" => "newsletter_messages#read", as: :mark_as_read
   get "/best-newsletters" => "newsletter_database#index"
   get "/newsletter_messages/:id/parsed" => "newsletter_messages#parsed"
-  get "//:id/parsed" => "newsletter_messages#parsed"
+  get "/:id/parsed" => "newsletter_messages#parsed"
   get "checkout", to: "checkout#show"
   get "pricing", to: "pricing#show"
   get "/send_reminder" => "send_reminder#index"

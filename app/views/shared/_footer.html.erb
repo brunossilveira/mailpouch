@@ -1,6 +1,11 @@
 <!-- Footer section -->
 <footer class="sticky top-[100vh] mt-24 bg-gray-900 sm:mt-12">
   <div class="mx-auto max-w-md overflow-hidden py-12 px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
+    <ul class="flex flex-wrap justify-center items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+      <% @categories.each do |category| %>
+        <li><%= link_to "#{category.humanize} Newsletters", "#{category}-newsletters", class: 'mr-4 hover:underline md:mr-6' %></li>
+      <% end %>
+    </ul>k
     <div class="flex justify-center space-x-6">
       <div class="flex text-white justify-center space-x-1">
         <span>made with</span>

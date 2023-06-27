@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :create_checkout_session
   before_action :load_preference
   before_action :save_last_access_at
+  before_action :set_categories
 
   def set_user_timezone(&block)
     current_user.preference.update(timezone: timezone_from_cookies) if current_user && current_user.preference.timezone.nil?
@@ -38,5 +39,9 @@ class ApplicationController < ActionController::Base
 
   def save_last_access_at
     current_user&.update(last_access_at: Time.zone.now)
+  end
+
+  def set_categories
+    @categories = Newsletter.pluck(:category).compact.map(&:downcase).uniq
   end
 end
