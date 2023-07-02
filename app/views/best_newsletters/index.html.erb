@@ -1,0 +1,92 @@
+<%= content_for :title, "Best #{@category} Newsletters" %>
+<%= content_for :description, "Find the best #{@category} newsletters from our database with over 1500 newsletters" %>
+
+<div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+  <div class="text-center pb-10">
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">The best <%= @category %> newsletters</h1>
+    <p class="mt-4 text-xl text-gray-600">Find the best <%= @category %> newsletters from our database with over 1500 newsletters</p>
+  </div>
+
+  <%= turbo_frame_tag 'newsletter_database' do %>
+    <div class"">
+      <ul class="hidden mb-5 md:flex flex-wrap justify-center">
+        <% @categories.each do |category| %>
+          <li>
+            <% if category == @category %>
+              <%= link_to category.humanize, "/best-#{category}-newsletters", class: 'shadow shadow-[5px_5px] shadow-blue-350 m-1 block rounded-lg bg-orange-600 text-white text-sm p-2 hover:text-gray-600 hover:bg-orange-500 font-semibold' %>
+            <% else %>
+              <%= link_to category.humanize, "/best-#{category}-newsletters", class: 'shadow shadow-[5px_5px] shadow-orange-600 m-1 block rounded-lg bg-blue-350/70 text-gray-600 text-sm p-2 hover:text-white hover:bg-blue-450 font-semibold' %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+
+      <div class="md:hidden" data-controller="select">
+        <div class="relative mt-2">
+          <button data-action="click->select#handleSelect" type="button" class="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+            <span class="flex items-center">
+              <span data-select-target="selected" class="ml-3 block truncate"><%= @category&.humanize || 'Select a category' %></span>
+            </span>
+
+            <span class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+              <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </button>
+
+          <ul data-select-target="options" class="hidden absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+            <% @categories.each do |category| %>
+              <li data-action="click->select#submit" class="text-gray-900 relative cursor-default select-none py-2 pl-3 pr-9">
+                <%= link_to category.humanize, "/best-#{category}-newsletters", class: '' %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <ul class="md:hidden flex flex-wrap justify-center pt-4">
+        <% @newsletters.each do |newsletter| %>
+          <li class="w-full">
+            <%= link_to newsletter.subscribe_url, rel: "nofollow", target:'_blank', class: 'shadow m-1 block rounded-lg bg-gray-300 text-sm px-4 py-2 hover:bg-orange-200 text-gray-600' do %>
+              <div class="flex justify-between">
+                <p class="font-semibold">
+                  <%= newsletter.name %>
+                </p>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                </svg>
+              </div>
+              <p class="italic mt-1">Sent <%= newsletter.frequency %></p>
+              <p class="mt-3">
+                <%= newsletter.tagline&.html_safe %>
+              </p>
+            <% end %>
+          <% end %>
+      </ul>
+
+      <ul class="hidden md:block md:grid md:grid-cols-4 md:gap-2 md:pt-4 md:border-t-2">
+        <% @newsletters.each do |newsletter| %>
+          <%= link_to newsletter.subscribe_url, rel: "nofollow", target:'_blank', class: 'shadow m-1 block rounded-lg bg-gray-300 text-sm px-4 py-2 hover:bg-orange-200 text-gray-600' do %>
+            <li>
+              <div class="flex justify-between">
+                <p class="font-semibold">
+                  <%= newsletter.name %>
+                </p>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                </svg>
+              </div>
+              <p class="italic mt-1">Sent <%= newsletter.frequency %></p>
+              <p class="mt-3">
+                <%= newsletter.tagline&.html_safe %>
+              </p>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
