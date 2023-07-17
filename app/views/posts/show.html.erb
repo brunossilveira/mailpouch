@@ -1,0 +1,20 @@
+<%= content_for :title, @post.title %>
+<%= content_for :description, @post.description %>
+
+<div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 prose">
+  <%= @content.html_safe %>
+</div>
+
+<div class="py-12 bg-gold-200">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+    <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+      <span class="block text-gray-600">Ready to create your mailpouch?</span>
+      <span class="block text-blue-450">You’re just a click away!</span>
+    </h2>
+    <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+      <div class="inline-flex rounded-md shadow">
+        <%= link_to 'Start for Free!', new_user_registration_path, class: 'w-full flex items-center justify-center px-12 py-3 font-medium leading-6 rounded text-white bg-orange-600 shadow-[10px_10px] shadow-blue-450 rotate-1 hover:-rotate-1' %>
+      </div>
+    </div>
+  </div>
+</div>

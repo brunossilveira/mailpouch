@@ -8,7 +8,7 @@
       <%= link_to t(:newsletters), newsletter_subscriptions_path, class: "px-3 py-2 rounded-md #{class_names(active_class_names => current_page?(newsletter_subscriptions_path))} #{class_names(non_active_class_names => !current_page?(newsletter_subscriptions_path))}" %>
     <% else %>
       <%= link_to 'The Best Email Newsletters', best_newsletters_path, class: "px-3 py-2 rounded-md #{class_names(active_class_names => current_page?(best_newsletters_path))} #{class_names(non_active_class_names => !current_page?(best_newsletters_path))}" %>
-      <%= link_to 'Blog', blog_path, class: "px-3 py-2 rounded-md #{class_names(active_class_names => current_page?(blog_path))} #{class_names(non_active_class_names => !current_page?(blog_path))}" %>
+      <%= link_to 'Blog', posts_path, class: "px-3 py-2 rounded-md #{class_names(active_class_names => current_page?(posts_path))} #{class_names(non_active_class_names => !current_page?(posts_path))}" %>
     <% end %>
   </div>
 </div>

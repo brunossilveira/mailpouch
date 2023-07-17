@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
 
     namespace :admin do
+      resources :posts
       resources :newsletter_messages
       resources :newsletters
       resources :newsletter_subscriptions
@@ -38,7 +39,8 @@ Rails.application.routes.draw do
   get "checkout", to: "checkout#show"
   get "pricing", to: "pricing#show"
   get "/send_reminder" => "send_reminder#index"
-  get "/blog" => "blog#index"
+
+  resources :posts, only: [:index, :show]
 
   # This needs to always be last
   get "/:page" => "pages#show"

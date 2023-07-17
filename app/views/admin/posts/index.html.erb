@@ -1,0 +1,33 @@
+<div class="w-full">
+  <div class="flex justify-between items-center mb-10">
+    <h1 class="font-bold text-4xl">Posts</h1>
+    <%= link_to 'New post', new_admin_post_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <table class="w-full table-auto text-center border-collapse border border-slate-500">
+    <thead>
+      <tr>
+        <th class="border border-slate-500">Title</th>
+        <th class="border border-slate-500">Slug</th>
+        <th class="border border-slate-500">Created At</th>
+        <th class="border border-slate-500">Updated At</th>
+        <th class="border border-slate-500">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td class="border border-slate-500"><%= post.title %></td>
+          <td class="border border-slate-500"><%= post.slug %></td>
+          <td class="border border-slate-500"><%= post.created_at %></td>
+          <td class="border border-slate-500"><%= post.updated_at %></td>
+          <td class="border border-slate-500">
+            <%= link_to "Show this post", admin_post_path(post), class: "text-blue-600 underline" %>
+            |
+            <%= link_to 'Edit this post', edit_admin_post_path(post), class: "text-blue-600 underline" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
