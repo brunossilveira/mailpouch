@@ -1,5 +1,21 @@
 #!/bin/bash -e
 
-# Add any container initialization steps here
+# Enables SWAP memory for the container
+if [ $UID -eq 0 ]; then
+  # allocate swap space
+  fallocate -l 512 /swapfile
+  chmod 0600 /swapfile
+  mkswap /swapfile
+  echo 10 > /proc/sys/vm/swappiness
+  swapon /swapfile
+  echo 1 > /proc/sys/vm/overcommit_memory
+
+  exec su rails $0 $@
+fi
+
+# If running the rails server then create or migrate existing database
+if [ "${*}" == "./bin/rails server" ]; then
+  ./bin/rails db:prepare
+fi
 
 exec "${@}"
