@@ -18,7 +18,7 @@
    <% @posts.each do |post| %>
      <url>
         <loc><%= "#{@host}#{post_path(post)}" %></loc>
-        <lastmod><%= post.updated_at.to_fs(:friendly_short) %></lastmod>
+        <lastmod><%= post.updated_at.xmlschema %></lastmod>
      </url>
    <% end %>
 </urlset>
