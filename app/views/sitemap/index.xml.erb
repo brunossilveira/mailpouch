@@ -21,4 +21,10 @@
         <lastmod><%= post.updated_at.xmlschema %></lastmod>
      </url>
    <% end %>
+
+   <% @categories.each do |category| %>
+     <url>
+        <loc><%= "#{@host}/best-#{category}-newsletters" %></loc>
+     </url>
+  <% end %>
 </urlset>
