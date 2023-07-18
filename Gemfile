@@ -32,7 +32,6 @@ gem "sanitize"
 gem "friendly_id"
 gem "github-markup"
 gem 'commonmarker'
-gem 'sitemap_generator'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

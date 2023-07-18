@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get "checkout", to: "checkout#show"
   get "pricing", to: "pricing#show"
   get "/send_reminder" => "send_reminder#index"
+  get '/sitemap.xml', to: 'sitemap#index', as: 'sitemap'
 
   resources :posts, only: [:index, :show]
 

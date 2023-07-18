@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc><%= @host %></loc>
+   </url>
+   <url>
+      <loc><%= "#{@host}/best-newsletters" %></loc>
+   </url>
+   <url>
+      <loc><%= "#{@host}/privacy-policy" %></loc>
+   </url>
+   <url>
+      <loc><%= "#{@host}#{posts_path}" %></loc>
+   </url>
+   <% @posts.each do |post| %>
+     <url>
+        <loc><%= "#{@host}#{post_path(post)}" %></loc>
+        <lastmod><%= post.updated_at.to_fs(:friendly_short) %></lastmod>
+     </url>
+   <% end %>
+</urlset>

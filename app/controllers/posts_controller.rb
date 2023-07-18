@@ -2,7 +2,7 @@ require 'github/markup'
 
 class PostsController < ApplicationController
   def index
-    @posts = Post.where('published_at <= ?', Time.zone.now).all
+    @posts = Post.published
   end
 
   def show
