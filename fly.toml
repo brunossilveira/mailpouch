@@ -1,48 +1,28 @@
 # fly.toml file generated for mailpouch on 2023-03-03T17:39:39-03:00
 
 app = "mailpouch"
-kill_signal = "SIGINT"
-kill_timeout = 5
-processes = []
+primary_region = "dfw"
+console_command = "/rails/bin/rails console"
 
 [env]
 
-[experimental]
-  auto_rollback = true
+[build]
 
-[[services]]
-  http_checks = []
+[deploy]
+  release_command = "./bin/rails db:prepare"
+
+[processes]
+  app = "./bin/rails s"
+  sidekiq = "bundle exec sidekiq -C config/sidekiq.yml"
+
+[http_service]
   internal_port = 3000
-  processes = ["web"]
-  protocol = "tcp"
-  script_checks = []
-  [services.concurrency]
-    hard_limit = 25
-    soft_limit = 20
-    type = "connections"
-
-  [[services.ports]]
-    force_https = true
-    handlers = ["http"]
-    port = 80
-
-  [[services.ports]]
-    handlers = ["tls", "http"]
-    port = 443
-
-  [[services.tcp_checks]]
-    grace_period = "1s"
-    interval = "15s"
-    restart_limit = 0
-    timeout = "2s"
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = false
+  min_machines_running = 1
+  processes = ["app"]
 
 [[statics]]
   guest_path = "/rails/public"
   url_prefix = "/"
-
-[processes]
-web = "bundle exec puma -C config/puma.rb"
-worker = "bundle exec sidekiq -e production -C config/sidekiq.yml"
-
-[deploy]
-  release_command = "bin/rails db:migrate"
